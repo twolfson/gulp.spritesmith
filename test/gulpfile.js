@@ -16,7 +16,7 @@ gulp.task('sprite-default', function () {
   }));
   setTimeout(function () {
     spriteData.img.pipe(gulp.dest('actual-files/default/'));
-    // spriteData.css.pipe(gulp.dest('actual-files/default/'));
+    spriteData.css.pipe(gulp.dest('actual-files/default/'));
   }, 100);
 });
 
