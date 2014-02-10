@@ -13,7 +13,7 @@ gulp.task('sprite-default', function () {
   var x = gulp.src(images)
     .pipe(spritesmith());
   console.log(x.x);
-  x.pipe(gulp.dest('actual-files/default/'));
+  // x.pipe(gulp.dest('actual-files/default/'));
 });
 
 gulp.task('sprite-formats', function () {
