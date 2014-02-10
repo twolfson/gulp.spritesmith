@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var spritesmith = require('../');
 
-// Define our tests
+// Define our test tasks
 var images = [
   'test-files/1.png',
   'test-files/2.jpg',
@@ -12,6 +12,7 @@ gulp.task('sprite-default', function () {
   spriteData.img.pipe(gulp.dest('expected-files/default/sprite.png'));
   spriteData.css.pipe(gulp.dest('expected-files/default/sprite.css'));
 });
+
 gulp.task('sprite-formats', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
     imgFormat: 'jpg',
@@ -20,6 +21,7 @@ gulp.task('sprite-formats', function () {
   spriteData.img.pipe(gulp.dest('expected-files/default/sprite.jpg'));
   spriteData.css.pipe(gulp.dest('expected-files/default/sprite.styl'));
 });
+
 gulp.task('sprite-options', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
     algorithm: 'alt-diagonal',
@@ -28,6 +30,3 @@ gulp.task('sprite-options', function () {
   spriteData.img.pipe(gulp.dest('expected-files/default/sprite.png'));
   spriteData.css.pipe(gulp.dest('expected-files/default/sprite.css'));
 });
-
-// Define a group task for tests
-gulp.task('sprite', ['sprite-default', 'sprite-formats']);
