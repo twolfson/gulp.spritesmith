@@ -29,7 +29,8 @@
     "test": "cd test && mocha ."
   },
   "dependencies": {
-    "through": "~2.3.4"
+    "through": "~2.3.4",
+    "gulp-util": "~2.2.14"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
