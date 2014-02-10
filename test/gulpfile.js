@@ -10,11 +10,14 @@ var images = [
 console.log('wat');
 gulp.task('sprite-default', function () {
   console.log('wat2');
-  var spriteData = gulp.src(images).pipe(spritesmith());
+  var spriteData = gulp.src(images).pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprice.css'
+  }));
   setTimeout(function () {
-    spriteData.img.pipe(gulp.dest('actual-files/default/sprite.png'));
+    spriteData.img.pipe(gulp.dest('actual-files/default/'));
+    // spriteData.css.pipe(gulp.dest('actual-files/default/'));
   }, 100);
-  // spriteData.css.pipe(gulp.dest('actual-files/default/sprite.css'));
 });
 
 gulp.task('sprite-formats', function () {
