@@ -11,7 +11,9 @@ console.log('wat');
 gulp.task('sprite-default', function () {
   console.log('wat2');
   var spriteData = gulp.src(images).pipe(spritesmith());
-  spriteData.img.pipe(gulp.dest('actual-files/default/sprite.png'));
+  setTimeout(function () {
+    spriteData.img.pipe(gulp.dest('actual-files/default/sprite.png'));
+  }, 100);
   // spriteData.css.pipe(gulp.dest('actual-files/default/sprite.css'));
 });
 
