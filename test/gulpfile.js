@@ -3,9 +3,9 @@ var spritesmith = require('../');
 
 // Define our test tasks
 var images = [
-  './test-files/sprite1.png',
-  './test-files/sprite2.jpg',
-  './test-files/sprite3.png'
+  'test-files/sprite1.png',
+  'test-files/sprite2.jpg',
+  'test-files/sprite3.png'
 ];
 console.log('wat');
 gulp.task('sprite-default', function () {
