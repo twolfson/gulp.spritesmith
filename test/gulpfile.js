@@ -14,10 +14,8 @@ gulp.task('sprite-default', function () {
     imgName: 'sprite.png',
     cssName: 'sprice.css'
   }));
-  spriteData.on('finish', function () {
-    spriteData.img.pipe(gulp.dest('actual-files/default/'));
-    spriteData.css.pipe(gulp.dest('actual-files/default/'));
-  });
+  spriteData.img.pipe(gulp.dest('actual-files/default/'));
+  // spriteData.css.pipe(gulp.dest('actual-files/default/'));
 });
 
 gulp.task('sprite-formats', function () {
