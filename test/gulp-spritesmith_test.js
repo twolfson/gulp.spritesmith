@@ -4,7 +4,7 @@ describe('gulp-spritesmith', function () {
   describe('running a task without any options', function () {
     childUtils.run('gulp sprite-default');
 
-    it.skip('generates a top-down png', function () {
+    it('generates a top-down png', function () {
 
     });
 
