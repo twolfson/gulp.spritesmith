@@ -10,10 +10,9 @@ var images = [
 console.log('wat');
 gulp.task('sprite-default', function () {
   console.log('wat2');
-  var x = gulp.src(images)
-    .pipe(spritesmith());
-  console.log(x.x);
-  // x.pipe(gulp.dest('actual-files/default/'));
+  var spriteData = gulp.src(images).pipe(spritesmith());
+  spriteData.img.pipe(gulp.dest('actual-files/default/sprite.png'));
+  // spriteData.css.pipe(gulp.dest('actual-files/default/sprite.css'));
 });
 
 gulp.task('sprite-formats', function () {
