@@ -28,7 +28,9 @@
   "scripts": {
     "test": "cd test && mocha ."
   },
-  "dependencies": {},
+  "dependencies": {
+    "through": "~2.3.4"
+  },
   "devDependencies": {
     "mocha": "~1.11.0",
     "gulp": "~3.5.2",
