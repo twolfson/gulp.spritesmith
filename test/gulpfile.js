@@ -14,10 +14,10 @@ gulp.task('sprite-default', function () {
     imgName: 'sprite.png',
     cssName: 'sprice.css'
   }));
-  setTimeout(function () {
+  spriteData.on('finish', function () {
     spriteData.img.pipe(gulp.dest('actual-files/default/'));
     spriteData.css.pipe(gulp.dest('actual-files/default/'));
-  }, 100);
+  });
 });
 
 gulp.task('sprite-formats', function () {
