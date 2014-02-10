@@ -3,9 +3,9 @@ var spritesmith = require('../');
 
 // Define our test tasks
 var images = [
-  'test-files/1.png',
-  'test-files/2.jpg',
-  'test-files/3.png'
+  './test-files/sprite1.png',
+  './test-files/sprite2.jpg',
+  './test-files/sprite3.png'
 ];
 console.log('wat');
 gulp.task('sprite-default', function () {
@@ -13,7 +13,7 @@ gulp.task('sprite-default', function () {
   var x = gulp.src(images)
     .pipe(spritesmith());
   console.log(x.x);
-  // x.pipe(gulp.dest('actual-files/default/'));
+  x.pipe(gulp.dest('actual-files/default/'));
 });
 
 gulp.task('sprite-formats', function () {
