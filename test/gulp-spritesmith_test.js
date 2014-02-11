@@ -10,8 +10,6 @@ before(function (done) {
 
 describe('gulp-spritesmith', function () {
   describe('running a task without any options', function () {
-    console.log(process.env.PATH);
-    console.log(fs.readdirSync(__dirname + '/../node_modules/.bin'));
     childUtils.run('gulp sprite-default');
 
     it('generates a top-down png', function () {
