@@ -30,7 +30,10 @@
   },
   "dependencies": {
     "gulp-util": "~2.2.14",
-    "spritesmith": "~0.18.0"
+    "spritesmith": "~0.18.0",
+    "underscore": "~1.6.0",
+    "url2": "~1.0.0",
+    "json2css": "~4.2.2"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
