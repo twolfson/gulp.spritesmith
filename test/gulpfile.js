@@ -4,13 +4,17 @@ var spritesmith = require('../');
 // Define our test tasks
 var images = [
   'test-files/sprite1.png',
-  'test-files/sprite2.jpg',
+  'test-files/sprite2.png',
   'test-files/sprite3.png'
 ];
 gulp.task('sprite-default', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
+    ,engine: 'gm',
+    engineOpts: {
+      imagemagick: true
+    }
   }));
   spriteData.img.pipe(gulp.dest('actual-files/default/'));
   spriteData.css.pipe(gulp.dest('actual-files/default/'));
@@ -23,7 +27,8 @@ gulp.task('sprite-formats', function () {
     imgOpts: {
       format: 'jpg'
     },
-    cssFormat: 'stylus'
+    cssFormat: 'stylus',
+    engine: 'gm'
   }));
   spriteData.img.pipe(gulp.dest('actual-files/formats/'));
   spriteData.css.pipe(gulp.dest('actual-files/formats/'));
@@ -35,7 +40,7 @@ gulp.task('sprite-options', function () {
     cssName: 'sprite.css',
     imgPath: '../../everywhere.png',
     algorithm: 'alt-diagonal',
-    engine: 'gm'
+    engine: 'pngsmith'
   }));
   spriteData.img.pipe(gulp.dest('actual-files/options/'));
   spriteData.css.pipe(gulp.dest('actual-files/options/'));
