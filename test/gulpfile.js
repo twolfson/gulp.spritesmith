@@ -10,7 +10,7 @@ var images = [
 gulp.task('sprite-default', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
-    cssName: 'sprice.css'
+    cssName: 'sprite.css'
   }));
   spriteData.img.pipe(gulp.dest('actual-files/default/'));
   spriteData.css.pipe(gulp.dest('actual-files/default/'));
@@ -19,7 +19,7 @@ gulp.task('sprite-default', function () {
 gulp.task('sprite-formats', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
-    cssName: 'sprice.css',
+    cssName: 'sprite.css',
     imgOpts: {
       format: 'jpg'
     },
@@ -32,7 +32,7 @@ gulp.task('sprite-formats', function () {
 gulp.task('sprite-options', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
-    cssName: 'sprice.css',
+    cssName: 'sprite.css',
     imgPath: '../../everywhere.png',
     algorithm: 'alt-diagonal',
     engine: 'gm'

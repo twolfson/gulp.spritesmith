@@ -1,4 +1,12 @@
+var assert = require('assert');
+var fs = require('fs');
+var rimraf = require('rimraf');
 var childUtils = require('./utils/child.js');
+
+// Clean up actual-files directory
+before(function (done) {
+  rimraf(__dirname + '/actual-files/', done);
+});
 
 describe('gulp-spritesmith', function () {
   describe('running a task without any options', function () {
@@ -7,10 +15,13 @@ describe('gulp-spritesmith', function () {
     it('generates a top-down png', function () {
       var expectedImage = fs.readFileSync(__dirname + '/expected-files/default/sprite.png', 'binary');
       var actualImage = fs.readFileSync(__dirname + '/actual-files/default/sprite.png', 'binary');
+      assert.strictEqual(expectedImage, actualImage);
     });
 
-    it.skip('generates a css file', function () {
-
+    it('generates a css file', function () {
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/default/sprite.css', 'utf8');
+      var actualCss = fs.readFileSync(__dirname + '/actual-files/default/sprite.css', 'utf8');
+      assert.strictEqual(expectedCss, actualCss);
     });
   });
 
