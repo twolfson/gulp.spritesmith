@@ -11,10 +11,10 @@ gulp.task('sprite-default', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
-    ,engine: 'gm',
-    engineOpts: {
-      imagemagick: true
-    }
+    // ,engine: 'gm',
+    // engineOpts: {
+    //   imagemagick: true
+    // }
   }));
   spriteData.img.pipe(gulp.dest('actual-files/default/'));
   spriteData.css.pipe(gulp.dest('actual-files/default/'));

@@ -15,9 +15,20 @@ describe('gulp-spritesmith', function () {
     childUtils.run('gulp sprite-default');
 
     it('generates a top-down png', function () {
-      var expectedImage = fs.readFileSync(__dirname + '/expected-files/default/sprite.png', 'binary');
       var actualImage = fs.readFileSync(__dirname + '/actual-files/default/sprite.png', 'binary');
-      assert.strictEqual(expectedImage, actualImage);
+      var expectedImages = [
+        __dirname + '/expected-files/default/mint-graphicsmagick.png',
+        __dirname + '/expected-files/default/mint-imagemagick.png'
+      ];
+      var i = 0;
+      var len = expectedImages.length;
+      for (; i < len; i++) {
+        var expectedImage = fs.readFileSync(expectedImages[i], 'binary');
+        if (expectedImage === actualImage) {
+          return;
+        }
+      }
+      assert.fail('Could not find a matching image');
     });
 
     it('generates a css file', function () {
