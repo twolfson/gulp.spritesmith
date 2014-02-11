@@ -13,6 +13,7 @@ describe('gulp-spritesmith', function () {
     childUtils.run('gulp sprite-default');
 
     it('generates a top-down png', function () {
+      // TODO: Try to ditch binary comparison and move to get-pixels based comparison
       var actualImage = fs.readFileSync(__dirname + '/actual-files/default/sprite.png', 'binary');
       var expectedImages = [
         __dirname + '/expected-files/default/mint-graphicsmagick.png',
