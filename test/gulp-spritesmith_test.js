@@ -5,7 +5,8 @@ describe('gulp-spritesmith', function () {
     childUtils.run('gulp sprite-default');
 
     it('generates a top-down png', function () {
-
+      var expectedImage = fs.readFileSync(__dirname + '/expected-files/default/sprite.png', 'binary');
+      var actualImage = fs.readFileSync(__dirname + '/actual-files/default/sprite.png', 'binary');
     });
 
     it.skip('generates a css file', function () {
