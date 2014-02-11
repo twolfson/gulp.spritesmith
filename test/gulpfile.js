@@ -23,7 +23,7 @@ gulp.task('sprite-formats', function () {
     imgOpts: {
       format: 'jpg'
     },
-    cssFormat: 'styl'
+    cssFormat: 'stylus'
   }));
   spriteData.img.pipe(gulp.dest('actual-files/formats/'));
   spriteData.css.pipe(gulp.dest('actual-files/formats/'));
