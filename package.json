@@ -29,8 +29,8 @@
     "test": "cd test && mocha ."
   },
   "dependencies": {
-    "through": "~2.3.4",
-    "gulp-util": "~2.2.14"
+    "gulp-util": "~2.2.14",
+    "spritesmith": "~0.18.0"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
