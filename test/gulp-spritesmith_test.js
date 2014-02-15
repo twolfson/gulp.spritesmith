@@ -1,6 +1,7 @@
 var assert = require('assert');
 var fs = require('fs');
 var rimraf = require('rimraf');
+var imageUtils = require('./utils/image.js');
 var childUtils = require('./utils/child.js');
 
 // Clean up actual-files directory
@@ -11,29 +12,17 @@ before(function (done) {
 describe('gulp-spritesmith', function () {
   describe('running a task without any options', function () {
     childUtils.run('gulp sprite-default');
+    imageUtils.loadActual(__dirname + '/actual-files/default/sprite.png');
+    imageUtils.loadExpected(__dirname + '/expected-files/default/mint-graphicsmagick.png');
 
     it('generates a top-down png', function () {
-      // TODO: Try to ditch binary comparison and move to get-pixels based comparison
-      var actualImage = fs.readFileSync(__dirname + '/actual-files/default/sprite.png', 'binary');
-      var expectedImages = [
-        __dirname + '/expected-files/default/mint-graphicsmagick.png',
-        __dirname + '/expected-files/default/mint-imagemagick.png'
-      ];
-      var i = 0;
-      var len = expectedImages.length;
-      for (; i < len; i++) {
-        var expectedImage = fs.readFileSync(expectedImages[i], 'binary');
-        if (expectedImage === actualImage) {
-          return;
-        }
-      }
-      assert.fail('Could not find a matching image');
+      assert.deepEqual(this.actualPixels, this.expectedPixels);
     });
 
     it('generates a css file', function () {
       var expectedCss = fs.readFileSync(__dirname + '/expected-files/default/sprite.css', 'utf8');
       var actualCss = fs.readFileSync(__dirname + '/actual-files/default/sprite.css', 'utf8');
-      assert.strictEqual(expectedCss, actualCss);
+      assert.strictEqual(actualCss, expectedCss);
     });
   });
 
