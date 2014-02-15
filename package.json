@@ -39,7 +39,8 @@
     "mocha": "~1.11.0",
     "gulp": "~3.5.2",
     "gulp-jshint": "~1.4.0",
-    "rimraf": "~2.2.6"
+    "rimraf": "~2.2.6",
+    "get-pixels": "~1.0.1"
   },
   "keywords": [
     "gulpplugin",
