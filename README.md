@@ -37,6 +37,15 @@ _(Coming soon)_
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
 
+## Attribution
+GitHub and Twitter icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
+
+Fork designed by [P.J. Onori][onori] from The Noun Project.
+
+[justvector]: http://alexpeattie.com/projects/justvector_icons/
+[noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
+[onori]: http://thenounproject.com/somerandomdude
+
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
 
