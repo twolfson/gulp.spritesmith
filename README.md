@@ -51,12 +51,40 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
   - cssName `String` - Filename to save CSS as
       - Supported CSS extensions are `.css` (CSS), `.sass` ([SASS][]), `.scss` ([SCSS][]), `.less` ([LESS][]), `.styl/.stylus` ([Stylus][]), and `.json` ([JSON][])
       - CSS format can be overridden via `cssFormat`
+  - imgPath `String` - Optional path to use in CSS referring to image location
+  - engine `String` - Optional image generating engine to use
+      - By default, `auto` will be used which detects the best supported engine for your system
+      - Supported options are `phantomjs`, `canvas`, `gm`, and `pngsmith`
+      - More information can be found in the [engine][] section
+  - algorithm `String` - Optional method for how to pack images
+      - Supported options are `top-down` (default), `left-right`, `diagonal`, `alt-diagonal`, `binary-tree`
+      - More information can be found in the [algorithm][] section
+  - padding `Number` - Optional amount of pixels to include between images
+      - By default, there will be no padding (0)
+  - imgOpts `Object` - Options for image output
+      - format `String` - Override for format of output image
+          - Supported values are `png` and `jpg` (limited to specific engines)
+      - quality `Number` - Quality of image (only supported by `gm` engine)
+      - timeout `Number` - Milliseconds to wait before terminating render (only supported by `phantomjs` engine)
+  - engineOpts `Object` - Options for engine configuratio
+      - imagemagick `Boolean` - Force usage of `imagemagick` over `graphicsmagick` (limited to `gm` engine)
+  - cssFormat `String` - Override for format of CSS output
+      - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
 
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
 [LESS]: http://lesscss.org/
 [Stylus]: http://learnboost.github.com/stylus/
 [JSON]: http://json.org/
+
+[engine]: #engines
+[algorithm]: #algorithms
+
+#### Engines
+_(Coming soon)_
+
+#### Algorithms
+_(Coming soon)_
 
 ## Examples
 _(Coming soon)_
