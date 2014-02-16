@@ -27,3 +27,17 @@ gulp.task('sprite-cssvarmap', function () {
   spriteData.img.pipe(gulp.dest('examples/cssvarmap/'));
   spriteData.css.pipe(gulp.dest('examples/cssvarmap/'));
 });
+
+gulp.task('sprite-cssclass', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.css',
+    cssOpts: {
+      cssClass: function (item) {
+        return '.sprite-' + item.name;
+      }
+    }
+  }));
+  spriteData.img.pipe(gulp.dest('examples/cssclass/'));
+  spriteData.css.pipe(gulp.dest('examples/cssclass/'));
+});

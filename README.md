@@ -171,7 +171,7 @@ Task configuration
 gulp.task('sprite', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
-    cssName: 'sprite.css',
+    cssName: 'sprite.styl',
     cssVarMap: function (sprite) {
       // `sprite` has `name`, `image` (full path), `x`, `y`
       //   `width`, `height`, `total_width`, `total_height`
@@ -180,7 +180,7 @@ gulp.task('sprite', function () {
     }
   }));
   spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
-  spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
+  spriteData.css.pipe(gulp.dest('path/to/styl/folder/'));
 });
 ```
 
@@ -196,7 +196,37 @@ $sprite-fork_offset_y = 0px;
 ```
 
 ### Using `cssOpts.cssClass`
-_(Coming soon)_
+Task configuration
+
+```js
+gulp.task('sprite', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.css',
+    cssOpts: {
+      cssClass: function (item) {
+        // `item` has `x`, `y`, `width`, `height`, `name`, `image`, and more
+        // It is suggested to `console.log` output
+        return '.sprite-' + item.name;
+      }
+    }
+  }));
+  spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
+  spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
+});
+```
+
+CSS output
+
+```css
+/* As opposed to .fork { */
+.sprite-fork {
+  background-image: url(sprite.png);
+  background-position: 0px 0px;
+  width: 32px;
+  height: 32px;
+}
+```
 
 ## FAQs
 ### I am seeing errors during installation.
