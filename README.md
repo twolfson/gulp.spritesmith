@@ -96,26 +96,22 @@ If you are running into issues, consult the [FAQ section](#faqs).
 ##### pngsmith
 The `pngsmith` engine uses [`pngparse`][], an JavaScript `png` parser, to interpret images into [`ndarrays`][]. This requires no additional steps before installation.
 
-**Key differences:** It requires no additional installation steps but you are limited to `.png` files for your source files.
-
 [`pngparse`]: https://github.com/darkskyapp/pngparse
 [`ndarrays`]: https://github.com/mikolalysenko/ndarray
 
+Key differences: It requires no additional installation steps but you are limited to `.png` files for your source files.
+
 ##### phantomjs
 The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
-
-**Key differences:** `phantomjs` is the easiest engine to install that supports all image formats.
 
 [spritesmith][] has been tested against `phantomjs@1.9.0`.
 
 [phantomjs]: http://phantomjs.org/
 
+Key differences: `phantomjs` is the easiest engine to install that supports all image formats.
+
 ##### canvas
-The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
-
-**Key differences:** `canvas` has the best performance (useful for over 100 sprites). However, it is limited to `UNIX`.
-
-Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
+The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo]. Installation instructions can be found in the [node-canvas wiki][].
 
 Additionally, you will need to install [node-gyp][] for the C++ bindings.
 
@@ -123,22 +119,24 @@ Additionally, you will need to install [node-gyp][] for the C++ bindings.
 sudo npm install -g node-gyp
 ```
 
+Key differences: `canvas` has the best performance (useful for over 100 sprites). However, it is limited to `UNIX`.
+
 [node-canvas]: https://github.com/learnboost/node-canvas
 [cairo]: http://cairographics.org/
-[node-canvas-wiki]: https://github.com/LearnBoost/node-canvas/wiki/_pages
+[node-canvas wiki]: https://github.com/LearnBoost/node-canvas/wiki/_pages
 [node-gyp]: https://github.com/TooTallNate/node-gyp/
 
 ##### gm (Graphics Magick / Image Magick)
 The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
 
-**Key differences:** `gm` has the most options for export via `imgOpts`.
+For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
+
+[spritesmith][] has been developed and tested against `graphicsmagick@1.3.17`.
 
 [graphics-magick]: http://www.graphicsmagick.org/
 [image-magick]: http://imagemagick.org/
 
-For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
-
-[spritesmith][] has been developed and tested against `graphicsmagick@1.3.17`.
+Key differences: `gm` has the most options for export via `imgOpts`.
 
 #### Algorithms
 `spritesmith` offers a variety of image patterns via [twolfson/layout][].
