@@ -12,8 +12,8 @@ before(function (done) {
 describe('gulp-spritesmith', function () {
   describe('running a task without any options', function () {
     childUtils.run('gulp sprite-default');
-    imageUtils.loadActual(__dirname + '/actual-files/default/sprite.png');
-    imageUtils.loadExpected(__dirname + '/expected-files/default/mint-graphicsmagick.png');
+    imageUtils.loadActualPng(__dirname + '/actual-files/default/sprite.png');
+    imageUtils.loadExpectedPng(__dirname + '/expected-files/default/mint-graphicsmagick.png');
 
     it('generates a top-down png', function () {
       assert.deepEqual(this.actualPixels, this.expectedPixels);
@@ -28,9 +28,11 @@ describe('gulp-spritesmith', function () {
 
   describe('running a task with output formats', function () {
     childUtils.run('gulp sprite-formats');
+    imageUtils.loadActualJpg(__dirname + '/actual-files/formats/sprite.png');
+    imageUtils.loadExpectedJpg(__dirname + '/expected-files/formats/mint-graphicsmagick.jpg');
 
-    it.skip('generates a top-down jpg', function () {
-
+    it('generates a top-down jpg', function () {
+      console.log(this.actualPixels);
     });
 
     it.skip('generates a Stylus file', function () {
@@ -40,6 +42,8 @@ describe('gulp-spritesmith', function () {
 
   describe('running a task with engine and algorithm options', function () {
     childUtils.run('gulp sprite-options');
+    // imageUtils.loadActual(__dirname + '/actual-files/options/sprite.png');
+    // imageUtils.loadExpected(__dirname + '/expected-files/options/mint-graphicsmagick.png');
 
     it.skip('generates an alt-diagonal png via the gm engine', function () {
 
