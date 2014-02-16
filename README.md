@@ -33,13 +33,24 @@ gulp.task('sprite', function () {
 ```
 
 ## Documentation
-_(Coming soon)_
+`gulp-spritesmith` presents the `spritesmith` function as its `module.exports`.
+
+### `spritesmith(params)`
+[gulp][] plugin that returns a [readable stream][] and an object containing two [writable streams][].
+
+The input/output streams interact with [vinyl-fs][] objects which are [gulp's][] format of choice.
+
+[readable stream]: http://nodejs.org/api/stream.html#stream_class_stream_readable
+[writable streams]: http://nodejs.org/api/stream.html#stream_class_stream_writable
+[vinyl-fs]: https://github.com/wearefractal/vinyl-fs
+
+- params `Object` - Container for `gulp-spritesmith` parameters
 
 ## Examples
 _(Coming soon)_
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `gulp` and test via `npm test`.
 
 ## Attribution
 GitHub and Twitter icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
