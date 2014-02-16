@@ -57,17 +57,17 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
       - Supported options are `phantomjs`, `canvas`, `gm`, and `pngsmith`
       - More information can be found in the [engine][] section
   - algorithm `String` - Optional method for how to pack images
-      - Supported options are `top-down` (default), `left-right`, `diagonal`, `alt-diagonal`, `binary-tree`
+      - Supported options are `top-down` (default), `left-right`, `diagonal`, `alt-diagonal`, and `binary-tree`
       - More information can be found in the [algorithm][] section
   - padding `Number` - Optional amount of pixels to include between images
-      - By default, there will be no padding (0)
+      - By default, there will be no padding
   - imgOpts `Object` - Options for image output
       - format `String` - Override for format of output image
           - Supported values are `png` and `jpg` (limited to specific engines)
       - quality `Number` - Quality of image (only supported by `gm` engine)
-      - timeout `Number` - Milliseconds to wait before terminating render (only supported by `phantomjs` engine)
+      - timeout `Number` - Milliseconds to wait before terminating render (limited to `phantomjs` engine)
   - engineOpts `Object` - Options for engine configuration
-      - imagemagick `Boolean` - Force usage of `imagemagick` over `graphicsmagick` (limited to `gm` engine)
+      - imagemagick `Boolean` - Force usage of `imagemagick` over `graphicsmagick` (limited to `gm`)
   - cssFormat `String` - Override for format of CSS output
       - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
   - cssVarMap `Function` - Iterator to customize CSS variable names
