@@ -233,31 +233,16 @@ CSS output:
 If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
 
 ### `spritesmith` is saying my engine "could not be loaded"
-If you have specified an `engine` in your config, then you must satisfy its requirements *before* installing `grunt-spritesmith`.
+If you have specified an `engine` in your config, then you must satisfy its requirements *before* installing `gulp-spritesmith`.
 
 To remedy this, verify you have installed the appropriate set of requirements for your engine:
 
-https://github.com/Ensighten/grunt-spritesmith#requirements
+https://github.com/twolfson/gulp-spritesmith#engines
 
-Afterwards, re-install `grunt-spritesmith` so it detects the satisfied requirements for your engine.
-
-```bash
-npm install grunt-spritesmith
-```
-
-### `spritesmith` is saying "no spritesmith engine could be loaded for your machine"
-If you are running `grunt-spritesmith` before `1.21.0`, then you have not satisfied any of the requirements for any of the engines *before* installing `grunt-spritesmith`. If you are running `1.21.0` or greater, then there is a bug and please open a new issue.
-
-> The current version of `grunt-spritesmith` can be determined via `npm ls grunt-spritesmith`.
-
-To remedy the issue before `1.21.0`, choose an engine and verify you have installed the appropriate set of requirements:
-
-https://github.com/Ensighten/grunt-spritesmith#requirements
-
-Afterwards, re-install `grunt-spritesmith` so it detects the satisfied requirements for your engine.
+Afterwards, re-install `gulp-spritesmith` so it detects the satisfied requirements for your engine.
 
 ```bash
-npm install grunt-spritesmith
+npm install gulp-spritesmith
 ```
 
 ## Contributing
