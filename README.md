@@ -13,7 +13,7 @@ This project was built as a port of [grunt-spritesmith][], the [grunt][] equival
 
 Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 
-[css-formats]: https://github.com/twolfson/gulp-spritesmith#spritesmithparams
+[css-formats]: #spritesmithparams
 
 ## Getting Started
 Install the module with: `npm install gulp-spritesmith`
