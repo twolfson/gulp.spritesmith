@@ -44,15 +44,17 @@ describe('gulp-spritesmith', function () {
 
   describe('running a task with engine and algorithm options', function () {
     childUtils.run('gulp sprite-options');
-    // imageUtils.loadActual(__dirname + '/actual-files/options/sprite.png');
-    // imageUtils.loadExpected(__dirname + '/expected-files/options/mint-graphicsmagick.png');
+    imageUtils.loadActualPng(__dirname + '/actual-files/options/sprite.png');
+    imageUtils.loadExpectedPng(__dirname + '/expected-files/options/mint-pngsmith.png');
 
-    it.skip('generates an alt-diagonal png via the gm engine', function () {
-
+    it('generates an alt-diagonal png via the gm engine', function () {
+      assert.deepEqual(this.actualPixels, this.expectedPixels);
     });
 
-    it.skip('generates a CSS file with alt-diagonal coordinates', function () {
-
+    it('generates a CSS file with alt-diagonal coordinates', function () {
+      var actualCss = fs.readFileSync(__dirname + '/actual-files/options/sprite.css', 'utf8');
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/options/sprite.css', 'utf8');
+      assert.strictEqual(actualCss, expectedCss);
     });
   });
 });
