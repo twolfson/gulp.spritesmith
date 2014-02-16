@@ -6,5 +6,13 @@ matrix:
   allow_failures:
     - node_js: "0.11"
 
+install:
+  # Install graphicsmagick
+  - sudo apt-get install graphicsmagick -y
+  - gm -help
+
+  # Install node dependencies
+  - npm install
+
 notifications:
   email: false
