@@ -77,7 +77,6 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
       - cssClass `Function` - Iterator to override default CSS selectors
           - An example can be found [here][cssclass-example]
 
-
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
 [LESS]: http://lesscss.org/
@@ -93,7 +92,29 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 _(Coming soon)_
 
 #### Algorithms
-_(Coming soon)_
+`spritesmith` offers a variety of image patterns via [twolfson/layout][].
+
+[twolfson/layout]: (https://github.com/twolfson/layout
+
+|     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
+| ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
+| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
+
+For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
+
+[packing-problem]: http://en.wikipedia.org/wiki/Packing_problem
+
+If you are worried about sprites being visible within other sprites, use `alt-diagonal`.
+
+If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
+
+The `diagonal` algorithm exists for you if you need it.
+
+[top-down]: docs/algorithms/top-down.png
+[left-right]: docs/algorithms/left-right.png
+[diagonal]: docs/algorithms/diagonal.png
+[alt-diagonal]: docs/algorithms/alt-diagonal.png
+[binary-tree]: docs/algorithms/binary-tree.png
 
 ## Examples
 _(Coming soon)_
