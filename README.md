@@ -1,8 +1,8 @@
-# gulp-spritesmith [![Build status](https://travis-ci.org/twolfson/gulp-spritesmith.png?branch=master)](https://travis-ci.org/twolfson/gulp-spritesmith)
+# gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.png?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith)
 
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
-This project was built as a port of [grunt-spritesmith][], the [grunt][] equivalent of a wrapper around [spritesmith][].
+This is the official port of [grunt-spritesmith][], the [grunt][] equivalent of a wrapper around [spritesmith][].
 
 [gulp]: http://gulpjs.com/
 [grunt-spritesmith]: https://github.com/Ensighten/grunt-spritesmith
@@ -16,11 +16,11 @@ Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 [css-formats]: #spritesmithparams
 
 ## Getting Started
-Install the module with: `npm install gulp-spritesmith`
+Install the module with: `npm install gulp.spritesmith`
 
 ```javascript
 var gulp = require('gulp');
-var spritesmith = require('gulp-spritesmith');
+var spritesmith = require('gulp.spritesmith');
 
 gulp.task('sprite', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
@@ -33,7 +33,7 @@ gulp.task('sprite', function () {
 ```
 
 ## Documentation
-`gulp-spritesmith` presents the `spritesmith` function as its `module.exports`.
+`gulp.spritesmith` presents the `spritesmith` function as its `module.exports`.
 
 ### `spritesmith(params)`
 [gulp][] plugin that returns a [readable stream][] and an object containing two [writable streams][].
@@ -44,7 +44,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [writable streams]: http://nodejs.org/api/stream.html#stream_class_stream_writable
 [vinyl-fs]: https://github.com/wearefractal/vinyl-fs
 
-- params `Object` - Container for `gulp-spritesmith` parameters
+- params `Object` - Container for `gulp.spritesmith` parameters
   - imgName `String` - Filename to save image as
       - Supported image extensions are `.png` and `.jpg/jpeg` (limited to specfic engines)
       - Image format can be overridden via `imgOpts.format`
@@ -233,16 +233,16 @@ CSS output:
 If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
 
 ### `spritesmith` is saying my engine "could not be loaded"
-If you have specified an `engine` in your config, then you must satisfy its requirements *before* installing `gulp-spritesmith`.
+If you have specified an `engine` in your config, then you must satisfy its requirements *before* installing `gulp.spritesmith`.
 
 To remedy this, verify you have installed the appropriate set of requirements for your engine:
 
-https://github.com/twolfson/gulp-spritesmith#engines
+https://github.com/twolfson/gulp.spritesmith#engines
 
-Afterwards, re-install `gulp-spritesmith` so it detects the satisfied requirements for your engine.
+Afterwards, re-install `gulp.spritesmith` so it detects the satisfied requirements for your engine.
 
 ```bash
-npm install gulp-spritesmith
+npm install gulp.spritesmith
 ```
 
 ## Contributing

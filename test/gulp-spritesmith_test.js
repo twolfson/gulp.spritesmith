@@ -9,7 +9,7 @@ before(function (done) {
   rimraf(__dirname + '/actual-files/', done);
 });
 
-describe('gulp-spritesmith', function () {
+describe('gulp.spritesmith', function () {
   describe('running a task without any options', function () {
     childUtils.run('gulp sprite-default');
     imageUtils.loadActual(__dirname + '/actual-files/default/sprite.png');
