@@ -9,6 +9,8 @@ This project was built as a port of [grunt-spritesmith][], the [grunt][] equival
 [grunt]: http://gruntjs.com/
 [spritesmith]: https://github.com/Ensighten/spritesmith
 
+![Example input/output](docs/example.png)
+
 ## Getting Started
 Install the module with: `npm install gulp-spritesmith`
 
