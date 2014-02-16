@@ -187,6 +187,12 @@ gulp.task('sprite', function () {
 CSS output
 
 ```sass
+/* As opposed to `$fork_x = 0px;` */
+$sprite-fork_x = 0px;
+$sprite-fork_y = 0px;
+$sprite-fork_offset_x = 0px;
+$sprite-fork_offset_y = 0px;
+...
 ```
 
 ### Using `cssOpts.cssClass`

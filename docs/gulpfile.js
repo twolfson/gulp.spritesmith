@@ -16,7 +16,7 @@ gulp.task('sprite', function () {
 gulp.task('sprite-cssvarmap', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
-    cssName: 'sprite.css',
+    cssName: 'sprite.styl',
     cssVarMap: function (sprite) {
       // `sprite` has `name`, `image` (full path), `x`, `y`
       //   `width`, `height`, `total_width`, `total_height`

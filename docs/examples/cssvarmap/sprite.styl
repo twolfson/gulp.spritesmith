@@ -1,0 +1,53 @@
+$sprite-fork_x = 0px;
+$sprite-fork_y = 0px;
+$sprite-fork_offset_x = 0px;
+$sprite-fork_offset_y = 0px;
+$sprite-fork_width = 32px;
+$sprite-fork_height = 32px;
+$sprite-fork_total_width = 32px;
+$sprite-fork_total_height = 96px;
+$sprite-fork_image = 'sprite.png';
+$sprite-fork = 0px 0px 0px 0px 32px 32px 32px 96px 'sprite.png';
+$sprite-github_x = 0px;
+$sprite-github_y = 32px;
+$sprite-github_offset_x = 0px;
+$sprite-github_offset_y = -32px;
+$sprite-github_width = 32px;
+$sprite-github_height = 32px;
+$sprite-github_total_width = 32px;
+$sprite-github_total_height = 96px;
+$sprite-github_image = 'sprite.png';
+$sprite-github = 0px 32px 0px -32px 32px 32px 32px 96px 'sprite.png';
+$sprite-twitter_x = 0px;
+$sprite-twitter_y = 64px;
+$sprite-twitter_offset_x = 0px;
+$sprite-twitter_offset_y = -64px;
+$sprite-twitter_width = 32px;
+$sprite-twitter_height = 32px;
+$sprite-twitter_total_width = 32px;
+$sprite-twitter_total_height = 96px;
+$sprite-twitter_image = 'sprite.png';
+$sprite-twitter = 0px 64px 0px -64px 32px 32px 32px 96px 'sprite.png';
+
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
