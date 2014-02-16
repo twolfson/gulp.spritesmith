@@ -40,8 +40,7 @@
     "gulp": "~3.5.2",
     "gulp-jshint": "~1.4.0",
     "rimraf": "~2.2.6",
-    "get-pixels": "~1.0.1",
-    "jpeg-js": "0.0.2"
+    "pngparse": "~2.0.1"
   },
   "keywords": [
     "gulpplugin",
