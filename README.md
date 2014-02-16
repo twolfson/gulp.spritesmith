@@ -13,7 +13,7 @@ This project was built as a port of [grunt-spritesmith][], the [grunt][] equival
 
 Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 
-[css-formats]: TODO
+[css-formats]: https://github.com/twolfson/gulp-spritesmith#spritesmithparams
 
 ## Getting Started
 Install the module with: `npm install gulp-spritesmith`
@@ -38,7 +38,7 @@ gulp.task('sprite', function () {
 ### `spritesmith(params)`
 [gulp][] plugin that returns a [readable stream][] and an object containing two [writable streams][].
 
-The input/output streams interact with [vinyl-fs][] objects which are [gulp's][] format of choice.
+The input/output streams interact with [vinyl-fs][] objects which are [gulp's][gulp] format of choice.
 
 [readable stream]: http://nodejs.org/api/stream.html#stream_class_stream_readable
 [writable streams]: http://nodejs.org/api/stream.html#stream_class_stream_writable
