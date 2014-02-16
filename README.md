@@ -11,6 +11,10 @@ This project was built as a port of [grunt-spritesmith][], the [grunt][] equival
 
 ![Example input/output](docs/example.png)
 
+Alternative output formats include [SASS, Stylus, LESS, JSON][css-formats].
+
+[css-formats]: TODO
+
 ## Getting Started
 Install the module with: `npm install gulp-spritesmith`
 
@@ -20,7 +24,6 @@ var spritesmith = require('gulp-spritesmith');
 
 gulp.task('sprite', function () {
   // Collect png's from images folder and output a .png spritesheet and CSS classes
-  // Alternative outputs include: SASS, Stylus, LESS, JSON
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
