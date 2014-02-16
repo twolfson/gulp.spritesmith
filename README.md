@@ -1,6 +1,13 @@
 # gulp-spritesmith [![Build status](https://travis-ci.org/twolfson/gulp-spritesmith.png?branch=master)](https://travis-ci.org/twolfson/gulp-spritesmith)
 
-Convert a set of images into a spritesheet and CSS variables via gulp
+Convert a set of images into a spritesheet and CSS variables via [gulp][]
+
+This project was built as a port of [grunt-spritesmith][], the [grunt][] equivalent of a wrapper around [spritesmith][].
+
+[gulp]: http://gulpjs.com/
+[grunt-spritesmith]: https://github.com/Ensighten/grunt-spritesmith
+[grunt]: http://gruntjs.com/
+[spritesmith]: https://github.com/Ensighten/spritesmith
 
 ## Getting Started
 Install the module with: `npm install gulp-spritesmith`
