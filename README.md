@@ -46,8 +46,8 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][]
 
 - params `Object` - Container for `gulp-spritesmith` parameters
   - imgName `String` - Filename to save image as
-      - `gulp-spritesmith` will assume the image format via the `imgName'` extension (e.g. `image.png` -> `.png`)
-      - This can be overridden via `imgOpts.format`
+      - Supported image extensions are `.png` and `.jpg/jpeg` (limited to specfic engines)
+      - Image format can be overridden via `imgOpts.format`
   - cssName `String` - Filename to save CSS as
       - Supported CSS extensions are `.css` (CSS), `.sass` ([SASS][]), `.scss` ([SCSS][]), `.less` ([LESS][]), `.styl/.stylus` ([Stylus][]), and `.json` ([JSON][])
       - CSS format can be overridden via `cssFormat`
