@@ -29,7 +29,7 @@ describe('gulp-spritesmith', function () {
   describe('running a task with output formats', function () {
     childUtils.run('gulp sprite-formats');
     imageUtils.loadActualJpg(__dirname + '/actual-files/formats/sprite.png');
-    imageUtils.loadExpectedJpg(__dirname + '/expected-files/formats/mint-graphicsmagick.jpg');
+    imageUtils.loadExpectedJpg(__dirname + '/expected-files/formats/mint-imagemagick.jpg');
 
     it('generates a top-down jpg (as a .png)', function () {
       assert.deepEqual(this.actualPixels, this.expectedPixels);
