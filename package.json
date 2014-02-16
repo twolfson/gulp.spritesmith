@@ -1,5 +1,5 @@
 {
-  "name": "gulp-spritesmith",
+  "name": "gulp.spritesmith",
   "description": "Convert a set of images into a spritesheet and CSS variables via gulp",
   "version": "0.1.0",
   "homepage": "https://github.com/twolfson/gulp-spritesmith",
