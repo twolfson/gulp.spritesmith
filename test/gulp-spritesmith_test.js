@@ -20,8 +20,8 @@ describe('gulp-spritesmith', function () {
     });
 
     it('generates a css file', function () {
-      var expectedCss = fs.readFileSync(__dirname + '/expected-files/default/sprite.css', 'utf8');
       var actualCss = fs.readFileSync(__dirname + '/actual-files/default/sprite.css', 'utf8');
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/default/sprite.css', 'utf8');
       assert.strictEqual(actualCss, expectedCss);
     });
   });
@@ -31,12 +31,14 @@ describe('gulp-spritesmith', function () {
     imageUtils.loadActualJpg(__dirname + '/actual-files/formats/sprite.png');
     imageUtils.loadExpectedJpg(__dirname + '/expected-files/formats/mint-graphicsmagick.jpg');
 
-    it('generates a top-down jpg', function () {
-      console.log(this.actualPixels);
+    it('generates a top-down jpg (as a .png)', function () {
+      assert.deepEqual(this.actualPixels, this.expectedPixels);
     });
 
-    it.skip('generates a Stylus file', function () {
-
+    it('generates a Stylus file (as a .css)', function () {
+      var actualCss = fs.readFileSync(__dirname + '/actual-files/formats/sprite.css', 'utf8');
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/formats/sprite.styl', 'utf8');
+      assert.strictEqual(actualCss, expectedCss);
     });
   });
 
