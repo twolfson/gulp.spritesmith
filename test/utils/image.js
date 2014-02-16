@@ -22,15 +22,21 @@ exports.loadExpectedPng = function (filepath) {
   });
 };
 
+exports._loadJpg = function (filepath, cb) {
+  fs.readFile(filepath, function (err, buff) {
+    if (err) {
+      return cb(err);
+    }
+    cb(null, jpeg.decode(buff));
+  });
+};
+
 exports.loadActualJpg = function (filepath) {
   before(function (done) {
     var that = this;
-    fs.readFile(filepath, function (err, buff) {
-      if (err) {
-        return done(err);
-      }
-      that.actualPixels = jpeg.decode(buff);
-      done();
+    exports._loadJpg(filepath, function (err, data) {
+      that.actualPixels = data;
+      done(err);
     });
   });
 };
@@ -38,12 +44,9 @@ exports.loadActualJpg = function (filepath) {
 exports.loadExpectedJpg = function (filepath) {
   before(function (done) {
     var that = this;
-    fs.readFile(filepath, function (err, buff) {
-      if (err) {
-        return done(err);
-      }
-      that.expectedPixels = jpeg.decode(buff);
-      done();
+    exports._loadJpg(filepath, function (err, data) {
+      that.expectedPixels = data;
+      done(err);
     });
   });
 };
