@@ -66,10 +66,17 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
           - Supported values are `png` and `jpg` (limited to specific engines)
       - quality `Number` - Quality of image (only supported by `gm` engine)
       - timeout `Number` - Milliseconds to wait before terminating render (only supported by `phantomjs` engine)
-  - engineOpts `Object` - Options for engine configuratio
+  - engineOpts `Object` - Options for engine configuration
       - imagemagick `Boolean` - Force usage of `imagemagick` over `graphicsmagick` (limited to `gm` engine)
   - cssFormat `String` - Override for format of CSS output
       - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
+  - cssVarMap `Function` - Iterator to customize CSS variable names
+      - An example can be found [here][cssvarmap-example]
+  - cssOpts `Object` - Container for CSS templates
+      - functions `Boolean` - Skip output of mixins
+      - cssClass `Function` - Iterator to override default CSS selectors
+          - An example can be found [here][cssclass-example]
+
 
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
@@ -79,6 +86,8 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 
 [engine]: #engines
 [algorithm]: #algorithms
+[cssvarmap-example]: TODO
+[cssclass-example]: TODO
 
 #### Engines
 _(Coming soon)_
@@ -87,6 +96,12 @@ _(Coming soon)_
 _(Coming soon)_
 
 ## Examples
+_(Coming soon)_
+
+### Using `cssVarMap`
+_(Coming soon)_
+
+### Using `cssOpts.cssClass`
 _(Coming soon)_
 
 ## Contributing
