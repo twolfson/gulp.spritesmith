@@ -85,8 +85,8 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 
 [engine]: #engines
 [algorithm]: #algorithms
-[cssvarmap-example]: TODO
-[cssclass-example]: TODO
+[cssvarmap-example]: #using-cssvarmap
+[cssclass-example]: #using-cssoptscssclass
 
 #### Engines
 For cross-platform accessibility, [spritesmith][] offers multiple sprite engines. Each of these engines has a different set of dependencies.
