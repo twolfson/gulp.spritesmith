@@ -116,7 +116,7 @@ The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo
 Additionally, you will need to install [node-gyp][] for the C++ bindings.
 
 ```bash
-sudo npm install -g node-gyp
+npm install -g node-gyp
 ```
 
 Key differences: `canvas` has the best performance (useful for over 100 sprites). However, it is limited to `UNIX`.
