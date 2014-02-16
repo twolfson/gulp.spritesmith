@@ -18,16 +18,13 @@ gulp.task('sprite-default', function () {
 
 gulp.task('sprite-formats', function () {
   var spriteData = gulp.src(images).pipe(spritesmith({
-    imgName: 'sprite.png',
+    imgName: 'sprite.jpg',
     cssName: 'sprite.css',
     imgOpts: {
-      format: 'jpg'
+      format: 'png'
     },
     cssFormat: 'stylus',
-    engine: 'gm',
-    engineOpts: {
-      imagemagick: true
-    }
+    engine: 'pngsmith'
   }));
   spriteData.img.pipe(gulp.dest('actual-files/formats/'));
   spriteData.css.pipe(gulp.dest('actual-files/formats/'));
@@ -38,8 +35,7 @@ gulp.task('sprite-options', function () {
     imgName: 'sprite.png',
     cssName: 'sprite.css',
     imgPath: '../../everywhere.png',
-    algorithm: 'alt-diagonal',
-    engine: 'pngsmith'
+    algorithm: 'alt-diagonal'
   }));
   spriteData.img.pipe(gulp.dest('actual-files/options/'));
   spriteData.css.pipe(gulp.dest('actual-files/options/'));
