@@ -40,3 +40,13 @@ gulp.task('sprite-options', function () {
   spriteData.img.pipe(gulp.dest('actual-files/options/'));
   spriteData.css.pipe(gulp.dest('actual-files/options/'));
 });
+
+gulp.task('sprite-template', function () {
+  var spriteData = gulp.src(images).pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.scss',
+    cssTemplate: 'test-files/scss.template.mustache'
+  }));
+  spriteData.img.pipe(gulp.dest('actual-files/template/'));
+  spriteData.css.pipe(gulp.dest('actual-files/template/'));
+});

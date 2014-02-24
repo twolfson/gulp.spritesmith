@@ -57,4 +57,20 @@ describe('gulp.spritesmith', function () {
       assert.strictEqual(actualCss, expectedCss);
     });
   });
+
+  describe('running a task with a custom CSS template', function () {
+    childUtils.run('gulp sprite-template');
+    imageUtils.loadActual(__dirname + '/actual-files/template/sprite.png');
+    imageUtils.loadExpected(__dirname + '/expected-files/template/mint-graphicsmagick.png');
+
+    it('generates a top-down png', function () {
+      assert.deepEqual(this.actualPixels, this.expectedPixels);
+    });
+
+    it('generates a css file', function () {
+      var actualCss = fs.readFileSync(__dirname + '/actual-files/template/sprite.scss', 'utf8');
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/template/sprite.scss', 'utf8');
+      assert.strictEqual(actualCss, expectedCss);
+    });
+  });
 });
