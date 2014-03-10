@@ -1,0 +1,16 @@
+@mixin sprite($filename) {
+
+  &:before {
+    content: "";
+    display: inline-block;
+
+    {{#items}}
+    @if $filename == {{name}} {
+      background-image: url({{{escaped_image}}});
+      background-position: {{px.offset_x}} {{px.offset_y}};
+      height: {{px.height}};
+      width: {{px.width}};
+    }
+    {{/items}}
+  }
+}

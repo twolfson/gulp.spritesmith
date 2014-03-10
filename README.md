@@ -76,6 +76,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
       - functions `Boolean` - Skip output of mixins
       - cssClass `Function` - Iterator to override default CSS selectors
           - An example can be found [here][cssclass-example]
+  - cssTemplate `String` - Path to alternative mustache template
 
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
