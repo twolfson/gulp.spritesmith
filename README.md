@@ -72,11 +72,11 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
       - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
   - cssVarMap `Function` - Iterator to customize CSS variable names
       - An example can be found [here][cssvarmap-example]
+  - cssTemplate `Function|String` - CSS templating function or path to alternative mustache template
   - cssOpts `Object` - Container for CSS templates
       - functions `Boolean` - Skip output of mixins
       - cssClass `Function` - Iterator to override default CSS selectors
           - An example can be found [here][cssclass-example]
-  - cssTemplate `String` - Path to alternative mustache template
 
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
