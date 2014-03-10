@@ -1,56 +1,26 @@
-  $sprite1-x: 0px;
-  $sprite1-y: 0px;
-  $sprite1-offset-x: 0px;
-  $sprite1-offset-y: 0px;
-  $sprite1-width: 50px;
-  $sprite1-height: 50px;
-  $sprite1-total-width: 100px;
-  $sprite1-total-height: 300px;
-  $sprite1-image: 'sprite.png';
-  $sprite1: 0px 0px 0px 0px 50px 50px 100px 300px 'sprite.png';
-  $sprite2-x: 0px;
-  $sprite2-y: 50px;
-  $sprite2-offset-x: 0px;
-  $sprite2-offset-y: -50px;
-  $sprite2-width: 50px;
-  $sprite2-height: 50px;
-  $sprite2-total-width: 100px;
-  $sprite2-total-height: 300px;
-  $sprite2-image: 'sprite.png';
-  $sprite2: 0px 50px 0px -50px 50px 50px 100px 300px 'sprite.png';
-  $sprite3-x: 0px;
-  $sprite3-y: 100px;
-  $sprite3-offset-x: 0px;
-  $sprite3-offset-y: -100px;
-  $sprite3-width: 100px;
-  $sprite3-height: 200px;
-  $sprite3-total-width: 100px;
-  $sprite3-total-height: 300px;
-  $sprite3-image: 'sprite.png';
-  $sprite3: 0px 100px 0px -100px 100px 200px 100px 300px 'sprite.png';
+@mixin sprite($filename) {
 
-  @mixin sprite-width($sprite) {
-    width: nth($sprite, 5);
-  }
+  &:before {
+    content: "";
+    display: inline-block;
 
-  @mixin sprite-height($sprite) {
-    height: nth($sprite, 6);
+    @if $filename == sprite1 {
+      background-image: url(sprite.png);
+      background-position: 0px 0px;
+      height: 50px;
+      width: 50px;
+    }
+    @if $filename == sprite2 {
+      background-image: url(sprite.png);
+      background-position: 0px -50px;
+      height: 50px;
+      width: 50px;
+    }
+    @if $filename == sprite3 {
+      background-image: url(sprite.png);
+      background-position: 0px -100px;
+      height: 200px;
+      width: 100px;
+    }
   }
-
-  @mixin sprite-position($sprite) {
-    $sprite-offset-x: nth($sprite, 3);
-    $sprite-offset-y: nth($sprite, 4);
-    background-position: $sprite-offset-x  $sprite-offset-y;
-  }
-
-  @mixin sprite-image($sprite) {
-    $sprite-image: nth($sprite, 9);
-    background-image: url(#{$sprite-image});
-  }
-
-  @mixin sprite($sprite) {
-    @include sprite-image($sprite);
-    @include sprite-position($sprite);
-    @include sprite-width($sprite);
-    @include sprite-height($sprite);
-  }
+}
