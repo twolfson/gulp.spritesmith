@@ -69,7 +69,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
   - engineOpts `Object` - Options for engine configuration
       - imagemagick `Boolean` - Force usage of `imagemagick` over `graphicsmagick` (limited to `gm`)
   - cssFormat `String` - Override for format of CSS output
-      - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
+      - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `scss_maps` ([SCSS][] using [map notation][sass-maps]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
   - cssVarMap `Function` - Iterator to customize CSS variable names
       - An example can be found [here][cssvarmap-example]
   - cssTemplate `Function|String` - CSS templating function or path to alternative [mustache][] template
@@ -81,6 +81,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
+[sass-maps]: http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps
 [LESS]: http://lesscss.org/
 [Stylus]: http://learnboost.github.com/stylus/
 [JSON]: http://json.org/
