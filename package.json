@@ -33,7 +33,7 @@
     "spritesmith": "~0.18.0",
     "underscore": "~1.6.0",
     "url2": "~1.0.0",
-    "json2css": "~4.3.0"
+    "json2css": "~4.4.0"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
