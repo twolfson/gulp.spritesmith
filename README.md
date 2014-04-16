@@ -66,6 +66,9 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
           - Supported values are `png` and `jpg` (limited to specific engines)
       - quality `Number` - Quality of image (only supported by `gm` engine)
       - timeout `Number` - Milliseconds to wait before terminating render (limited to `phantomjs` engine)
+  - algorithmOpts `Object` - Options for algorithm configuration
+      - sort `Boolean` - Enable/disable image sorting by `algorithm`
+          - By default, sorting is enabled (`true`)
   - engineOpts `Object` - Options for engine configuration
       - imagemagick `Boolean` - Force usage of `imagemagick` over `graphicsmagick` (limited to `gm`)
   - cssFormat `String` - Override for format of CSS output
