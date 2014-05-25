@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+0.5.1 - Increased timeout for tests to prevent false negatives. Related to #6
+
 0.5.0 - Upgraded to `spritesmith@0.19.0` and added `algorithmOpts` to support skipping image sorting
 
 0.4.0 - Upgraded to `json2css@4.4.0` to pick up `scss_maps` height fix
