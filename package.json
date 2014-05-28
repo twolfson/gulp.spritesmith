@@ -1,7 +1,7 @@
 {
   "name": "gulp.spritesmith",
   "description": "Convert a set of images into a spritesheet and CSS variables via gulp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/twolfson/gulp.spritesmith",
   "author": {
     "name": "Todd Wolfson",
