@@ -15,6 +15,12 @@ Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 
 [css-formats]: #spritesmithparams
 
+### Do you like `gulp.spritesmith`?
+[Support us via gittip][gittip] or [spread word on Twitter][twitter]
+
+[gittip]: https://www.gittip.com/twolfson/
+[twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20gulp.spritesmith&url=https%3A%2F%2Fgithub.com%2Ftwolfson%2Fgulp.spritesmith&via=twolfsn
+
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
 
@@ -332,14 +338,6 @@ Fork designed by [P.J. Onori][onori] from The Noun Project.
 [justvector]: http://alexpeattie.com/projects/justvector_icons/
 [noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
 [onori]: http://thenounproject.com/somerandomdude
-
-## Donating
-Support this project and [others by twolfson][gittip] via [gittip][].
-
-[![Support via Gittip][gittip-badge]][gittip]
-
-[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
-[gittip]: https://www.gittip.com/twolfson/
 
 ## Unlicense
 As of Feb 09 2014, Todd Wolfson has released this repository and its contents to the public domain.
