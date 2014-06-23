@@ -18,7 +18,7 @@ Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
 
-```javascript
+```js
 var gulp = require('gulp');
 var spritesmith = require('gulp.spritesmith');
 
