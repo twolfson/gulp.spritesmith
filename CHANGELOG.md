@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+1.1.1 - Updated README
+
 1.1.0 - Upgraded to `json2css@5.2.0` to pick up useful CSS comments
 
 1.0.0 - Upgraded to `json2css@5.0.0` to collect `scss_maps` alteration
