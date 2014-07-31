@@ -259,6 +259,7 @@ gulp.task('sprite', function () {
       //   `width`, `height`, `total_width`, `total_height`
       // EXAMPLE: Prefix all sprite names with 'sprite-'
       sprite.name = 'sprite-' + sprite.name;
+      return sprite;
     }
   }));
   spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
