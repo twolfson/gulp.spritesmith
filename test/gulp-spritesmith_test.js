@@ -26,6 +26,22 @@ describe('gulp.spritesmith', function () {
     });
   });
 
+  describe('returns "img" and "css" streams', function () {
+    childUtils.run('gulp sprite-two-streams');
+    imageUtils.loadActual(__dirname + '/actual-files/two-streams/sprite.png');
+    imageUtils.loadExpected(__dirname + '/expected-files/two-streams/mint-graphicsmagick.png');
+
+    it('generates a top-down png', function () {
+      assert.deepEqual(this.actualPixels, this.expectedPixels);
+    });
+
+    it('generates a css file', function () {
+      var actualCss = fs.readFileSync(__dirname + '/actual-files/two-streams/sprite.css', 'utf8');
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/two-streams/sprite.css', 'utf8');
+      assert.strictEqual(actualCss, expectedCss);
+    });
+  });
+
   describe('running a task with output formats', function () {
     childUtils.run('gulp sprite-formats');
     imageUtils.loadActual(__dirname + '/actual-files/formats/sprite.jpg');
