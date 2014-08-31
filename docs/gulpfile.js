@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var csso = require('gulp-csso');
+var imagemin = require('gulp-imagemin');
 var spritesmith = require('../');
 
 gulp.task('sprite', function () {
@@ -10,6 +12,26 @@ gulp.task('sprite', function () {
     algorithm: 'binary-tree'
   }));
   spriteData.pipe(gulp.dest('path/to/output/'));
+});
+
+gulp.task('sprite-pipeline', function () {
+  gulp.task('sprite', function () {
+    // Generate our spritesheet
+    var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+      imgName: 'sprite.png',
+      cssName: 'sprite.css'
+    }));
+
+    // Pipe image stream through image optimizer and onto disk
+    spriteData.img
+      .pipe(imagemin())
+      .pipe(gulp.dest('path/to/image/folder/'));
+
+    // Pipe CSS stream through CSS optimizer and onto disk
+    spriteData.css
+      .pipe(csso())
+      .pipe(gulp.dest('path/to/css/folder/'));
+  });
 });
 
 gulp.task('sprite-cssvarmap', function () {
