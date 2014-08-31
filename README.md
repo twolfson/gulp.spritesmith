@@ -37,6 +37,25 @@ gulp.task('sprite', function () {
 });
 ```
 
+### Continuing the pipeline
+In addition to the `spriteData` stream, we offer individual streams for images and CSS. This allows for image optimization and CSS minification.
+
+```js
+var gulp = require('gulp');
+var spritesmith = require('gulp.spritesmith');
+
+gulp.task('sprite', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.css'
+  }));
+  // Image stream
+  spriteData.img.pipe(gulp.dest('path/to/output/'));
+  // CSS stream
+  spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
+});
+```
+
 ## Documentation
 `gulp.spritesmith` presents the `spritesmith` function as its `module.exports`.
 
