@@ -129,6 +129,11 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [cssTemplate]: #cssTemplate
 [cssclass-example]: #using-cssoptscssclass
 
+**Returns**:
+- retStream [`stream.Transform`][transform stream] - Stream that outputs image and CSS as [vinyl-fs][] objects
+- retStream.img [`stream.Readable`][readable stream] - Stream for image output as a [vinyl-fs][] object
+- retStream.css [`stream.Readable`][readable stream] - Stream for CSS output as a [vinyl-fs][] object
+
 #### Engines
 For cross-platform accessibility, [spritesmith][] offers multiple sprite engines. Each of these engines has a different set of dependencies.
 
