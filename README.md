@@ -50,7 +50,7 @@ gulp.task('sprite', function () {
     cssName: 'sprite.css'
   }));
   // Image stream
-  spriteData.img.pipe(gulp.dest('path/to/output/'));
+  spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
   // CSS stream
   spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
 });
