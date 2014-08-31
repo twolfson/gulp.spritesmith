@@ -42,17 +42,26 @@ In addition to the `spriteData` stream, we offer individual streams for images a
 
 ```js
 var gulp = require('gulp');
+var csso = require('gulp-csso');
+var imagemin = require('gulp-imagemin');
 var spritesmith = require('gulp.spritesmith');
 
 gulp.task('sprite', function () {
+  // Generate our spritesheet
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }));
-  // Image stream
-  spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
-  // CSS stream
-  spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
+
+  // Pipe image stream through image optimizer and onto disk
+  spriteData.img
+    .pipe(imagemin())
+    .pipe(gulp.dest('path/to/image/folder/'));
+
+  // Pipe CSS stream through CSS optimizer and onto disk
+  spriteData.css
+    .pipe(csso())
+    .pipe(gulp.dest('path/to/css/folder/'));
 });
 ```
 
