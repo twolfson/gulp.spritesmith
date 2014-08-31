@@ -23,12 +23,12 @@ gulp.task('sprite-pipeline', function () {
 
   // Pipe image stream through image optimizer and onto disk
   spriteData.img
-    // .pipe(imagemin())
+    .pipe(imagemin())
     .pipe(gulp.dest('path/to/image/folder/'));
 
   // Pipe CSS stream through CSS optimizer and onto disk
   spriteData.css
-    // .pipe(csso())
+    .pipe(csso())
     .pipe(gulp.dest('path/to/css/folder/'));
 });
 
