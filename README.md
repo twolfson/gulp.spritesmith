@@ -28,32 +28,13 @@ Install the module with: `npm install gulp.spritesmith`
 var gulp = require('gulp');
 var spritesmith = require('gulp.spritesmith');
 
-// method #1
-
 gulp.task('sprite', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }));
-  spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
-  spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
+  spriteData.pipe(gulp.dest('path/to/output/'));
 });
-
-// method #2
-
-var gulpif = require('gulp-if');
-
-gulp.task('sprite', function () {
-  gulp.src('images/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: 'sprite.css'}))
-  .pipe(
-    gulpif('*.png',
-      gulp.dest('path/to/image/folder'),
-      gulp.dest('path/to/css/folder'))
-  )
-});
-
 ```
 
 ## Documentation
