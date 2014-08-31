@@ -9,8 +9,7 @@ gulp.task('sprite', function () {
     cssName: 'sprite.css',
     algorithm: 'binary-tree'
   }));
-  spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
-  spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
+  spriteData.pipe(gulp.dest('path/to/output/'));
 });
 
 gulp.task('sprite-cssvarmap', function () {
