@@ -69,12 +69,12 @@ gulp.task('sprite', function () {
 `gulp.spritesmith` presents the `spritesmith` function as its `module.exports`.
 
 ### `spritesmith(params)`
-[gulp][] plugin that returns a [readable stream][] and an object containing two [writable streams][].
+[gulp][] plugin that returns a [transform stream][] with 2 [readable stream][] properties.
 
 The input/output streams interact with [vinyl-fs][] objects which are [gulp's][gulp] format of choice.
 
+[transform stream]: http://nodejs.org/api/stream.html#stream_class_stream_transform
 [readable stream]: http://nodejs.org/api/stream.html#stream_class_stream_readable
-[writable streams]: http://nodejs.org/api/stream.html#stream_class_stream_writable
 [vinyl-fs]: https://github.com/wearefractal/vinyl-fs
 
 - params `Object` - Container for `gulp.spritesmith` parameters
