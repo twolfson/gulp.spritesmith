@@ -37,11 +37,13 @@
     "through2": "~0.6.1"
   },
   "devDependencies": {
-    "mocha": "~1.11.0",
     "gulp": "~3.5.2",
+    "gulp-csso": "~0.2.9",
+    "gulp-imagemin": "~1.0.1",
     "gulp-jshint": "~1.4.0",
-    "rimraf": "~2.2.6",
-    "pngparse": "~2.0.1"
+    "mocha": "~1.11.0",
+    "pngparse": "~2.0.1",
+    "rimraf": "~2.2.6"
   },
   "keywords": [
     "gulpplugin",
