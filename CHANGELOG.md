@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+1.2.0 - Moved return stream to `stream.Transform` via @elentok in #16
+
 1.1.2 - Corrected example image for README
 
 1.1.1 - Updated README
