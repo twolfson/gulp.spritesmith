@@ -93,17 +93,15 @@ describe('gulp.spritesmith', function () {
   // DEV: `gulp-newer` presents no input files when the task does not need to be run. See #17
   describe('running a task with no input images', function () {
     childUtils.run('gulp sprite-empty');
-    imageUtils.loadActual(__dirname + '/actual-files/empty/sprite.png');
-    imageUtils.loadExpected(__dirname + '/expected-files/empty/mint-graphicsmagick.png');
 
-    it('generates a top-down png', function () {
-      assert.deepEqual(this.actualPixels, this.expectedPixels);
+    it('does not generate a top-down png', function () {
+      var imgExists = fs.existsSync(__dirname + '/actual-files/empty/sprite.png');
+      assert.strictEqual(imgExists, false);
     });
 
-    it('generates a css file', function () {
-      var actualCss = fs.readFileSync(__dirname + '/actual-files/template/sprite.scss', 'utf8');
-      var expectedCss = fs.readFileSync(__dirname + '/expected-files/template/sprite.scss', 'utf8');
-      assert.strictEqual(actualCss, expectedCss);
+    it('does not generate a css file', function () {
+      var cssExists = fs.existsSync(__dirname + '/actual-files/template/sprite.scss');
+      assert.strictEqual(cssExists, false);
     });
   });
 });
