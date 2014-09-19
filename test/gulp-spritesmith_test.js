@@ -100,7 +100,7 @@ describe('gulp.spritesmith', function () {
     });
 
     it('does not generate a css file', function () {
-      var cssExists = fs.existsSync(__dirname + '/actual-files/template/sprite.scss');
+      var cssExists = fs.existsSync(__dirname + '/actual-files/empty/sprite.scss');
       assert.strictEqual(cssExists, false);
     });
   });
