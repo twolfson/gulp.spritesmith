@@ -55,3 +55,11 @@ gulp.task('sprite-template', function () {
   }))
   .pipe(gulp.dest('actual-files/template/'));
 });
+
+gulp.task('sprite-empty', function () {
+  gulp.src([]).pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.scss',
+  }))
+  .pipe(gulp.dest('actual-files/empty/'));
+});
