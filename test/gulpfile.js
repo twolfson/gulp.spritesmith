@@ -1,4 +1,6 @@
+// Load in dependencies
 var gulp = require('gulp');
+var through2 = require('through2');
 var spritesmith = require('../');
 
 // Define our test tasks
@@ -57,7 +59,16 @@ gulp.task('sprite-template', function () {
 });
 
 gulp.task('sprite-empty', function () {
-  gulp.src([]).pipe(spritesmith({
+  gulp.src(images).pipe(through2.obj(
+    // On data, do nothing and callback
+    function onEmptyData (file, encoding, cb) {
+      cb();
+    },
+    // On end, callback with nothing
+    function onEmptyEnd (cb) {
+      cb();
+    }
+  )).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.scss',
   }))
