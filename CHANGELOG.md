@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+1.3.0 - Added support for `gulp-newer` by doing nothing when no images are provided. Fixes #17
+
 1.2.0 - Moved return stream to `stream.Transform` via @elentok in #16
 
 1.1.2 - Corrected example image for README
