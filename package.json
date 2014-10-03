@@ -31,7 +31,7 @@
   "dependencies": {
     "gulp-util": "~2.2.14",
     "json2css": "~5.2.0",
-    "spritesmith": "~0.19.0",
+    "spritesmith": "~0.20.0",
     "through2": "~0.6.1",
     "underscore": "~1.6.0",
     "url2": "~1.0.0"
