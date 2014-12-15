@@ -97,6 +97,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
         - An example usage can be found in the [Examples section](#padding)
     - algorithm `String` - Optional method for how to pack images
         - By default we use `binary-tree`, which packs images as efficiently as possible
+        - An example usage can be found in the [Examples section](#algorithm)
         - More information can be found in the [Algorithms section](#algorithms)
     - algorithmOpts `Object` - Options to pass through to algorithm
         - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
@@ -105,6 +106,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
           - https://github.com/twolfson/layout#algorithms
     - engine `String` - Optional image generating engine to use
         - By default we use `pixelsmith`, a `node` based engine that supports all common image formats
+        - An example usage can be found in the [Examples section](#engine)
         - More information can be found in the [Engines section](#engines)
     - engineOpts `Object` - Options to pass through to engine for settings
         - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
@@ -120,7 +122,9 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
     - cssTemplate `String|Function` - CSS template to use for rendering output CSS
         - This overrides `cssFormat`
         - If a `String` is provided, it must be a path to a [mustache][] template
+            - An example usage can be found in the [Examples section](#mustache-template)
         - If a `Function` is provided, it must have a signature of `function (params)`
+            - An example usage can be found in the [Examples section](#template-function)
         - For more templating information, see the [Templating section](#templating)
     - cssVarMap `Function` - Mapping function for each filename to CSS variable
         - For more information, see [Variable mapping](#variable-mapping)
