@@ -403,9 +403,8 @@ In this example, we will use `cssTemplate` with a custom function that generates
 ```js
 // var yaml = require('js-yaml');
 {
-  src: ['fork.png', 'github.png', 'twitter.png'],
-  imgName: 'spritesheet.yamlTemplate.png',
-  cssName: 'spritesheet.yamlTemplate.yml',
+  imgName: 'sprite.png',
+  cssName: 'sprite.yml',
   cssTemplate: function (params) {
     // Convert items from an array into an object
     var itemObj = {};

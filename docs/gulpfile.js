@@ -2,6 +2,7 @@
 var gulp = require('gulp');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
+var yaml = require('js-yaml');
 var spritesmith = require('../');
 
 // Define our tasks
@@ -50,4 +51,27 @@ gulp.task('sprite-mustache-template', function () {
     cssTemplate: 'mustacheStr.css.mustache'
   }));
   spriteData.pipe(gulp.dest('examples/mustache-template/'));
+});
+
+gulp.task('sprite-template-function', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.yml',
+    cssTemplate: function (params) {
+      // Convert items from an array into an object
+      var itemObj = {};
+      params.items.forEach(function (item) {
+        // Grab the name and store the item under it
+        var name = item.name;
+        itemObj[name] = item;
+
+        // Delete the name from the item
+        delete item.name;
+      });
+
+      // Return stringified itemObj
+      return yaml.safeDump(itemObj);
+    }
+  }));
+  spriteData.pipe(gulp.dest('examples/template-function/'));
 });
