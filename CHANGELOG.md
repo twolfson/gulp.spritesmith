@@ -1,4 +1,13 @@
 # gulp.spritesmith changelog
+2.0.0 - Major release with multiple breaking changes:
+
+- Upgraded to `spritesmith@1.0.0`
+    - Moved to `pixelsmith` as default engine
+    - Removed all other engines
+    - Moved to `binary-tree` as default algorithm
+- Upgraded to `json2css@6.0.0`
+    - Renames `cssClass` to `cssSelector` to make it more semantic
+
 1.5.0 - Added `twolfson-style` and fixed up lint errors
 
 1.4.1 - Updated `gittip` to `gratipay`
