@@ -18,7 +18,7 @@ gulp.task('sprite-default', function () {
 });
 
 gulp.task('sprite-two-streams', function () {
-  data = gulp.src(images).pipe(spritesmith({
+  var data = gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }));
@@ -70,7 +70,7 @@ gulp.task('sprite-empty', function () {
     }
   )).pipe(spritesmith({
     imgName: 'sprite.png',
-    cssName: 'sprite.scss',
+    cssName: 'sprite.scss'
   }))
   .pipe(gulp.dest('actual-files/empty/'));
 });
