@@ -431,8 +431,8 @@ fork:
   "y": 0
   width: 32
   height: 32
-  source_image: fork.png
-  image: spritesheet.yamlTemplate.png
+  source_image: /home/todd/github/gulp.spritesmith/docs/images/fork.png
+  image: sprite.png
   total_width: 64
   total_height: 64
   offset_x: -0.0
@@ -446,10 +446,9 @@ fork:
     width: 32px
     total_height: 64px
     total_width: 64px
-  escaped_image: spritesheet.yamlTemplate.png
+  escaped_image: sprite.png
 github:
-  x: 32
-  # ...
+# ...
 ```
 
 ## Contributing
