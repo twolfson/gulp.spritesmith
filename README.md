@@ -21,6 +21,11 @@ Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 [gratipay]: https://gratipay.com/twolfson/
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20gulp.spritesmith&url=https%3A%2F%2Fgithub.com%2Ftwolfson%2Fgulp.spritesmith&via=twolfsn
 
+## Breaking changes in 2.0.0
+We have moved to `pixelsmith` as the default `engine`. It is `node` based and should support your sprites. Any other engines must be installed outside of `spritesmith`. This will lead to cleaner and faster installations.
+
+We have moved to `binary-tree` as the default `algorithm`. We changed this to give the best possible packing out of the box. If you were using `top-down` as the default, please specify it in your configuration.
+
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
 
@@ -78,42 +83,47 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [vinyl-fs]: https://github.com/wearefractal/vinyl-fs
 
 - params `Object` - Container for `gulp.spritesmith` parameters
-  - imgName `String` - Filename to save image as
-      - Supported image extensions are `.png` and `.jpg/jpeg` (limited to specfic engines)
-      - Image format can be overridden via `imgOpts.format`
-  - cssName `String` - Filename to save CSS as
-      - Supported CSS extensions are `.css` (CSS), `.sass` ([SASS][]), `.scss` ([SCSS][]), `.less` ([LESS][]), `.styl/.stylus` ([Stylus][]), and `.json` ([JSON][])
-      - CSS format can be overridden via `cssFormat`
-  - imgPath `String` - Optional path to use in CSS referring to image location
-  - engine `String` - Optional image generating engine to use
-      - By default, `auto` will be used which detects the best supported engine for your system
-      - Supported options are `phantomjs`, `canvas`, `gm`, and `pngsmith`
-      - More information can be found in the [engine][] section
-  - algorithm `String` - Optional method for how to pack images
-      - Supported options are `top-down` (default), `left-right`, `diagonal`, `alt-diagonal`, and `binary-tree`
-      - More information can be found in the [algorithm][] section
-  - padding `Number` - Optional amount of pixels to include between images
-      - By default, there will be no padding
-  - imgOpts `Object` - Options for image output
-      - format `String` - Override for format of output image
-          - Supported values are `png` and `jpg` (limited to specific engines)
-      - quality `Number` - Quality of image (only supported by `gm` engine)
-      - timeout `Number` - Milliseconds to wait before terminating render (limited to `phantomjs` engine)
-  - algorithmOpts `Object` - Options for algorithm configuration
-      - sort `Boolean` - Enable/disable image sorting by `algorithm`
-          - By default, sorting is enabled (`true`)
-  - engineOpts `Object` - Options for engine configuration
-      - imagemagick `Boolean` - Force usage of `imagemagick` over `graphicsmagick` (limited to `gm`)
-  - cssFormat `String` - Override for format of CSS output
-      - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `scss_maps` ([SCSS][] using [map notation][sass-maps]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
-  - cssVarMap `Function` - Iterator to customize CSS variable names
-      - An example can be found [here][cssvarmap-example]
-  - cssTemplate `Function|String` - CSS templating function or path to alternative [mustache][] template
-      - More information can be found in the [cssTemplate][] section
-  - cssOpts `Object` - Container for CSS templates
-      - functions `Boolean` - Skip output of mixins
-      - cssClass `Function` - Iterator to override default CSS selectors
-          - An example can be found [here][cssclass-example]
+    - imgName `String` - Filename to save image as
+        - Supported image extensions are `.png` and `.jpg/jpeg` (limited to specfic engines)
+        - Image format can be overridden via `imgOpts.format`
+    - cssName `String` - Filename to save CSS as
+        - Supported CSS extensions are `.css` (CSS), `.sass` ([SASS][]), `.scss` ([SCSS][]), `.less` ([LESS][]), `.styl/.stylus` ([Stylus][]), and `.json` ([JSON][])
+        - CSS format can be overridden via `cssFormat`
+    - imgPath `String` - Optional path to use in CSS referring to image location
+    - padding `Number` - Optional amount of pixels to include between images
+        - By default we use no padding between images (`0`)
+        - TODO: Add example for padding
+    - algorithm `String` - Optional method for how to pack images
+        - By default we use `binary-tree`, which packs images as efficiently as possible
+        - // TODO: Update linked content
+        - More information can be found in the [Algorithms section](#algorithms)
+    - algorithmOpts `Object` - Options to pass through to algorithm
+        - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
+          - This is useful for sprite animations
+      - See your algorithm's documentation for available options
+          - https://github.com/twolfson/layout#algorithms
+    - engine `String` - Optional image generating engine to use
+        - By default we use `pixelsmith`, a `node` based engine that supports all common image formats
+        - // TODO: Update linked content
+        - More information can be found in the [Engines section](#engines)
+    - engineOpts `Object` - Options to pass through to engine for settings
+        - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
+      - See your engine's documentation for available options
+    - imgOpts `Object` - Options for image output
+        - format `String` - Override for format of output image
+            - Supported values are `png` and `jpg` (limited to specific engines)
+        - quality `Number` - Quality of image (only supported by `gm` engine)
+        - timeout `Number` - Milliseconds to wait before terminating render (limited to `phantomjs` engine)
+    - cssFormat `String` - Override for format of CSS output
+        - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `scss_maps` ([SCSS][] using [map notation][sass-maps]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
+    - cssVarMap `Function` - Iterator to customize CSS variable names
+        - An example can be found [here][cssvarmap-example]
+    - cssTemplate `Function|String` - CSS templating function or path to alternative [mustache][] template
+        - More information can be found in the [cssTemplate][] section
+    - cssOpts `Object` - Container for CSS templates
+        - functions `Boolean` - Skip output of mixins
+        - cssClass `Function` - Iterator to override default CSS selectors
+            - An example can be found [here][cssclass-example]
 
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
@@ -123,7 +133,6 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [JSON]: http://json.org/
 [mustache]: http://mustache.github.io/
 
-[engine]: #engines
 [algorithm]: #algorithms
 [cssvarmap-example]: #using-cssvarmap
 [cssTemplate]: #cssTemplate
