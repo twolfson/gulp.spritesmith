@@ -13,7 +13,7 @@ describe('gulp.spritesmith', function () {
   describe('running a task without any options', function () {
     childUtils.run('gulp sprite-default');
     imageUtils.loadActual(__dirname + '/actual-files/default/sprite.png');
-    imageUtils.loadExpected(__dirname + '/expected-files/default/mint-graphicsmagick.png');
+    imageUtils.loadExpected(__dirname + '/expected-files/default/pixelsmith.png');
 
     it('generates a top-down png', function () {
       assert.deepEqual(this.actualPixels, this.expectedPixels);
@@ -29,7 +29,7 @@ describe('gulp.spritesmith', function () {
   describe('returns "img" and "css" streams', function () {
     childUtils.run('gulp sprite-two-streams');
     imageUtils.loadActual(__dirname + '/actual-files/two-streams/sprite.png');
-    imageUtils.loadExpected(__dirname + '/expected-files/two-streams/mint-graphicsmagick.png');
+    imageUtils.loadExpected(__dirname + '/expected-files/two-streams/pixelsmith.png');
 
     it('generates a top-down png', function () {
       assert.deepEqual(this.actualPixels, this.expectedPixels);
