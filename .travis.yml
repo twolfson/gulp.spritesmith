@@ -6,5 +6,12 @@ matrix:
   allow_failures:
     - node_js: "0.11"
 
+install:
+  # Install jscs before other modules to prevent race conditions
+  - npm install jscs
+
+  # Install dependencies and dev dependencies
+  - npm install
+
 notifications:
   email: false
