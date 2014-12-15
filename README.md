@@ -109,21 +109,31 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
     - engineOpts `Object` - Options to pass through to engine for settings
         - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
       - See your engine's documentation for available options
-    - imgOpts `Object` - Options for image output
-        - format `String` - Override for format of output image
-            - Supported values are `png` and `jpg` (limited to specific engines)
-        - quality `Number` - Quality of image (only supported by `gm` engine)
-        - timeout `Number` - Milliseconds to wait before terminating render (limited to `phantomjs` engine)
-    - cssFormat `String` - Override for format of CSS output
-        - Supported values are `css` (CSS), `sass` ([SASS][]), `scss` ([SCSS][]), `scss_maps` ([SCSS][] using [map notation][sass-maps]), `less` ([LESS][]), `stylus` ([Stylus][]), and `json` ([JSON][])
+    - imgOpts `Object` - Options to pass through to engine uring export
+        - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
+        - See your engine's documentation for available options
+    - cssFormat `String` - CSS format to use
+        - By default this is the format inferred by `destCss'` extension
+            - For example `.styl -> stylus`
+        - For more format options, see our formatting library
+            - https://github.com/twolfson/json2css#templates
+    - // TODO: Consider using new content
+        - cssVarMap `Function` - Mapping function for each filename to CSS variable
+            - For more information, see [Variable mapping](#variable-mapping)
     - cssVarMap `Function` - Iterator to customize CSS variable names
         - An example can be found [here][cssvarmap-example]
-    - cssTemplate `Function|String` - CSS templating function or path to alternative [mustache][] template
-        - More information can be found in the [cssTemplate][] section
-    - cssOpts `Object` - Container for CSS templates
-        - functions `Boolean` - Skip output of mixins
-        - cssClass `Function` - Iterator to override default CSS selectors
-            - An example can be found [here][cssclass-example]
+    - cssTemplate `String|Function` - CSS template to use for rendering output CSS
+        - This overrides `cssFormat`
+        - If a `String` is provided, it must be a path to a [mustache][] template
+        - If a `Function` is provided, it must have a signature of `function (params)`
+        - // TODO: Add new section
+        - For more templating information, see the [Templating section](#templating)
+    - cssOpts `Object` - Options to pass through to templater
+        - For example `{cssOpts: {functions: false}}` skips output of mixins
+        - // TODO: Don't forget to upgrade json2css
+        - // TODO: Run through grunt-spritesmith changes again
+        - See your template's documentation for available options
+            - https://github.com/twolfson/json2css#templates
 
 [SASS]: http://sass-lang.com/
 [SCSS]: http://sass-lang.com/
@@ -133,7 +143,6 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [JSON]: http://json.org/
 [mustache]: http://mustache.github.io/
 
-[algorithm]: #algorithms
 [cssvarmap-example]: #using-cssvarmap
 [cssTemplate]: #cssTemplate
 [cssclass-example]: #using-cssoptscssclass
