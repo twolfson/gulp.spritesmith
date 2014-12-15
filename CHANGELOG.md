@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+1.4.1 - Updated `gittip` to `gratipay`
+
 1.4.0 - Upgraded to `spritesmith@0.20.0` to pick up `phantomjssmith's` JPEG support
 
 1.3.0 - Added support for `gulp-newer` by doing nothing when no images are provided. Fixes #17
