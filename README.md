@@ -386,7 +386,7 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 ```css
 .icon-fork:before {
   display: block;
-  background-image: url(spritesheet.mustacheStr.png);
+  background-image: url(sprite.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px;

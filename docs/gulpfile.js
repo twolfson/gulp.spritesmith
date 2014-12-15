@@ -46,7 +46,8 @@ gulp.task('sprite-padding', function () {
 gulp.task('sprite-mustache-template', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
-    cssName: 'sprite.styl',
+    cssName: 'sprite.css',
+    cssTemplate: 'mustacheStr.css.mustache'
   }));
   spriteData.pipe(gulp.dest('examples/mustache-template/'));
 });
