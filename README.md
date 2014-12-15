@@ -26,6 +26,8 @@ We have moved to `pixelsmith` as the default `engine`. It is `node` based and sh
 
 We have moved to `binary-tree` as the default `algorithm`. We changed this to give the best possible packing out of the box. If you were using `top-down` as the default, please specify it in your configuration.
 
+We have moved the `cssClass` option for the `css` template to `cssSelector`. This makes it more semantically appropriate and eaiser to find.
+
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
 
