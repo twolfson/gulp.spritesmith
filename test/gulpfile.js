@@ -34,7 +34,9 @@ gulp.task('sprite-formats', function () {
       format: 'png'
     },
     cssFormat: 'stylus',
-    engine: 'phantomjssmith'
+    engine: 'phantomjssmith',
+    // Use `top-down` for easier testing
+    algorithm: 'top-down'
   }))
   .pipe(gulp.dest('actual-files/formats/'));
 });
@@ -53,7 +55,9 @@ gulp.task('sprite-template', function () {
   gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.scss',
-    cssTemplate: 'test-files/scss.template.mustache'
+    cssTemplate: 'test-files/scss.template.mustache',
+    // Use `top-down` for easier testing
+    algorithm: 'top-down'
   }))
   .pipe(gulp.dest('actual-files/template/'));
 });
