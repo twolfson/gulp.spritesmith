@@ -34,7 +34,7 @@ gulp.task('sprite-formats', function () {
       format: 'png'
     },
     cssFormat: 'stylus',
-    engine: 'pngsmith'
+    engine: 'phantomjssmith'
   }))
   .pipe(gulp.dest('actual-files/formats/'));
 });
