@@ -92,10 +92,9 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
     - imgPath `String` - Optional path to use in CSS referring to image location
     - padding `Number` - Optional amount of pixels to include between images
         - By default we use no padding between images (`0`)
-        - TODO: Add example for padding
+        - An example usage can be found in the [Examples section](#padding)
     - algorithm `String` - Optional method for how to pack images
         - By default we use `binary-tree`, which packs images as efficiently as possible
-        - // TODO: Update linked content
         - More information can be found in the [Algorithms section](#algorithms)
     - algorithmOpts `Object` - Options to pass through to algorithm
         - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
@@ -104,7 +103,6 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
           - https://github.com/twolfson/layout#algorithms
     - engine `String` - Optional image generating engine to use
         - By default we use `pixelsmith`, a `node` based engine that supports all common image formats
-        - // TODO: Update linked content
         - More information can be found in the [Engines section](#engines)
     - engineOpts `Object` - Options to pass through to engine for settings
         - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
@@ -121,13 +119,9 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
         - This overrides `cssFormat`
         - If a `String` is provided, it must be a path to a [mustache][] template
         - If a `Function` is provided, it must have a signature of `function (params)`
-        - // TODO: Add new section
         - For more templating information, see the [Templating section](#templating)
-    - // TODO: Consider using new content
-        - cssVarMap `Function` - Mapping function for each filename to CSS variable
-            - For more information, see [Variable mapping](#variable-mapping)
-    - cssVarMap `Function` - Iterator to customize CSS variable names
-        - An example can be found [here][cssvarmap-example]
+    - cssVarMap `Function` - Mapping function for each filename to CSS variable
+        - For more information, see [Variable mapping](#variable-mapping)
     - cssOpts `Object` - Options to pass through to templater
         - For example `{cssOpts: {functions: false}}` skips output of mixins
         - // TODO: Don't forget to upgrade json2css
@@ -236,7 +230,6 @@ An example sprite `item` is
 
 Example usages can be found as:
 
-- // TODO: Add new examples
 - [Mustache template](#mustache-template)
 - [Template function](#template-function)
 
