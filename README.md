@@ -360,7 +360,7 @@ npm install gulp.spritesmith
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `gulp` and test via `npm test`.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
 
 ## Attribution
 GitHub and Twitter icons were taken from [Alex Peattie's JustVector Social Icons][justvector].

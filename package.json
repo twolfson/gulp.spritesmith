@@ -26,7 +26,10 @@
     "node": ">= 0.9.0"
   },
   "scripts": {
-    "test": "cd test && mocha . --timeout 60000"
+    "precheck": "twolfson-style precheck docs/ lib/ test/",
+    "lint": "twolfson-style lint docs/ lib/ test/",
+    "pretest": "twolfson-style install",
+    "test": "npm run precheck && cd test && mocha . --timeout 60000 && cd .. && npm run lint"
   },
   "dependencies": {
     "gulp-util": "~2.2.14",
