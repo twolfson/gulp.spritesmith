@@ -15,7 +15,7 @@ describe('gulp.spritesmith', function () {
     imageUtils.loadActual(__dirname + '/actual-files/default/sprite.png');
     imageUtils.loadExpected(__dirname + '/expected-files/default/pixelsmith.png');
 
-    it('generates a top-down png', function () {
+    it('generates an image', function () {
       assert.deepEqual(this.actualPixels, this.expectedPixels);
     });
 
@@ -31,7 +31,7 @@ describe('gulp.spritesmith', function () {
     imageUtils.loadActual(__dirname + '/actual-files/two-streams/sprite.png');
     imageUtils.loadExpected(__dirname + '/expected-files/two-streams/pixelsmith.png');
 
-    it('generates a top-down png', function () {
+    it('generates an image', function () {
       assert.deepEqual(this.actualPixels, this.expectedPixels);
     });
 
