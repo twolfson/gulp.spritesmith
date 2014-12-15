@@ -2,6 +2,7 @@
 var gulp = require('gulp');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
+var phantomjssmith = require('phantomjssmith');
 var yaml = require('js-yaml');
 var spritesmith = require('../');
 
@@ -33,6 +34,24 @@ gulp.task('sprite-pipeline', function () {
   spriteData.css
     .pipe(csso())
     .pipe(gulp.dest('path/to/css/folder/'));
+});
+
+gulp.task('sprite-algorithm', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.styl',
+    algorithm: 'alt-diagonal'
+  }));
+  spriteData.pipe(gulp.dest('examples/algorithm/'));
+});
+
+gulp.task('sprite-engine', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.styl',
+    engine: phantomjssmith
+  }));
+  spriteData.pipe(gulp.dest('examples/engine/'));
 });
 
 gulp.task('sprite-padding', function () {
