@@ -124,8 +124,6 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
         - For more information, see [Variable mapping](#variable-mapping)
     - cssOpts `Object` - Options to pass through to templater
         - For example `{cssOpts: {functions: false}}` skips output of mixins
-        - // TODO: Don't forget to upgrade json2css
-        - // TODO: Run through grunt-spritesmith changes again
         - See your template's documentation for available options
             - https://github.com/twolfson/json2css#templates
 
@@ -136,10 +134,6 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [Stylus]: http://learnboost.github.com/stylus/
 [JSON]: http://json.org/
 [mustache]: http://mustache.github.io/
-
-[cssvarmap-example]: #using-cssvarmap
-[cssTemplate]: #cssTemplate
-[cssclass-example]: #using-cssoptscssclass
 
 **Returns**:
 - spriteData [`stream.Transform`][transform stream] - Stream that outputs image and CSS as [vinyl-fs][] objects
