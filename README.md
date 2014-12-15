@@ -117,17 +117,17 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
             - For example `.styl -> stylus`
         - For more format options, see our formatting library
             - https://github.com/twolfson/json2css#templates
-    - // TODO: Consider using new content
-        - cssVarMap `Function` - Mapping function for each filename to CSS variable
-            - For more information, see [Variable mapping](#variable-mapping)
-    - cssVarMap `Function` - Iterator to customize CSS variable names
-        - An example can be found [here][cssvarmap-example]
     - cssTemplate `String|Function` - CSS template to use for rendering output CSS
         - This overrides `cssFormat`
         - If a `String` is provided, it must be a path to a [mustache][] template
         - If a `Function` is provided, it must have a signature of `function (params)`
         - // TODO: Add new section
         - For more templating information, see the [Templating section](#templating)
+    - // TODO: Consider using new content
+        - cssVarMap `Function` - Mapping function for each filename to CSS variable
+            - For more information, see [Variable mapping](#variable-mapping)
+    - cssVarMap `Function` - Iterator to customize CSS variable names
+        - An example can be found [here][cssvarmap-example]
     - cssOpts `Object` - Options to pass through to templater
         - For example `{cssOpts: {functions: false}}` skips output of mixins
         - // TODO: Don't forget to upgrade json2css
@@ -171,96 +171,41 @@ More information can be found in the [`layout`][] documentation:
 
 https://github.com/twolfson/layout
 
-#### Engines
-For cross-platform accessibility, [spritesmith][] offers multiple sprite engines. Each of these engines has a different set of dependencies.
+### Templating
+The `cssTemplate` option allows for using a custom template. An example template can be found at:
 
-If you are running into issues, consult the [FAQ section](#faqs).
+https://github.com/twolfson/json2css/blob/4.2.0/lib/templates/stylus.template.mustache
 
-##### pngsmith
-The `pngsmith` engine uses [`pngparse`][], an JavaScript `png` parser, to interpret images into [`ndarrays`][]. This requires no additional steps before installation.
+The parameters passed into your template are known as `params`. We add some normalized properties via[`json2css`][] for your convenience.
 
-[`pngparse`]: https://github.com/darkskyapp/pngparse
-[`ndarrays`]: https://github.com/mikolalysenko/ndarray
-
-Key differences: It requires no additional installation steps but you are limited to `.png` files for your source files.
-
-##### phantomjs
-The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
-
-[spritesmith][] has been tested against `phantomjs@1.9.0`.
-
-[phantomjs]: http://phantomjs.org/
-
-Key differences: `phantomjs` is the easiest engine to install that supports all image formats.
-
-##### canvas
-The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo]. Installation instructions can be found in the [node-canvas wiki][].
-
-Additionally, you will need to install [node-gyp][] for the C++ bindings.
-
-```bash
-npm install -g node-gyp
-```
-
-Key differences: `canvas` has the best performance (useful for over 100 sprites). However, it is limited to `UNIX`.
-
-[node-canvas]: https://github.com/learnboost/node-canvas
-[cairo]: http://cairographics.org/
-[node-canvas wiki]: https://github.com/LearnBoost/node-canvas/wiki/_pages
-[node-gyp]: https://github.com/TooTallNate/node-gyp/
-
-##### gm (Graphics Magick / Image Magick)
-The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
-
-For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
-
-[spritesmith][] has been developed and tested against `graphicsmagick@1.3.17`.
-
-[graphics-magick]: http://www.graphicsmagick.org/
-[image-magick]: http://imagemagick.org/
-
-Key differences: `gm` has the most options for export via `imgOpts`.
-
-#### cssTemplate
-`gulp.spritespritesmith` allows you to define your own CSS template, either via a `function` or [mustache][] template.
-
-If you pass in a `Function`, it should have a signature of `function (params) {}` and return a `String`.
-
-If you pass in a `String`, we treat this as a path; reading in the file and rendering it via [mustache.js][mustache]. The template will be passed the same `params` as in the `Function` case.
-
-> An example template is https://github.com/twolfson/json2css/blob/4.2.0/lib/templates/stylus.template.mustache
-
-#### `params`
-`params` is an object with some normalization nicities from [`json2css`][], our default collection of templates.
-
-- params `Object`
+- params `Object` Container for parameters
     - items `Object[]` - Array of sprite information
-      - name `String` - Name of the sprite file (sans extension)
-      - x `Number` - Horizontal position of sprite's left edge in spritesheet
-      - y `Number` - Vertical position of sprite's top edge in spritesheet
-      - width `Number` - Width of sprite
-      - height `Number` - Height of sprite
-      - total_width `Number` - Width of entire spritesheet
-      - total_height `Number` - Height of entire spritesheet
-      - image `String` - Relative URL path from CSS to spritesheet
-      - escaped_image `String` - URL encoded `image`
-      - source_image `String` - Path to the original sprite file
-      - offset_x `Number` - Negative value of `x`. Useful to `background-position`
-      - offset_y `Number` - Negative value of `y`. Useful to `background-position`
-      - px `Object` - Container for numeric values including `px`
-        - x `String` - `x` suffixed with `px`
-        - y `String` - `y` suffixed with `px`
-        - width `String` - `width` suffixed with `px`
-        - height `String` - `height` suffixed with `px`
-        - total_width `String` - `total_width` suffixed with `px`
-        - total_height `String` - `total_height` suffixed with `px`
-        - offset_x `String` - `offset_x` suffixed with `px`
-        - offset_y `String` - `offset_y` suffixed with `px`
-    - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
+        - name `String` - Name of the sprite file (sans extension)
+        - x `Number` - Horizontal position of sprite's left edge in spritesheet
+        - y `Number` - Vertical position of sprite's top edge in spritesheet
+        - width `Number` - Width of sprite
+        - height `Number` - Height of sprite
+        - total_width `Number` - Width of entire spritesheet
+        - total_height `Number` - Height of entire spritesheet
+        - image `String` - Relative URL path from CSS to spritesheet
+        - escaped_image `String` - URL encoded `image`
+        - source_image `String` - Path to the original sprite file
+        - offset_x `Number` - Negative value of `x`. Useful to `background-position`
+        - offset_y `Number` - Negative value of `y`. Useful to `background-position`
+        - px `Object` - Container for numeric values including `px`
+            - x `String` - `x` suffixed with `px`
+            - y `String` - `y` suffixed with `px`
+            - width `String` - `width` suffixed with `px`
+            - height `String` - `height` suffixed with `px`
+            - total_width `String` - `total_width` suffixed with `px`
+            - total_height `String` - `total_height` suffixed with `px`
+            - offset_x `String` - `offset_x` suffixed with `px`
+            - offset_y `String` - `offset_y` suffixed with `px`
+      - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`json2css`]: https://github.com/twolfson/json2css
 
-An example sprite `item` is:
+An example sprite `item` is
 
 ```js
 {
@@ -288,6 +233,107 @@ An example sprite `item` is:
   }
 }
 ```
+
+Example usages can be found as:
+
+- // TODO: Add new examples
+- [Mustache template](#mustache-template)
+- [Template function](#template-function)
+
+#### Variable mapping
+The `cssVarMap` option allows customization of the CSS variable names
+
+> If you would like to customize CSS selectors in the `css` template, please see https://github.com/twolfson/json2css#css
+
+Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
+
+```js
+// Prefix all sprite names with `sprite-` (e.g. `home` -> `sprite-home`)
+cssVarMap: function (sprite) {
+  sprite.name = 'sprite_' + sprite.name;
+}
+
+// Generates:
+// $sprite_fork_x = 0px;
+// $sprite_fork_y = 0px;
+
+// As oppposed to default:
+// $fork_x = 0px;
+// $fork_y = 0px;
+```
+
+### Engines
+An engine can greatly improve the speed of your build (e.g. `canvassmith`) or support obscure image formats (e.g. `gmsmith`).
+
+All `spritesmith` engines adhere to a common specification and test suite:
+
+https://github.com/twolfson/spritesmith-engine-test
+
+Below is a list of known engines with their tradeoffs:
+
+#### pixelsmith
+[`pixelsmith`][] is a `node` based engine that runs on top of [`get-pixels`][] and [`save-pixels`][].
+
+[`pixelsmith`]: https://github.com/twolfson/pixelsmith
+[`get-pixels`]: https://github.com/mikolalysenko/get-pixels
+[`save-pixels`]: https://github.com/mikolalysenko/save-pixels
+
+**Key differences:** Doesn't support uncommon image formats (e.g. `tiff`) and not as fast as a compiled library (e.g. `canvassmith`).
+
+#### phantomjssmith
+[`phantomjssmith`][] is a [phantomjs][] based engine. It was originally built to provide cross-platform compatibility but has since been succeeded by [`pixelsmith`][].
+
+**Requirements:** [phantomjs][] must be installed on your machine and on your `PATH` environment variable. Visit [the phantomjs website][phantomjs] for installation instructions.
+
+**Key differences:** `phantomjs` is cross-platform and supports all image formats.
+
+[`phantomjssmith`]: https://github.com/twolfson/phantomjssmith
+[phantomjs]: http://phantomjs.org/
+
+#### canvassmith
+[`canvassmith`][] is a [node-canvas][] based engine that runs on top of [Cairo][].
+
+**Requirements:** [Cairo][] and [node-gyp][] must be installed on your machine.
+
+Instructions on how to install [Cairo][] are provided in the [node-canvas wiki][].
+
+[node-gyp][] should be installed via `npm`:
+
+```bash
+npm install -g node-gyp
+```
+
+**Key differences:** `canvas` has the best performance (useful for over 100 sprites). However, it is `UNIX` only.
+
+[`canvassmith`]: https://github.com/twolfson/canvassmith
+[node-canvas]: https://github.com/learnboost/node-canvas
+[Cairo]: http://cairographics.org/
+[node-canvas wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
+[node-gyp]: https://github.com/TooTallNate/node-gyp/
+
+#### gmsmith
+[`gmsmith`][] is a [`gm`][] based engine that runs on top of either [Graphics Magick][] or [Image Magick][].
+
+**Requirements:** Either [Graphics Magick][] or [Image Magick][] must be installed on your machine.
+
+For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
+
+[Image Magick][] is implicitly discovered. However, you can explicitly use it via `engineOpts`
+
+```js
+{
+  engineOpts: {
+    imagemagick: true
+  }
+}
+```
+
+**Key differences:** `gmsmith` allows for configuring image quality whereas others do not.
+
+[`gmsmith`]: https://github.com/twolfson/gmsmith
+[`gm`]: https://github.com/aheckmann/gm
+[Graphics Magick]: http://www.graphicsmagick.org/
+[Image Magick]: http://imagemagick.org/
 
 ## Examples
 ### Using `cssVarMap`
@@ -352,23 +398,6 @@ CSS output:
   width: 32px;
   height: 32px;
 }
-```
-
-## FAQs
-### I am seeing errors during installation.
-If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
-
-### `spritesmith` is saying my engine "could not be loaded"
-If you have specified an `engine` in your config, then you must satisfy its requirements *before* installing `gulp.spritesmith`.
-
-To remedy this, verify you have installed the appropriate set of requirements for your engine:
-
-https://github.com/twolfson/gulp.spritesmith#engines
-
-Afterwards, re-install `gulp.spritesmith` so it detects the satisfied requirements for your engine.
-
-```bash
-npm install gulp.spritesmith
 ```
 
 ## Contributing
