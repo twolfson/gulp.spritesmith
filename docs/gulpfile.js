@@ -34,31 +34,11 @@ gulp.task('sprite-pipeline', function () {
     .pipe(gulp.dest('path/to/css/folder/'));
 });
 
-gulp.task('sprite-cssvarmap', function () {
+gulp.task('sprite-padding', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.styl',
-    cssVarMap: function (sprite) {
-      // `sprite` has `name`, `image` (full path), `x`, `y`
-      //   `width`, `height`, `total_width`, `total_height`
-      // EXAMPLE: Prefix all sprite names with 'sprite-'
-      sprite.name = 'sprite-' + sprite.name;
-    }
+    padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
   }));
-  spriteData.img.pipe(gulp.dest('examples/cssvarmap/'));
-  spriteData.css.pipe(gulp.dest('examples/cssvarmap/'));
-});
-
-gulp.task('sprite-cssclass', function () {
-  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: 'sprite.css',
-    cssOpts: {
-      cssClass: function (item) {
-        return '.sprite-' + item.name;
-      }
-    }
-  }));
-  spriteData.img.pipe(gulp.dest('examples/cssclass/'));
-  spriteData.css.pipe(gulp.dest('examples/cssclass/'));
+  spriteData.pipe(gulp.dest('examples/padding/'));
 });

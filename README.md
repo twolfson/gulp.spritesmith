@@ -113,7 +113,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
         - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
         - See your engine's documentation for available options
     - cssFormat `String` - CSS format to use
-        - By default this is the format inferred by `destCss'` extension
+        - By default this is the format inferred by `cssName's` extension
             - For example `.styl -> stylus`
         - For more format options, see our formatting library
             - https://github.com/twolfson/json2css#templates
@@ -336,68 +336,122 @@ For the best results, install from the site rather than through a package manage
 [Image Magick]: http://imagemagick.org/
 
 ## Examples
-### Using `cssVarMap`
-Task configuration:
+### Padding
+The `padding` options allows for inserting spacing between images.
+
+**Configuration:**
 
 ```js
-gulp.task('sprite', function () {
-  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: 'sprite.styl',
-    cssVarMap: function (sprite) {
-      // `sprite` has `name`, `image` (full path), `x`, `y`
-      //   `width`, `height`, `total_width`, `total_height`
-      // EXAMPLE: Prefix all sprite names with 'sprite-'
-      sprite.name = 'sprite-' + sprite.name;
-    }
-  }));
-  spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
-  spriteData.css.pipe(gulp.dest('path/to/styl/folder/'));
-});
+{
+  imgName: 'spritesheet.padding.png',
+  cssName: 'spritesheet.padding.styl',
+  padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
+}
 ```
 
-CSS output:
+**Output:**
 
-```sass
-/* As opposed to `$fork_x = 0px;` */
-$sprite-fork_x = 0px;
-$sprite-fork_y = 0px;
-$sprite-fork_offset_x = 0px;
-$sprite-fork_offset_y = 0px;
-...
+![padding spritesheet](docs/spritesheet.padding.png)
+
+
+### Mustache template
+In this example, we will use `cssTemplate` with a `mustache` template to generate CSS that uses `:before` selectors.
+
+**Template:**
+
+```mustache
+{{#items}}
+.icon-{{name}}:before {
+  display: block;
+  background-image: url({{{escaped_image}}});
+  background-position: {{px.offset_x}} {{px.offset_y}};
+  width: {{px.width}};
+  height: {{px.height}};
+}
+{{/items}}
 ```
 
-### Using `cssOpts.cssClass`
-Task configuration:
+**Configuration:**
 
 ```js
-gulp.task('sprite', function () {
-  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: 'sprite.css',
-    cssOpts: {
-      cssClass: function (item) {
-        // `item` has `x`, `y`, `width`, `height`, `name`, `image`, and more
-        // It is suggested to `console.log` output
-        return '.sprite-' + item.name;
-      }
-    }
-  }));
-  spriteData.img.pipe(gulp.dest('path/to/image/folder/'));
-  spriteData.css.pipe(gulp.dest('path/to/css/folder/'));
-});
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  imgName: 'spritesheet.mustacheStr.png',
+  cssName: 'spritesheet.mustacheStr.css',
+  cssTemplate: 'mustacheStr.css.mustache'
+}
 ```
 
-CSS output:
+**Output:**
 
 ```css
-/* As opposed to .fork { */
-.sprite-fork {
-  background-image: url(sprite.png);
+.icon-fork:before {
+  display: block;
+  background-image: url(spritesheet.mustacheStr.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px;
 }
+.icon-github:before {
+/* ... */
+```
+
+### Template function
+In this example, we will use `cssTemplate` with a custom function that generates YAML.
+
+**Configuration:**
+
+```js
+// var yaml = require('js-yaml');
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  imgName: 'spritesheet.yamlTemplate.png',
+  cssName: 'spritesheet.yamlTemplate.yml',
+  cssTemplate: function (params) {
+    // Convert items from an array into an object
+    var itemObj = {};
+    params.items.forEach(function (item) {
+      // Grab the name and store the item under it
+      var name = item.name;
+      itemObj[name] = item;
+
+      // Delete the name from the item
+      delete item.name;
+    });
+
+    // Return stringified itemObj
+    return yaml.safeDump(itemObj);
+  }
+}
+```
+
+**Output:**
+
+```yaml
+fork:
+  x: 0
+  "y": 0
+  width: 32
+  height: 32
+  source_image: fork.png
+  image: spritesheet.yamlTemplate.png
+  total_width: 64
+  total_height: 64
+  offset_x: -0.0
+  offset_y: -0.0
+  px:
+    x: 0px
+    "y": 0px
+    offset_x: 0px
+    offset_y: 0px
+    height: 32px
+    width: 32px
+    total_height: 64px
+    total_width: 64px
+  escaped_image: spritesheet.yamlTemplate.png
+github:
+  x: 32
+  # ...
 ```
 
 ## Contributing
