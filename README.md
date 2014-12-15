@@ -106,6 +106,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
           - https://github.com/twolfson/layout#algorithms
     - engine `String` - Optional image generating engine to use
         - By default we use `pixelsmith`, a `node` based engine that supports all common image formats
+        - Alternative engines must be installed via `npm install`
         - An example usage can be found in the [Examples section](#engine)
         - More information can be found in the [Engines section](#engines)
     - engineOpts `Object` - Options to pass through to engine for settings
