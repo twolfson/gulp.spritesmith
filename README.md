@@ -325,8 +325,58 @@ For the best results, install from the site rather than through a package manage
 [Image Magick]: http://imagemagick.org/
 
 ## Examples
+### Algorithm
+In this example, we are using the `alt-diagonal` algorithm to guarantee no overlap if images overflow.
+
+**Configuration:**
+
+```js
+{
+  imgName: 'sprite.png',
+  cssName: 'sprite.styl',
+  algorithm: 'alt-diagonal'
+}
+```
+
+**Output:**
+
+![algorithm spritesheet](docs/examples/algorithm/sprite.png)
+
+### Engine
+In this example, we are using the `phantomjssmith` engine as an alternative to the `pixelsmith` default.
+
+**Requirements:**
+
+Install `phantomjssmith` to our `node_modules` via `npm install`.
+
+```bash
+npm install phantomjssmith
+```
+
+Alternatively, we can use `--save` or `--save-dev` to save to our `package.json's dependencies` or `devDependenices`.
+
+```bash
+npm install phantomjssmith --save  # Updates {"dependencies": {"phantomjssmith": "1.2.3"}}
+npm install phantomjssmith --save-dev  # Updates {"devDependencies": {"phantomjssmith": "1.2.3"}}
+```
+
+**Configuration:**
+
+```js
+// var phantomjssmith = require('phantomjssmith');
+{
+  imgName: 'sprite.png',
+  cssName: 'sprite.styl',
+  engine: phantomjssmith
+}
+```
+
+**Output:**
+
+![engine spritesheet](docs/examples/engine/sprite.png)
+
 ### Padding
-The `padding` options allows for inserting spacing between images.
+The `padding` option allows for inserting spacing between images.
 
 **Configuration:**
 
