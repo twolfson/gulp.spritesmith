@@ -16,9 +16,9 @@ Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 [css-formats]: #spritesmithparams
 
 ### Do you like `gulp.spritesmith`?
-[Support us via gittip][gittip] or [spread word on Twitter][twitter]
+[Support us via gratipay][gratipay] or [spread word on Twitter][twitter]
 
-[gittip]: https://www.gittip.com/twolfson/
+[gratipay]: https://gratipay.com/twolfson/
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20gulp.spritesmith&url=https%3A%2F%2Fgithub.com%2Ftwolfson%2Fgulp.spritesmith&via=twolfsn
 
 ## Getting Started
