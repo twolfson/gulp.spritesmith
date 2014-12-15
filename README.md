@@ -152,6 +152,25 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 - spriteData.img [`stream.Readable`][readable stream] - Stream for image output as a [vinyl-fs][] object
 - spriteData.css [`stream.Readable`][readable stream] - Stream for CSS output as a [vinyl-fs][] object
 
+### Algorithms
+Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
+
+[`layout`]: https://github.com/twolfson/layout
+
+|         `top-down`        |          `left-right`         |         `diagonal`        |           `alt-diagonal`          |          `binary-tree`          |
+|---------------------------|-------------------------------|---------------------------|-----------------------------------|---------------------------------|
+| ![top-down][top-down-img] | ![left-right][left-right-img] | ![diagonal][diagonal-img] | ![alt-diagonal][alt-diagonal-img] | ![binary-tree][binary-tree-img] |
+
+[top-down-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/top-down.png
+[left-right-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/left-right.png
+[diagonal-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/diagonal.png
+[alt-diagonal-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/alt-diagonal.png
+[binary-tree-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/binary-tree.png
+
+More information can be found in the [`layout`][] documentation:
+
+https://github.com/twolfson/layout
+
 #### Engines
 For cross-platform accessibility, [spritesmith][] offers multiple sprite engines. Each of these engines has a different set of dependencies.
 
@@ -201,31 +220,6 @@ For the best results, install from the site rather than through a package manage
 [image-magick]: http://imagemagick.org/
 
 Key differences: `gm` has the most options for export via `imgOpts`.
-
-#### Algorithms
-`spritesmith` offers a variety of image patterns via [twolfson/layout][].
-
-[twolfson/layout]: (https://github.com/twolfson/layout
-
-|     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
-| ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
-| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
-
-For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
-
-[packing-problem]: http://en.wikipedia.org/wiki/Packing_problem
-
-If you are worried about sprites being visible within other sprites, use `alt-diagonal`.
-
-If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
-
-The `diagonal` algorithm exists for you if you need it.
-
-[top-down]: docs/algorithms/top-down.png
-[left-right]: docs/algorithms/left-right.png
-[diagonal]: docs/algorithms/diagonal.png
-[alt-diagonal]: docs/algorithms/alt-diagonal.png
-[binary-tree]: docs/algorithms/binary-tree.png
 
 #### cssTemplate
 `gulp.spritespritesmith` allows you to define your own CSS template, either via a `function` or [mustache][] template.

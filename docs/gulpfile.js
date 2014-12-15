@@ -1,8 +1,10 @@
+// Load in dependencies
 var gulp = require('gulp');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
 var spritesmith = require('../');
 
+// Define our tasks
 gulp.task('sprite', function () {
   // Collect png's from images folder and output a .png spritesheet and CSS classes
   // Alternative outputs include: SASS, Stylus, LESS, JSON
