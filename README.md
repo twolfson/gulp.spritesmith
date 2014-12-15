@@ -343,15 +343,15 @@ The `padding` options allows for inserting spacing between images.
 
 ```js
 {
-  imgName: 'spritesheet.padding.png',
-  cssName: 'spritesheet.padding.styl',
+  imgName: 'sprite.png',
+  cssName: 'sprite.styl',
   padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
 }
 ```
 
 **Output:**
 
-![padding spritesheet](docs/spritesheet.padding.png)
+![padding spritesheet](docs/examples/padding/sprite.png)
 
 
 ### Mustache template
@@ -375,9 +375,8 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 
 ```js
 {
-  src: ['fork.png', 'github.png', 'twitter.png'],
-  imgName: 'spritesheet.mustacheStr.png',
-  cssName: 'spritesheet.mustacheStr.css',
+  imgName: 'sprite.png',
+  cssName: 'sprite.css',
   cssTemplate: 'mustacheStr.css.mustache'
 }
 ```
