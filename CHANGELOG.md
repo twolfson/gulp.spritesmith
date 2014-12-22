@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+2.1.0 - Upgraded to `json2css@6.1.0` to pick up CSS selector fix
+
 2.0.1 - Added more examples and links to examples from other sections
 
 2.0.0 - Major release with multiple breaking changes:
