@@ -62,6 +62,17 @@ gulp.task('sprite-template', function () {
   .pipe(gulp.dest('actual-files/template/'));
 });
 
+gulp.task('sprite-spritesheet-name', function () {
+  gulp.src(images).pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.scss',
+    cssSpritesheetName: 'icons',
+    // Use `top-down` for easier testing
+    algorithm: 'top-down'
+  }))
+  .pipe(gulp.dest('actual-files/spritesheet-name/'));
+});
+
 gulp.task('sprite-empty', function () {
   gulp.src(images).pipe(through2.obj(
     // On data, do nothing and callback

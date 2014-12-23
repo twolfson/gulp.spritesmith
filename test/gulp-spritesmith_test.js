@@ -90,6 +90,16 @@ describe('gulp.spritesmith', function () {
     });
   });
 
+  describe('running a task with a custom spritesheet prefix', function () {
+    childUtils.run('gulp sprite-spritesheet-name');
+
+    it('generates a css file', function () {
+      var actualCss = fs.readFileSync(__dirname + '/actual-files/spritesheet-name/sprite.scss', 'utf8');
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/spritesheet-name/sprite.scss', 'utf8');
+      assert.strictEqual(actualCss, expectedCss);
+    });
+  });
+
   // DEV: `gulp-newer` presents no input files when the task does not need to be run. See #17
   describe('running a task with no input images', function () {
     childUtils.run('gulp sprite-empty');
