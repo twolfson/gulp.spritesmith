@@ -94,3 +94,14 @@ gulp.task('sprite-template-function', function () {
   }));
   spriteData.pipe(gulp.dest('examples/template-function/'));
 });
+
+// Define common task for all
+gulp.task('sprite-all', [
+  'sprite',
+  'sprite-pipeline',
+  'sprite-algorithm',
+  'sprite-engine',
+  'sprite-padding',
+  'sprite-mustache-template',
+  'sprite-template-function'
+]);
