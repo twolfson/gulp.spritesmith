@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+2.3.0 - Upgraded to `spritesheet-templates@8.0.0` to pick up `spritesheet` parameter
+
 2.2.0 - Moved from `json2css` to `spritesheet-templates`, its renamed equivalent
 
 2.1.0 - Upgraded to `json2css@6.1.0` to pick up CSS selector fix
