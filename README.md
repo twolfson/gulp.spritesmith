@@ -129,6 +129,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
         - For more templating information, see the [Templating section](#templating)
     - cssVarMap `Function` - Mapping function for each filename to CSS variable
         - For more information, see [Variable mapping](#variable-mapping)
+    - cssSpritesheetName `String` - Name to use for spritesheet related variables in preprocessor templates
     - cssOpts `Object` - Options to pass through to templater
         - For example `{cssOpts: {functions: false}}` skips output of mixins
         - See your template's documentation for available options
@@ -200,6 +201,11 @@ The parameters passed into your template are known as `params`. We add some norm
         - width `Number` - Width of entire spritesheet
         - total_height `Number` - Height of entire spritesheet
         - image `String` - Relative URL path from CSS to spritesheet
+        - escaped_image `String` - URL encoded `image`
+        - px `Object` - Container for numeric values including `px`
+            - width `String` - `width` suffixed with `px`
+            - height `String` - `height` suffixed with `px`
+    - spritesheet_name `String` - Prefix for spritesheet variables
     - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
@@ -483,6 +489,7 @@ fork:
   image: sprite.png
   total_width: 64
   total_height: 64
+  escaped_image: sprite.png
   offset_x: -0.0
   offset_y: -0.0
   px:
@@ -494,7 +501,6 @@ fork:
     width: 32px
     total_height: 64px
     total_width: 64px
-  escaped_image: sprite.png
 github:
 # ...
 ```
