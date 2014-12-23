@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+2.4.0 - Upgraded to `spritesheet-tempaltes@8.2.0` to pick up preprocessor `spritesheet` variables and mixins
+
 2.3.0 - Upgraded to `spritesheet-templates@8.0.0` to pick up `spritesheet` parameter
 
 2.2.0 - Moved from `json2css` to `spritesheet-templates`, its renamed equivalent
