@@ -34,7 +34,7 @@
   "dependencies": {
     "gulp-util": "~2.2.14",
     "spritesheet-templates": "~8.2.0",
-    "spritesmith": "~1.0.1",
+    "spritesmith": "~1.1.0",
     "through2": "~0.6.1",
     "underscore": "~1.6.0",
     "url2": "~1.0.0"
