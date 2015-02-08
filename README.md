@@ -113,7 +113,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
         - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
       - See your engine's documentation for available options
     - imgOpts `Object` - Options to pass through to engine uring export
-        - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
+        - For example `gmsmith` supports `quality` via `{imgOpts: {quality: 75}}`
         - See your engine's documentation for available options
     - cssFormat `String` - CSS format to use
         - By default this is the format inferred by `cssName's` extension
