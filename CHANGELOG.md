@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+2.6.0 - Upgraded to `spritesheet-templates@8.3.0` to pick up `variableNameTransforms` support
+
 2.5.2 - Fixed broken test suite due to `spritesheet-templates` patch upgrade
 
 2.5.1 - Fixed typo for `imgOpts` in README. Fixes #28
