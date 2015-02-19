@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+2.8.0 - Upgraded to `spritesmith@1.2.0` to pick up optimal `binary-tree` fixes
+
 2.7.0 - Reverted `2.7.0` to remove breaking changes. Fixes #30
 
 2.6.0 - Upgraded to `spritesheet-templates@8.3.0` to pick up `variableNameTransforms` support
