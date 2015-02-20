@@ -28,6 +28,11 @@ We have moved to `binary-tree` as the default `algorithm`. We changed this to gi
 
 We have moved the `cssClass` option for the `css` template to `cssSelector`. This makes it more semantically appropriate and eaiser to find.
 
+## Breaking changes in 3.0.0
+We are normalizing sprite variables to be consistently `dash-case` or `snake_case` for some templates. These can be overriden via `cssOpts.variableNameTransforms` as documented in:
+
+https://github.com/twolfson/spritesheet-templates
+
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
 
