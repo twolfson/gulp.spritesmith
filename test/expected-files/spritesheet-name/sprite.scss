@@ -21,7 +21,7 @@ $sprite1-height: 50px;
 $sprite1-total-width: 100px;
 $sprite1-total-height: 300px;
 $sprite1-image: 'sprite.png';
-$sprite1: 0px 0px 0px 0px 50px 50px 100px 300px 'sprite.png' 'sprite1';
+$sprite1: (0px, 0px, 0px, 0px, 50px, 50px, 100px, 300px, 'sprite.png', 'sprite1', );
 $sprite2-name: 'sprite2';
 $sprite2-x: 0px;
 $sprite2-y: 50px;
@@ -32,7 +32,7 @@ $sprite2-height: 50px;
 $sprite2-total-width: 100px;
 $sprite2-total-height: 300px;
 $sprite2-image: 'sprite.png';
-$sprite2: 0px 50px 0px -50px 50px 50px 100px 300px 'sprite.png' 'sprite2';
+$sprite2: (0px, 50px, 0px, -50px, 50px, 50px, 100px, 300px, 'sprite.png', 'sprite2', );
 $sprite3-name: 'sprite3';
 $sprite3-x: 0px;
 $sprite3-y: 100px;
@@ -43,12 +43,12 @@ $sprite3-height: 200px;
 $sprite3-total-width: 100px;
 $sprite3-total-height: 300px;
 $sprite3-image: 'sprite.png';
-$sprite3: 0px 100px 0px -100px 100px 200px 100px 300px 'sprite.png' 'sprite3';
+$sprite3: (0px, 100px, 0px, -100px, 100px, 200px, 100px, 300px, 'sprite.png', 'sprite3', );
 $icons-width: 100px;
 $icons-height: 300px;
 $icons-image: 'sprite.png';
-$icons-sprites: $sprite1 $sprite2 $sprite3;
-$icons: 100px 300px 'sprite.png' $icons-sprites;
+$icons-sprites: ($sprite1, $sprite2, $sprite3, );
+$icons: (100px, 300px, 'sprite.png', $icons-sprites, );
 
 /*
 The provided mixins are intended to be used with the array-like variables
