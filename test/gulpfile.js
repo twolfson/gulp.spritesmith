@@ -55,7 +55,7 @@ gulp.task('sprite-template', function () {
   gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.scss',
-    cssTemplate: 'test-files/scss.template.mustache',
+    cssTemplate: 'test-files/scss.template.handlebars',
     // Use `top-down` for easier testing
     algorithm: 'top-down'
   }))
