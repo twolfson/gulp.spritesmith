@@ -72,6 +72,15 @@ gulp.task('sprite-handlebars-template', function () {
   spriteData.pipe(gulp.dest('examples/handlebars-template/'));
 });
 
+gulp.task('sprite-handlebars-inheritance', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.scss',
+    cssTemplate: 'handlebarsInheritance.scss.handlebars'
+  }));
+  spriteData.pipe(gulp.dest('examples/handlebars-inheritance/'));
+});
+
 gulp.task('sprite-template-function', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
@@ -103,5 +112,6 @@ gulp.task('sprite-all', [
   'sprite-engine',
   'sprite-padding',
   'sprite-handlebars-template',
+  'sprite-handlebars-inheritance',
   'sprite-template-function'
 ]);

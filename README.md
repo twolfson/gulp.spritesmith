@@ -460,6 +460,56 @@ In this example, we will use `cssTemplate` with a `handlebars` template to gener
 /* ... */
 ```
 
+### Handlebars inheritance
+In this example, we will extend the SCSS template to provide minimal variables. The JSON at the front comes from the original template and is required to provide consistent casing and default options.
+
+Different block sections for each template are documented in:
+
+https://github.com/twolfson/spritesheet-templates
+
+**Template:**
+
+```handlebars
+{
+  // Default options
+  'functions': true,
+  'variableNameTransforms': ['dasherize']
+}
+
+{{#extend "scss"}}
+{{#content "sprites"}}
+{{#each sprites}}
+${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.width}}, {{px.height}}, {{px.total_width}}, {{px.total_height}}, '{{{escaped_image}}}', '{{name}}', );
+{{/each}}
+{{/content}}
+{{#content "spritesheet"}}
+${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+{{/content}}
+{{/extend}}
+```
+
+**Configuration:**
+
+```js
+{
+  imgName: 'sprite.png',
+  cssName: 'sprite.scss',
+  cssTemplate: 'handlebarsInheritance.scss.handlebars'
+}
+```
+
+**Output:**
+
+```scss
+$fork: (0px, 0px, 0px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'fork', );
+$github: (32px, 0px, -32px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'github', );
+$twitter: (0px, 32px, 0px, -32px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'twitter', );
+$spritesheet-sprites: ($fork, $github, $twitter, );
+$spritesheet: (64px, 64px, 'spritesheet.handlebarsInheritance.png', $spritesheet-sprites, );
+/* ... */
+```
+
 ### Template function
 In this example, we will use `cssTemplate` with a custom function that generates YAML.
 
