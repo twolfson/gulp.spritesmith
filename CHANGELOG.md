@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.3.0 - Upgraded to `spritesheet-templates@9.2.0` to add inheritance support
+
 3.2.0 - Upgraded to `spritesmith@1.3.0` to pick up background fill support for `pixelsmith`. Fixes #33
 
 3.1.0 - Upgraded to `spritesheet-templates@9.1.0` to add single sprite fixes/warnings
