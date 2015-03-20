@@ -502,11 +502,11 @@ ${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.heigh
 **Output:**
 
 ```scss
-$fork: (0px, 0px, 0px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'fork', );
-$github: (32px, 0px, -32px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'github', );
-$twitter: (0px, 32px, 0px, -32px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'twitter', );
+$fork: (0px, 0px, 0px, 0px, 32px, 32px, 64px, 64px, 'sprite.png', 'fork', );
+$github: (32px, 0px, -32px, 0px, 32px, 32px, 64px, 64px, 'sprite.png', 'github', );
+$twitter: (0px, 32px, 0px, -32px, 32px, 32px, 64px, 64px, 'sprite.png', 'twitter', );
 $spritesheet-sprites: ($fork, $github, $twitter, );
-$spritesheet: (64px, 64px, 'spritesheet.handlebarsInheritance.png', $spritesheet-sprites, );
+$spritesheet: (64px, 64px, 'sprite.png', $spritesheet-sprites, );
 /* ... */
 ```
 
