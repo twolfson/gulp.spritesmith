@@ -127,8 +127,8 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
             - https://github.com/twolfson/spritesheet-templates#templates
     - cssTemplate `String|Function` - CSS template to use for rendering output CSS
         - This overrides `cssFormat`
-        - If a `String` is provided, it must be a path to a [mustache][] template
-            - An example usage can be found in the [Examples section](#mustache-template)
+        - If a `String` is provided, it must be a path to a [handlebars][] template
+            - An example usage can be found in the [Examples section](#handlebars-template)
         - If a `Function` is provided, it must have a signature of `function (params)`
             - An example usage can be found in the [Examples section](#template-function)
         - For more templating information, see the [Templating section](#templating)
@@ -146,7 +146,7 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [LESS]: http://lesscss.org/
 [Stylus]: http://learnboost.github.com/stylus/
 [JSON]: http://json.org/
-[mustache]: http://mustache.github.io/
+[handlebars]: http://handlebarsjs.com/
 
 **Returns**:
 - spriteData [`stream.Transform`][transform stream] - Stream that outputs image and CSS as [vinyl-fs][] objects
@@ -175,12 +175,12 @@ https://github.com/twolfson/layout
 ### Templating
 The `cssTemplate` option allows for using a custom template. An example template can be found at:
 
-https://github.com/twolfson/spritesheet-templates/blob/4.2.0/lib/templates/stylus.template.mustache
+https://github.com/twolfson/spritesheet-templates/blob/9.2.0/lib/templates/stylus.template.handlebars
 
 The parameters passed into your template are known as `params`. We add some normalized properties via [`spritesheet-templates`][] for your convenience.
 
 - params `Object` Container for parameters
-    - items `Object[]` - Array of sprite information
+    - sprites `Object[]` - Array of sprite information
         - name `String` - Name of the sprite file (sans extension)
         - x `Number` - Horizontal position of sprite's left edge in spritesheet
         - y `Number` - Vertical position of sprite's top edge in spritesheet
@@ -216,7 +216,7 @@ The parameters passed into your template are known as `params`. We add some norm
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
 
-An example sprite `item` is
+An example `sprite` is
 
 ```js
 {
@@ -245,9 +245,14 @@ An example sprite `item` is
 }
 ```
 
+If you are definiing a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
+
+[`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
+
 Example usages can be found as:
 
-- [Mustache template](#mustache-template)
+- [Handlebars template](#handlebars-template)
+- [Handlebars inheritance](#handlebars-inheritance)
 - [Template function](#template-function)
 
 #### Variable mapping
@@ -255,7 +260,7 @@ The `cssVarMap` option allows customization of the CSS variable names
 
 > If you would like to customize CSS selectors in the `css` template, please see https://github.com/twolfson/spritesheet-templates#css
 
-Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
+Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `sprites` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
 
 ```js
 // Prefix all sprite names with `sprite-` (e.g. `home` -> `sprite-home`)
@@ -414,13 +419,13 @@ The `padding` option allows for inserting spacing between images.
 ![padding spritesheet](docs/examples/padding/sprite.png)
 
 
-### Mustache template
-In this example, we will use `cssTemplate` with a `mustache` template to generate CSS that uses `:before` selectors.
+### Handlebars template
+In this example, we will use `cssTemplate` with a `handlebars` template to generate CSS that uses `:before` selectors.
 
 **Template:**
 
-```mustache
-{{#items}}
+```handlebars
+{{#sprites}}
 .icon-{{name}}:before {
   display: block;
   background-image: url({{{escaped_image}}});
@@ -428,7 +433,7 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
   width: {{px.width}};
   height: {{px.height}};
 }
-{{/items}}
+{{/sprites}}
 ```
 
 **Configuration:**
@@ -437,7 +442,7 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 {
   imgName: 'sprite.png',
   cssName: 'sprite.css',
-  cssTemplate: 'mustacheStr.css.mustache'
+  cssTemplate: 'handlebarsStr.css.handlebars'
 }
 ```
 
@@ -466,19 +471,19 @@ In this example, we will use `cssTemplate` with a custom function that generates
   imgName: 'sprite.png',
   cssName: 'sprite.yml',
   cssTemplate: function (params) {
-    // Convert items from an array into an object
-    var itemObj = {};
-    params.items.forEach(function (item) {
-      // Grab the name and store the item under it
-      var name = item.name;
-      itemObj[name] = item;
+    // Convert sprites from an array into an object
+    var spriteObj = {};
+    params.sprites.forEach(function (sprite) {
+      // Grab the name and store the sprite under it
+      var name = sprite.name;
+      spriteObj[name] = sprite;
 
-      // Delete the name from the item
-      delete item.name;
+      // Delete the name from the sprite
+      delete sprite.name;
     });
 
-    // Return stringified itemObj
-    return yaml.safeDump(itemObj);
+    // Return stringified spriteObj
+    return yaml.safeDump(spriteObj);
   }
 }
 ```
