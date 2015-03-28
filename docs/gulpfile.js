@@ -85,10 +85,10 @@ gulp.task('sprite-template-function', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.yml',
-    cssTemplate: function (params) {
+    cssTemplate: function (data) {
       // Convert sprites from an array into an object
       var spriteObj = {};
-      params.sprites.forEach(function (sprite) {
+      data.sprites.forEach(function (sprite) {
         // Grab the name and store the sprite under it
         var name = sprite.name;
         spriteObj[name] = sprite;
