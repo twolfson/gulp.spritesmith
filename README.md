@@ -203,7 +203,6 @@ The parameters passed into your template are known as `data`. We add some normal
             - offset_x `String` - `offset_x` suffixed with `px`
             - offset_y `String` - `offset_y` suffixed with `px`
     - spritesheet `Object` - Information about spritesheet
-        - name `String` - Prefix for spritesheet variables
         - width `Number` - Width of entire spritesheet
         - total_height `Number` - Height of entire spritesheet
         - image `String` - Relative URL path from CSS to spritesheet
@@ -211,7 +210,8 @@ The parameters passed into your template are known as `data`. We add some normal
         - px `Object` - Container for numeric values including `px`
             - width `String` - `width` suffixed with `px`
             - height `String` - `height` suffixed with `px`
-    - spritesheet_name `String` - Prefix for spritesheet variables
+    - spritesheet_info `Object` - Container for `spritesheet` metadata and its representation
+        - name `String` - Prefix for spritesheet variables
     - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
@@ -483,8 +483,8 @@ ${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.w
 {{/each}}
 {{/content}}
 {{#content "spritesheet"}}
-${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
-${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+${{spritesheet_info.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet_info.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet_info.strings.name_sprites}}, );
 {{/content}}
 {{/extend}}
 ```
