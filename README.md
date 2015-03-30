@@ -1,8 +1,5 @@
 # gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.png?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith)
 
-// TODO: Verify all links (including internal ones)
-// TODO: Review README changes
-
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
 This is the official port of [grunt-spritesmith][], the [grunt][] equivalent of a wrapper around [spritesmith][].
