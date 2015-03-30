@@ -2,7 +2,6 @@
 
 // TODO: Verify all links (including internal ones)
 // TODO: Review README changes
-// TODO: Compare lib to docs and verify nothing gulp specific was missed
 
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
