@@ -184,7 +184,7 @@ We receive both normal and retina sprites from the same `gulp.src` so please inc
         - By default this is the format inferred by `cssName's` extension
             - For example `.styl -> stylus_retina`
         - For more format options, see our formatting library
-            - https://github.com/twolfson/spritesheet-templates#templates
+            - https://github.com/twolfson/spritesheet-templates#retina-templates
     - cssVarMap `Function` - Mapping function for each filename to CSS variable
         - This will run through normal and retina spritesheets
         - The name used for normal sprites dictates the group name for retina group variables (e.g. `$icon-home` will have group `$icon-home-group`)
