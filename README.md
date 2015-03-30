@@ -470,7 +470,7 @@ In this example, we will use generate a normal and retina spritesheet via the `r
 {
   // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
   //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
-  retinaSrcFilter: ['*-2x.png'],
+  retinaSrcFilter: ['images/*-2x.png'],
   imgName: 'sprite.png',
   retinaImgName: 'sprite-2x.png',
   cssName: 'sprite.styl'
