@@ -26,6 +26,31 @@ describe('gulp.spritesmith', function () {
     });
   });
 
+  describe.only('running a task without retina options', function () {
+    childUtils.run('gulp sprite-retina');
+    imageUtils.loadActual(__dirname + '/actual-files/retina/sprite.png');
+    imageUtils.loadExpected(__dirname + '/expected-files/retina/pixelsmith.png');
+
+    it('generates an image', function () {
+      assert.deepEqual(this.actualPixels, this.expectedPixels);
+    });
+
+    describe.skip('with respect to the retina image', function () {
+      imageUtils.loadActual(__dirname + '/actual-files/retina/sprite-2x.png');
+      imageUtils.loadExpected(__dirname + '/expected-files/retina/pixelsmith-2x.png');
+
+      it('generates an image', function () {
+        assert.deepEqual(this.actualPixels, this.expectedPixels);
+      });
+    });
+
+    it('generates a css file', function () {
+      var actualCss = fs.readFileSync(__dirname + '/actual-files/retina/sprite.css', 'utf8');
+      var expectedCss = fs.readFileSync(__dirname + '/expected-files/retina/sprite.css', 'utf8');
+      assert.strictEqual(actualCss, expectedCss);
+    });
+  });
+
   describe('returns "img" and "css" streams', function () {
     childUtils.run('gulp sprite-two-streams');
     imageUtils.loadActual(__dirname + '/actual-files/two-streams/sprite.png');
