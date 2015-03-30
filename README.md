@@ -194,6 +194,11 @@ We receive both normal and retina sprites from the same `gulp.src` so please inc
     - cssRetinaSpritesheetName `String` - Name to use for retina spritesheet related variables in preprocessor templates
     - cssRetinaGroupsName `String` - Name to use for retina groups related variables in preprocessor templates
 
+**Returns**:
+- spriteData [`stream.Transform`][transform stream] - Stream that outputs image, retina image, and CSS as [vinyl-fs][] objects
+- spriteData.img [`stream.Readable`][readable stream] - Stream for image outputs (normal and retina) as a [vinyl-fs][] object
+- spriteData.css [`stream.Readable`][readable stream] - Stream for retina CSS output as a [vinyl-fs][] object
+
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
 
