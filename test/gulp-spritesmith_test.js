@@ -44,7 +44,7 @@ describe('gulp.spritesmith', function () {
       });
     });
 
-    it('generates a css file', function () {
+    it.skip('generates a css file', function () {
       var actualCss = fs.readFileSync(__dirname + '/actual-files/retina/sprite.css', 'utf8');
       var expectedCss = fs.readFileSync(__dirname + '/expected-files/retina/sprite.css', 'utf8');
       assert.strictEqual(actualCss, expectedCss);

@@ -26,7 +26,8 @@ gulp.task('sprite-default', function () {
 });
 
 gulp.task('sprite-retina', function () {
-  gulp.src(retinaImages).pipe(spritesmith({
+  // gulp.src(retinaImages).pipe(spritesmith({
+  gulp.src(images).pipe(spritesmith({
     srcRetinaFilter: 'test-files/*-2x.png',
     imgName: 'sprite.png',
     retinaImgName: 'sprite-2x.png',
