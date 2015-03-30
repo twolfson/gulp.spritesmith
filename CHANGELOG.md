@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.5.0 - Added retina spritesheet support
+
 3.4.0 - Upgraded to `spritesheet-templates@9.3.1` to pick up `spritesheet_info` in anticipation for retina info
 
 3.3.1 - Upgraded to `spritesheet-templates@9.2.2` to pick up more granular templating
