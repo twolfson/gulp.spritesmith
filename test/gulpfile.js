@@ -102,8 +102,8 @@ gulp.task('sprite-retina-mapped', function () {
       // Rename `sprite` to `icon` (e.g. `sprite1` -> `icon1`)
       sprite.name = sprite.name.replace('sprite', 'icon');
     },
-    cssRetinaSpritesheetName: 'icons-retina',
-    cssRetinaGroupNames: 'icons-groups',
+    cssRetinaSpritesheetName: 'retina-icons',
+    cssRetinaGroupsName: 'icon-groups',
     // Use `top-down` for easier testing
     algorithm: 'top-down'
   }))
