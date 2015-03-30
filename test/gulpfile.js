@@ -9,12 +9,30 @@ var images = [
   'test-files/sprite2.png',
   'test-files/sprite3.png'
 ];
+var retinaImages = [
+  'test-files/sprite1.png',
+  'test-files/sprite1-2x.png',
+  'test-files/sprite2.png',
+  'test-files/sprite2-2x.png',
+  'test-files/sprite3.png',
+  'test-files/sprite3-2x.png'
+];
 gulp.task('sprite-default', function () {
   gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }))
   .pipe(gulp.dest('actual-files/default/'));
+});
+
+gulp.task('sprite-retina', function () {
+  gulp.src(retinaImages).pipe(spritesmith({
+    srcRetinaFilter: 'test-files/*-2x.png',
+    imgName: 'sprite.png',
+    retinaImgName: 'sprite-2x.png',
+    cssName: 'sprite.css'
+  }))
+  .pipe(gulp.dest('actual-files/retina/'));
 });
 
 gulp.task('sprite-two-streams', function () {
