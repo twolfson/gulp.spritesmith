@@ -63,6 +63,18 @@ gulp.task('sprite-padding', function () {
   spriteData.pipe(gulp.dest('examples/padding/'));
 });
 
+gulp.task('sprite-retina', function () {
+  var spriteData = gulp.src('retina-images/*.png').pipe(spritesmith({
+    // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
+    //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
+    retinaSrcFilter: ['retina-images/*-2x.png'],
+    imgName: 'sprite.png',
+    retinaImgName: 'sprite-2x.png',
+    cssName: 'sprite.styl'
+  }));
+  spriteData.pipe(gulp.dest('examples/retina/'));
+});
+
 gulp.task('sprite-handlebars-template', function () {
   var spriteData = gulp.src('images/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
@@ -111,6 +123,7 @@ gulp.task('sprite-all', [
   'sprite-algorithm',
   'sprite-engine',
   'sprite-padding',
+  'sprite-retina',
   'sprite-handlebars-template',
   'sprite-handlebars-inheritance',
   'sprite-template-function'
