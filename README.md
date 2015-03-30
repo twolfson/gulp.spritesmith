@@ -3,6 +3,9 @@
 // TODO: Copy over example
 // TODO: Copy doc changes
 // TODO: Document retina image on `img` stream
+// TODO: Verify all links (including internal ones)
+// TODO: Review README changes
+// TODO: Compare lib to docs and verify nothing gulp specific was missed
 
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
@@ -18,6 +21,9 @@ This is the official port of [grunt-spritesmith][], the [grunt][] equivalent of 
 Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 
 [css-formats]: #spritesmithparams
+
+### Retina support
+As of `gulp.spritesmith@3.5.0`, retina spritesheets/templates are supported. See the [Retina parameters section](#retina-parameters) for more information.
 
 ### Do you like `gulp.spritesmith`?
 [Support us via gratipay][gratipay] or [spread word on Twitter][twitter]
@@ -156,6 +162,39 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 - spriteData [`stream.Transform`][transform stream] - Stream that outputs image and CSS as [vinyl-fs][] objects
 - spriteData.img [`stream.Readable`][readable stream] - Stream for image output as a [vinyl-fs][] object
 - spriteData.css [`stream.Readable`][readable stream] - Stream for CSS output as a [vinyl-fs][] object
+
+### Retina parameters
+`gulp.spritesmith` supports retina spritesheet generation via `retinaSrcFilter` and `retinaImgName`. If at least one of these is provided, then we will expect the other and enable retina spritesheet generation.
+
+Repeated parameters have the same properties as above but are repeated for clarity with respect to retina spritesheets.
+
+An example retina spritesheet setup can be found in the [Examples section](#retina-spritesheet).
+
+We receive both normal and retina sprites from the same `gulp.src` so please include them in your original glob. (e.g. `*.png` should include `icon-home.png` and `icon-home-2x.png`).
+
+- params `Object` - Container for `gulp.spritesmith` parameters
+    - retinaSrcFilter `String|String[]` - Filepaths to filter out from incoming stream for our retina spritesheet
+        - This can be a glob as with `src` (e.g. `sprite/*-2x.png`)
+        - For example `sprites/*-2x.png` will filter out `sprite1-2x.png` for a separate retina spritesheet
+            - Under the hood, we will group `sprite1.png` and `sprite1-2x.png` as a group of normal/retina sprites
+    - retinaImgName `String` - Filename to save retina spritesheet as
+    - retinaImgPath `String` - Optional path to use in CSS referring to image location
+        - For example `../sprite-2x.png`  will yield CSS with:
+            - `background-image: url(../sprite.png);`
+    - padding `Number` - Padding to place to right and bottom between sprites
+        - By default there is no padding
+        - In retina spritesheets, this number will be doubled to maintain perspective
+    - cssFormat - CSS format to use
+        - By default this is the format inferred by `cssName's` extension
+            - For example `.styl -> stylus_retina`
+        - For more format options, see our formatting library
+            - https://github.com/twolfson/spritesheet-templates#templates
+    - cssVarMap `Function` - Mapping function for each filename to CSS variable
+        - This will run through normal and retina spritesheets
+        - The name used for normal sprites dictates the group name for retina group variables (e.g. `$icon-home` will have group `$icon-home-group`)
+        - For more information, see [Variable mapping](#variable-mapping)
+    - cssRetinaSpritesheetName `String` - Name to use for retina spritesheet related variables in preprocessor templates
+    - cssRetinaGroupsName `String` - Name to use for retina groups related variables in preprocessor templates
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
@@ -422,6 +461,29 @@ The `padding` option allows for inserting spacing between images.
 
 ![padding spritesheet](docs/examples/padding/sprite.png)
 
+### Retina spritesheet
+In this example, we will use generate a normal and retina spritesheet via the `retinaSrcFilter` and `retinaImgName` parameters.
+
+**Configuration:**
+
+```js
+{
+  // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
+  //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
+  retinaSrcFilter: ['*-2x.png'],
+  imgName: 'sprite.png',
+  retinaImgName: 'sprite-2x.png',
+  cssName: 'sprite.styl'
+}
+```
+
+**Normal spritesheet:**
+
+![Normal spritesheet](docs/examples/retina/sprite.png)
+
+**Retina spritesheet:**
+
+![Retina spritesheet](docs/examples/retina/sprite-2x.png)
 
 ### Handlebars template
 In this example, we will use `cssTemplate` with a `handlebars` template to generate CSS that uses `:before` selectors.
