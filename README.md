@@ -1,7 +1,5 @@
 # gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.png?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith)
 
-// TODO: Copy over example
-// TODO: Copy doc changes
 // TODO: Document retina image on `img` stream
 // TODO: Verify all links (including internal ones)
 // TODO: Review README changes
