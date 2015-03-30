@@ -2,9 +2,7 @@
 
 // TODO: Copy over example
 // TODO: Copy doc changes
-// TODO: Copy over tests
-// TODO: Verify padding doubled
-// TODO: Generate `retinaImg` stream
+// TODO: Document retina image on `img` stream
 
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
