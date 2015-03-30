@@ -5,7 +5,6 @@
 // TODO: Copy over tests
 // TODO: Verify padding doubled
 // TODO: Generate `retinaImg` stream
-// TODO: Take care of TODOs in lib
 
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 

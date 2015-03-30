@@ -26,7 +26,7 @@ describe('gulp.spritesmith', function () {
     });
   });
 
-  describe.only('running a task with retina options', function () {
+  describe('running a task with retina options', function () {
     childUtils.run('gulp sprite-retina');
     imageUtils.loadActual(__dirname + '/actual-files/retina/sprite.png');
     imageUtils.loadExpected(__dirname + '/expected-files/retina/pixelsmith.png');
