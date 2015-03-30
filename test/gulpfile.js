@@ -91,6 +91,25 @@ gulp.task('sprite-spritesheet-name', function () {
   .pipe(gulp.dest('actual-files/spritesheet-name/'));
 });
 
+gulp.task('sprite-retina-mapped', function () {
+  gulp.src(retinaImages).pipe(spritesmith({
+    retinaSrcFilter: 'test-files/*-2x.png',
+    imgName: 'sprite.png',
+    retinaImgName: 'sprite-2x.png',
+    cssName: 'sprite.scss',
+    cssSpritesheetName: 'icons',
+    cssVarMap: function (sprite) {
+      // Rename `sprite` to `icon` (e.g. `sprite1` -> `icon1`)
+      sprite.name = sprite.name.replace('sprite', 'icon');
+    },
+    cssRetinaSpritesheetName: 'icons-retina',
+    cssRetinaGroupNames: 'icons-groups',
+    // Use `top-down` for easier testing
+    algorithm: 'top-down'
+  }))
+  .pipe(gulp.dest('actual-files/retina-mapped/'));
+});
+
 gulp.task('sprite-empty', function () {
   gulp.src(images).pipe(through2.obj(
     // On data, do nothing and callback
