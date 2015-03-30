@@ -1,5 +1,11 @@
 # gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.png?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith)
 
+// TODO: Copy over example
+// TODO: Copy doc changes
+// TODO: Copy over tests
+// TODO: Verify padding doubled
+// TODO: Generate `retinaImg` stream
+
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
 This is the official port of [grunt-spritesmith][], the [grunt][] equivalent of a wrapper around [spritesmith][].
