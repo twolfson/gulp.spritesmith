@@ -44,6 +44,17 @@ gulp.task('sprite-two-streams', function () {
   data.css.pipe(gulp.dest('actual-files/two-streams/'));
 });
 
+gulp.task('sprite-retina-two-streams', function () {
+  var data = gulp.src(retinaImages).pipe(spritesmith({
+    retinaSrcFilter: 'test-files/*-2x.png',
+    imgName: 'sprite.png',
+    retinaImgName: 'sprite-2x.png',
+    cssName: 'sprite.css'
+  }));
+  data.img.pipe(gulp.dest('actual-files/retina-two-streams/'));
+  data.css.pipe(gulp.dest('actual-files/retina-two-streams/'));
+});
+
 gulp.task('sprite-formats', function () {
   gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.jpg',
