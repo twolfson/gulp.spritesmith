@@ -67,7 +67,7 @@ describe('gulp.spritesmith', function () {
     });
   });
 
-  describe.only('returns retina "img" in two streams', function () {
+  describe('returns retina "img" in two streams', function () {
     childUtils.run('gulp sprite-retina-two-streams');
     imageUtils.loadActual(__dirname + '/actual-files/retina-two-streams/sprite.png');
     imageUtils.loadExpected(__dirname + '/expected-files/retina-two-streams/pixelsmith.png');
