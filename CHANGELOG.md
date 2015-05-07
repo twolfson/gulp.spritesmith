@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.6.0 - Upgraded to `spritesheet-templates@9.4.0` and added handlebars helper registration
+
 3.5.4 - Added `node@0.12` and `iojs` to CI tests
 
 3.5.3 - Upgraded to `url2@1.0.4` to fix `git` `node_modules` issues. Fixes #34
