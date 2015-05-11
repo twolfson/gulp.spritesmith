@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.6.1 - Added README touchups via Ensighten/grunt-spritesmith#131
+
 3.6.0 - Upgraded to `spritesheet-templates@9.4.0` and added handlebars helper registration
 
 3.5.4 - Added `node@0.12` and `iojs` to CI tests
