@@ -1,4 +1,4 @@
-# gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.png?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith)
+# gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.svg?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith)
 
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
@@ -310,7 +310,7 @@ An example `sprite` is
 }
 ```
 
-If you are definiing a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
+If you are defining a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
 
 [`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
 
