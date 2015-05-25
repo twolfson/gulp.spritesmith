@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.7.0 - Fixed retina size assertion logic via @radist2s in #47
+
 3.6.1 - Added README touchups via Ensighten/grunt-spritesmith#131
 
 3.6.0 - Upgraded to `spritesheet-templates@9.4.0` and added handlebars helper registration
