@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.8.0 - Upgraded to `spritesheet-templates@9.6.0` to pick up `json_texture` template
+
 3.7.2 - Moved iojs to allowed failure until https://github.com/npm/npm/issues/8406 gets patched
 
 3.7.1 - Moved from deprecated `licenses` key to `license` in `package.json`
