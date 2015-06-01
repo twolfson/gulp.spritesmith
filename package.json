@@ -15,12 +15,7 @@
   "bugs": {
     "url": "https://github.com/twolfson/gulp.spritesmith/issues"
   },
-  "licenses": [
-    {
-      "type": "UNLICENSE",
-      "url": "https://github.com/twolfson/gulp.spritesmith/blob/master/UNLICENSE"
-    }
-  ],
+  "license": "Unlicense",
   "main": "lib/gulp-spritesmith",
   "engines": {
     "node": ">= 0.9.0"
