@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.8.1 - Added proper `end` handling to split streams in documentation and tests. Fixes #48
+
 3.8.0 - Upgraded to `spritesheet-templates@9.6.0` to pick up `json_texture` template
 
 3.7.2 - Moved iojs to allowed failure until https://github.com/npm/npm/issues/8406 gets patched
