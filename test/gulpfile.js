@@ -1,5 +1,6 @@
 // Load in dependencies
 var gulp = require('gulp');
+var merge = require('merge-stream');
 var through2 = require('through2');
 var spritesmith = require('../');
 
@@ -18,7 +19,7 @@ var retinaImages = [
   'test-files/sprite3-2x.png'
 ];
 gulp.task('sprite-default', function () {
-  gulp.src(images).pipe(spritesmith({
+  return gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }))
@@ -26,7 +27,7 @@ gulp.task('sprite-default', function () {
 });
 
 gulp.task('sprite-retina', function () {
-  gulp.src(retinaImages).pipe(spritesmith({
+  return gulp.src(retinaImages).pipe(spritesmith({
     retinaSrcFilter: 'test-files/*-2x.png',
     imgName: 'sprite.png',
     retinaImgName: 'sprite-2x.png',
@@ -40,8 +41,9 @@ gulp.task('sprite-two-streams', function () {
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }));
-  data.img.pipe(gulp.dest('actual-files/two-streams/'));
-  data.css.pipe(gulp.dest('actual-files/two-streams/'));
+  var imgStream = data.img.pipe(gulp.dest('actual-files/two-streams/'));
+  var cssStream = data.css.pipe(gulp.dest('actual-files/two-streams/'));
+  return merge(imgStream, cssStream);
 });
 
 gulp.task('sprite-retina-two-streams', function () {
@@ -51,12 +53,13 @@ gulp.task('sprite-retina-two-streams', function () {
     retinaImgName: 'sprite-2x.png',
     cssName: 'sprite.css'
   }));
-  data.img.pipe(gulp.dest('actual-files/retina-two-streams/'));
-  data.css.pipe(gulp.dest('actual-files/retina-two-streams/'));
+  var imgStream = data.img.pipe(gulp.dest('actual-files/retina-two-streams/'));
+  var cssStream = data.css.pipe(gulp.dest('actual-files/retina-two-streams/'));
+  return merge(imgStream, cssStream);
 });
 
 gulp.task('sprite-formats', function () {
-  gulp.src(images).pipe(spritesmith({
+  return gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.jpg',
     cssName: 'sprite.css',
     imgOpts: {
@@ -71,7 +74,7 @@ gulp.task('sprite-formats', function () {
 });
 
 gulp.task('sprite-options', function () {
-  gulp.src(images).pipe(spritesmith({
+  return gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css',
     imgPath: '../../everywhere.png',
@@ -81,7 +84,7 @@ gulp.task('sprite-options', function () {
 });
 
 gulp.task('sprite-template', function () {
-  gulp.src(images).pipe(spritesmith({
+  return gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.scss',
     cssTemplate: 'test-files/scss.template.handlebars',
@@ -92,7 +95,7 @@ gulp.task('sprite-template', function () {
 });
 
 gulp.task('sprite-spritesheet-name', function () {
-  gulp.src(images).pipe(spritesmith({
+  return gulp.src(images).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.scss',
     cssSpritesheetName: 'icons',
@@ -103,7 +106,7 @@ gulp.task('sprite-spritesheet-name', function () {
 });
 
 gulp.task('sprite-retina-mapped', function () {
-  gulp.src(retinaImages).pipe(spritesmith({
+  return gulp.src(retinaImages).pipe(spritesmith({
     retinaSrcFilter: 'test-files/*-2x.png',
     imgName: 'sprite.png',
     retinaImgName: 'sprite-2x.png',
@@ -122,7 +125,7 @@ gulp.task('sprite-retina-mapped', function () {
 });
 
 gulp.task('sprite-empty', function () {
-  gulp.src(images).pipe(through2.obj(
+  return gulp.src(images).pipe(through2.obj(
     // On data, do nothing and callback
     function onEmptyData (file, encoding, cb) {
       cb();
