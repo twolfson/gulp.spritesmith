@@ -46,7 +46,7 @@ gulp.task('sprite-algorithm', function () {
     cssName: 'sprite.styl',
     algorithm: 'alt-diagonal'
   }));
-  spriteData.pipe(gulp.dest('examples/algorithm/'));
+  return spriteData.pipe(gulp.dest('examples/algorithm/'));
 });
 
 gulp.task('sprite-engine', function () {
@@ -55,7 +55,7 @@ gulp.task('sprite-engine', function () {
     cssName: 'sprite.styl',
     engine: phantomjssmith
   }));
-  spriteData.pipe(gulp.dest('examples/engine/'));
+  return spriteData.pipe(gulp.dest('examples/engine/'));
 });
 
 gulp.task('sprite-padding', function () {
@@ -64,7 +64,7 @@ gulp.task('sprite-padding', function () {
     cssName: 'sprite.styl',
     padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
   }));
-  spriteData.pipe(gulp.dest('examples/padding/'));
+  return spriteData.pipe(gulp.dest('examples/padding/'));
 });
 
 gulp.task('sprite-retina', function () {
@@ -76,7 +76,7 @@ gulp.task('sprite-retina', function () {
     retinaImgName: 'sprite-2x.png',
     cssName: 'sprite.styl'
   }));
-  spriteData.pipe(gulp.dest('examples/retina/'));
+  return spriteData.pipe(gulp.dest('examples/retina/'));
 });
 
 gulp.task('sprite-handlebars-template', function () {
@@ -85,7 +85,7 @@ gulp.task('sprite-handlebars-template', function () {
     cssName: 'sprite.css',
     cssTemplate: 'handlebarsStr.css.handlebars'
   }));
-  spriteData.pipe(gulp.dest('examples/handlebars-template/'));
+  return spriteData.pipe(gulp.dest('examples/handlebars-template/'));
 });
 
 gulp.task('sprite-handlebars-inheritance', function () {
@@ -94,7 +94,7 @@ gulp.task('sprite-handlebars-inheritance', function () {
     cssName: 'sprite.scss',
     cssTemplate: 'handlebarsInheritance.scss.handlebars'
   }));
-  spriteData.pipe(gulp.dest('examples/handlebars-inheritance/'));
+  return spriteData.pipe(gulp.dest('examples/handlebars-inheritance/'));
 });
 
 gulp.task('sprite-template-function', function () {
@@ -117,7 +117,7 @@ gulp.task('sprite-template-function', function () {
       return yaml.safeDump(spriteObj);
     }
   }));
-  spriteData.pipe(gulp.dest('examples/template-function/'));
+  return spriteData.pipe(gulp.dest('examples/template-function/'));
 });
 
 // Define common task for all
