@@ -43,6 +43,7 @@
     "js-yaml": "~3.2.3",
     "jscs": "~1.8.1",
     "jshint": "~2.5.10",
+    "merge-stream": "~0.1.7",
     "mocha": "~1.11.0",
     "phantomjssmith": "~0.5.4",
     "pngparse": "~2.0.1",

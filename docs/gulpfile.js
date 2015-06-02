@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
 var phantomjssmith = require('phantomjssmith');
+var merge = require('merge-stream');
 var yaml = require('js-yaml');
 var spritesmith = require('../');
 
@@ -15,7 +16,7 @@ gulp.task('sprite', function () {
     cssName: 'sprite.css',
     algorithm: 'binary-tree'
   }));
-  spriteData.pipe(gulp.dest('path/to/output/'));
+  return spriteData.pipe(gulp.dest('path/to/output/'));
 });
 
 gulp.task('sprite-pipeline', function () {
@@ -26,14 +27,17 @@ gulp.task('sprite-pipeline', function () {
   }));
 
   // Pipe image stream through image optimizer and onto disk
-  spriteData.img
+  var imgStream = spriteData.img
     .pipe(imagemin())
     .pipe(gulp.dest('path/to/image/folder/'));
 
   // Pipe CSS stream through CSS optimizer and onto disk
-  spriteData.css
+  var cssStream = spriteData.css
     .pipe(csso())
     .pipe(gulp.dest('path/to/css/folder/'));
+
+  // Return a merged stream to handle both `end` events
+  return merge(imgStream, cssStream);
 });
 
 gulp.task('sprite-algorithm', function () {
