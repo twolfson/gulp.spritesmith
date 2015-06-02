@@ -2,8 +2,8 @@
 var gulp = require('gulp');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
-var phantomjssmith = require('phantomjssmith');
 var merge = require('merge-stream');
+var phantomjssmith = require('phantomjssmith');
 var yaml = require('js-yaml');
 var spritesmith = require('../');
 

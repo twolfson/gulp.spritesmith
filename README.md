@@ -48,7 +48,7 @@ gulp.task('sprite', function () {
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }));
-  spriteData.pipe(gulp.dest('path/to/output/'));
+  return spriteData.pipe(gulp.dest('path/to/output/'));
 });
 ```
 
@@ -59,6 +59,7 @@ In addition to the `spriteData` stream, we offer individual streams for images a
 var gulp = require('gulp');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
+var merge = require('merge-stream');
 var spritesmith = require('gulp.spritesmith');
 
 gulp.task('sprite', function () {
@@ -69,14 +70,17 @@ gulp.task('sprite', function () {
   }));
 
   // Pipe image stream through image optimizer and onto disk
-  spriteData.img
+  var imgStream = spriteData.img
     .pipe(imagemin())
     .pipe(gulp.dest('path/to/image/folder/'));
 
   // Pipe CSS stream through CSS optimizer and onto disk
-  spriteData.css
+  var cssStream = spriteData.css
     .pipe(csso())
     .pipe(gulp.dest('path/to/css/folder/'));
+
+  // Return a merged stream to handle both `end` events
+  return merge(imgStream, cssStream);
 });
 ```
 
