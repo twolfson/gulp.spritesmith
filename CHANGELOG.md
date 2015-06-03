@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+3.8.2 - Added back iojs to Travis CI
+
 3.8.1 - Added proper `end` handling to split streams in documentation and tests. Fixes #48
 
 3.8.0 - Upgraded to `spritesheet-templates@9.6.0` to pick up `json_texture` template
