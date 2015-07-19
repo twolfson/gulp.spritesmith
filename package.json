@@ -37,7 +37,7 @@
     "url2": "~1.0.4"
   },
   "devDependencies": {
-    "gulp": "~3.5.2",
+    "gulp": "~3.9.0",
     "gulp-csso": "~0.2.9",
     "gulp-imagemin": "~1.0.1",
     "js-yaml": "~3.2.3",
