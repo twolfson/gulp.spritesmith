@@ -31,15 +31,15 @@ Icon classes can be used entirely standalone. They are named after their origina
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .icon-sprite1 {
-    background-image: url(sprite-2x.png);
+    background-image: url(sprite@2x.png);
     background-size: 150px 200px;
   }
   .icon-sprite2 {
-    background-image: url(sprite-2x.png);
+    background-image: url(sprite@2x.png);
     background-size: 150px 200px;
   }
   .icon-sprite3 {
-    background-image: url(sprite-2x.png);
+    background-image: url(sprite@2x.png);
     background-size: 150px 200px;
   }
 }
