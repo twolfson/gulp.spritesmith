@@ -170,17 +170,21 @@ Repeated parameters have the same properties as above but are repeated for clari
 
 An example retina spritesheet setup can be found in the [Examples section](#retina-spritesheet).
 
-We receive both normal and retina sprites from the same `gulp.src` so please include them in your original glob. (e.g. `*.png` should include `icon-home.png` and `icon-home-2x.png`).
+We receive both normal and retina sprites from the same `gulp.src` so please include them in your original glob. (e.g. `*.png` should include `icon-home.png` and `icon-home@2x.png`).
+
+**We strongly encourage using the `@2x` suffix for retina sprites over `-retina` or `-2x`. There are known ordering issues caused when sharing a `-` delimiter between sprite names and the retina suffix (see [grunt-spritesmith/#137][]).**
+
+[grunt-spritesmith#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
 
 - params `Object` - Container for `gulp.spritesmith` parameters
     - retinaSrcFilter `String|String[]` - Filepaths to filter out from incoming stream for our retina spritesheet
-        - This can be a glob as with `src` (e.g. `sprite/*-2x.png`)
-        - For example `sprites/*-2x.png` will filter out `sprite1-2x.png` for a separate retina spritesheet
-            - Under the hood, we will group `sprite1.png` and `sprite1-2x.png` as a group of normal/retina sprites
+        - This can be a glob as with `src` (e.g. `sprite/*@2x.png`)
+        - For example `sprites/*@2x.png` will filter out `sprite1@2x.png` for a separate retina spritesheet
+            - Under the hood, we will group `sprite1.png` and `sprite1@2x.png` as a group of normal/retina sprites
     - retinaImgName `String` - Filename to save retina spritesheet as
     - retinaImgPath `String` - Optional path to use in CSS referring to image location
-        - For example `../sprite-2x.png`  will yield CSS with:
-            - `background-image: url(../sprite.png);`
+        - For example `../sprite@2x.png`  will yield CSS with:
+            - `background-image: url(../sprite@2x.png);`
     - padding `Number` - Padding to place to right and bottom between sprites
         - By default there is no padding
         - In retina spritesheets, this number will be doubled to maintain perspective
@@ -494,11 +498,11 @@ In this example, we will use generate a normal and retina spritesheet via the `r
 
 ```js
 {
-  // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
+  // This will filter out `fork@2x.png`, `github@2x.png`, ... for our retina spritesheet
   //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
-  retinaSrcFilter: ['images/*-2x.png'],
+  retinaSrcFilter: ['images/*@2x.png'],
   imgName: 'sprite.png',
-  retinaImgName: 'sprite-2x.png',
+  retinaImgName: 'sprite@2x.png',
   cssName: 'sprite.styl'
 }
 ```
@@ -509,7 +513,7 @@ In this example, we will use generate a normal and retina spritesheet via the `r
 
 **Retina spritesheet:**
 
-![Retina spritesheet](docs/examples/retina/sprite-2x.png)
+![Retina spritesheet](docs/examples/retina/sprite@2x.png)
 
 ### Handlebars template
 In this example, we will use `cssTemplate` with a `handlebars` template to generate CSS that uses `:before` selectors.
