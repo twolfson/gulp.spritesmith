@@ -36,8 +36,8 @@ describe('gulp.spritesmith', function () {
     });
 
     describe('with respect to the retina image', function () {
-      imageUtils.loadActual(__dirname + '/actual-files/retina/sprite-2x.png');
-      imageUtils.loadExpected(__dirname + '/expected-files/retina/pixelsmith-2x.png');
+      imageUtils.loadActual(__dirname + '/actual-files/retina/sprite@2x.png');
+      imageUtils.loadExpected(__dirname + '/expected-files/retina/pixelsmith@2x.png');
 
       it('generates an image', function () {
         assert.deepEqual(this.actualPixels, this.expectedPixels);
@@ -77,8 +77,8 @@ describe('gulp.spritesmith', function () {
     });
 
     describe('with respect to the retina image', function () {
-      imageUtils.loadActual(__dirname + '/actual-files/retina-two-streams/sprite-2x.png');
-      imageUtils.loadExpected(__dirname + '/expected-files/retina-two-streams/pixelsmith-2x.png');
+      imageUtils.loadActual(__dirname + '/actual-files/retina-two-streams/sprite@2x.png');
+      imageUtils.loadExpected(__dirname + '/expected-files/retina-two-streams/pixelsmith@2x.png');
 
       it('generates an image', function () {
         assert.deepEqual(this.actualPixels, this.expectedPixels);
