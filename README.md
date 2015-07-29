@@ -36,6 +36,11 @@ We are normalizing sprite variables to be consistently `dash-case` or `snake_cas
 
 https://github.com/twolfson/spritesheet-templates
 
+## Breaking changes in 4.0.0
+We are normalizing sprite variables even further to convert any non-alphanumeric/non-dash/non-underscore character to a delimiter character (e.g. `-`). This allows us to support naming retina sprites with `@2x` suffixes, to prevent regressions like [grunt-spritesmith#137][].
+
+[grunt-spritesmith#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
+
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
 
@@ -172,9 +177,7 @@ An example retina spritesheet setup can be found in the [Examples section](#reti
 
 We receive both normal and retina sprites from the same `gulp.src` so please include them in your original glob. (e.g. `*.png` should include `icon-home.png` and `icon-home@2x.png`).
 
-**We strongly encourage using the `@2x` suffix for retina sprites over `-retina` or `-2x`. There are known ordering issues caused when sharing a `-` delimiter between sprite names and the retina suffix (see [grunt-spritesmith/#137][]).**
-
-[grunt-spritesmith#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
+**We strongly encourage using the `@2x` suffix for retina sprites over `-retina` or `-2x`. There are known ordering issues caused when sharing a `-` delimiter between sprite names and the retina suffix (see [grunt-spritesmith#137][]).**
 
 - params `Object` - Container for `gulp.spritesmith` parameters
     - retinaSrcFilter `String|String[]` - Filepaths to filter out from incoming stream for our retina spritesheet
