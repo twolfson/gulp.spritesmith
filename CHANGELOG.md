@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+4.0.0 - Upgraded to `spritesheet-templates@10.0.0` and moved to @2x suffix to prevent ordering issues
+
 3.8.2 - Added back iojs to Travis CI
 
 3.8.1 - Added proper `end` handling to split streams in documentation and tests. Fixes #48
