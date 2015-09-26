@@ -182,6 +182,7 @@ We receive both normal and retina sprites from the same `gulp.src` so please inc
 - params `Object` - Container for `gulp.spritesmith` parameters
     - retinaSrcFilter `String|String[]` - Filepaths to filter out from incoming stream for our retina spritesheet
         - This can be a glob as with `src` (e.g. `sprite/*@2x.png`)
+        - The path/glob used should line up with `gulp.src` (e.g. `gulp.src('sprite/*.png')`, `retinaSrcFilter: 'sprite/*@2x.png'`)
         - For example `sprites/*@2x.png` will filter out `sprite1@2x.png` for a separate retina spritesheet
             - Under the hood, we will group `sprite1.png` and `sprite1@2x.png` as a group of normal/retina sprites
     - retinaImgName `String` - Filename to save retina spritesheet as
