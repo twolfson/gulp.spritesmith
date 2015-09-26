@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+4.1.1 - Added clarification for `retinaSrcFilter` lining up with `gulp.src`
+
 4.1.0 - Upgraded to `spritesmith@1.4.0` to add better PNG support
 
 4.0.0 - Upgraded to `spritesheet-templates@10.0.0` and moved to @2x suffix to prevent ordering issues
