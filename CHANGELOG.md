@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+4.1.2 - Added `foundry` for release
+
 4.1.1 - Added clarification for `retinaSrcFilter` lining up with `gulp.src`
 
 4.1.0 - Upgraded to `spritesmith@1.4.0` to add better PNG support
