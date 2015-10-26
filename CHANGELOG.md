@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+4.2.1 - Updated node versions to support `>= 0.10.0`
+
 4.2.0 - Moved to emitting errors rather than assert to be more gulp-like. Fixes #73
 
 4.1.2 - Added `foundry` for release
