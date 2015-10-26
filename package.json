@@ -18,7 +18,7 @@
   "license": "Unlicense",
   "main": "lib/gulp-spritesmith",
   "engines": {
-    "node": ">= 0.9.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "precheck": "twolfson-style precheck docs/ lib/ test/",
