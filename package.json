@@ -37,6 +37,9 @@
     "url2": "~1.0.4"
   },
   "devDependencies": {
+    "foundry": "~4.3.2",
+    "foundry-release-git": "~2.0.2",
+    "foundry-release-npm": "~2.0.2",
     "gulp": "~3.5.2",
     "gulp-csso": "~0.2.9",
     "gulp-imagemin": "~1.0.1",
@@ -55,5 +58,11 @@
     "spritesmith",
     "sprite",
     "spritesheet"
-  ]
+  ],
+  "foundry": {
+    "releaseCommands": [
+      "foundry-release-git",
+      "foundry-release-npm"
+    ]
+  }
 }
