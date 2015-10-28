@@ -1,4 +1,4 @@
-# gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.svg?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith)
+# gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.svg?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](http://eepurl.com/bD4qkf)
 
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
