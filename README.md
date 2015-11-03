@@ -19,9 +19,9 @@ Alternative output formats include [SASS, Stylus, LESS, and JSON][css-formats].
 As of `gulp.spritesmith@3.5.0`, retina spritesheets/templates are supported. See the [Retina parameters section](#retina-parameters) for more information.
 
 ### Do you like `gulp.spritesmith`?
-[Support us via gratipay][gratipay] or [spread word on Twitter][twitter]
+[Support us via donations][support-us] or [spread word on Twitter][twitter]
 
-[gratipay]: https://gratipay.com/twolfson/
+[support-us]: http://bit.ly/support-spritesmith
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20gulp.spritesmith&url=https%3A%2F%2Fgithub.com%2Ftwolfson%2Fgulp.spritesmith&via=twolfsn
 
 ## Breaking changes in 2.0.0
