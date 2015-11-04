@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+4.2.4 - Updated link to specification
+
 4.2.3 - Moved from Gratipay to bit.ly URL for donations
 
 4.2.2 - Added newsletter badge to README
