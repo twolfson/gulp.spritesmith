@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+4.3.0 - Upgraded to `spritesmith@1.5.0` to add `specVersion` validation
+
 4.2.4 - Updated link to specification
 
 4.2.3 - Moved from Gratipay to bit.ly URL for donations
