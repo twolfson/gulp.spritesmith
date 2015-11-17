@@ -59,7 +59,7 @@ gulp.task('sprite-retina-two-streams', function () {
 });
 
 gulp.task('sprite-formats', function () {
-  return gulp.src(images).pipe(spritesmith({
+  return gulp.src(images, {read: false}).pipe(spritesmith({
     imgName: 'sprite.jpg',
     cssName: 'sprite.css',
     imgOpts: {
