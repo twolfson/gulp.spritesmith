@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+5.0.0 - Upgraded to `spritesmith-engine-spec@2.0.0`
+
 4.3.0 - Upgraded to `spritesmith@1.5.0` to add `specVersion` validation
 
 4.2.4 - Updated link to specification
