@@ -31,7 +31,7 @@
     "gulp-util": "~2.2.14",
     "minimatch": "~2.0.4",
     "spritesheet-templates": "~10.0.0",
-    "spritesmith": "~1.5.0",
+    "spritesmith": "~2.0.0",
     "through2": "~0.6.1",
     "underscore": "~1.6.0",
     "url2": "~1.0.4"
@@ -48,7 +48,7 @@
     "jshint": "~2.5.10",
     "merge-stream": "~0.1.7",
     "mocha": "~1.11.0",
-    "phantomjssmith": "~0.7.5",
+    "phantomjssmith": "~1.0.0",
     "pngparse": "~2.0.1",
     "rimraf": "~2.2.6",
     "twolfson-style": "~1.6.0"
