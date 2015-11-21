@@ -1,5 +1,6 @@
 // Load in dependencies
 var gulp = require('gulp');
+var buffer = require('vinyl-buffer');
 var csso = require('gulp-csso');
 var imagemin = require('gulp-imagemin');
 var merge = require('merge-stream');
@@ -28,6 +29,8 @@ gulp.task('sprite-pipeline', function () {
 
   // Pipe image stream through image optimizer and onto disk
   var imgStream = spriteData.img
+    // DEV: We must buffer our stream into a Buffer for `imagemin`
+    .pipe(buffer())
     .pipe(imagemin())
     .pipe(gulp.dest('path/to/image/folder/'));
 
@@ -50,7 +53,7 @@ gulp.task('sprite-algorithm', function () {
 });
 
 gulp.task('sprite-engine', function () {
-  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+  var spriteData = gulp.src('images/*.png', {read: false}).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.styl',
     engine: phantomjssmith

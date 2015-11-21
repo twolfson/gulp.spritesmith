@@ -51,7 +51,8 @@
     "phantomjssmith": "~1.0.0",
     "pngparse": "~2.0.1",
     "rimraf": "~2.2.6",
-    "twolfson-style": "~1.6.0"
+    "twolfson-style": "~1.6.0",
+    "vinyl-buffer": "~1.0.0"
   },
   "keywords": [
     "gulpplugin",
