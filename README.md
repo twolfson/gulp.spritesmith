@@ -1,7 +1,5 @@
 # gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.svg?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](http://eepurl.com/bD4qkf)
 
-// TODO: Document buffer -> stream for `img` (breaking major) and how to use `vinyl-buffer`
-
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
 This is the official port of [grunt-spritesmith][], the [grunt][] equivalent of a wrapper around [spritesmith][].
@@ -57,6 +55,22 @@ Additionally, we have added support for `buffer` and `stream` content for in-mem
 [spritesmith-engine-spec@1.1.0]: https://github.com/twolfson/spritesmith-engine-spec/tree/1.1.0
 [spritesmith-engine-spec@2.0.0]: https://github.com/twolfson/spritesmith-engine-spec/tree/2.0.0
 [#53]: https://github.com/twolfson/gulp.spritesmith/issues/53
+
+## Breaking changes in 6.0.0
+We have completed our integration with streaming outputs from engines. As a result, [Vinyl][] `img` files will have `stream` contents which were previously buffers.
+
+If your `img` pipeline requires `Buffer` contents, then this can be remedied via [vinyl-buffer][]:
+
+```js
+// Throws error due to not supporting streams
+spriteData.img.pipe(imagemin());
+
+// Back to operational
+var buffer = require('vinyl-buffer');
+spriteData.img.pipe(buffer()).pipe(imagemin());
+```
+
+[vinyl-buffer]: https://github.com/hughsk/vinyl-buffer
 
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
@@ -116,11 +130,11 @@ gulp.task('sprite', function () {
 ### `spritesmith(params)`
 [gulp][] plugin that returns a [transform stream][] with 2 [readable stream][] properties.
 
-The input/output streams interact with [vinyl-fs][] objects which are [gulp's][gulp] format of choice.
+The input/output streams interact with [Vinyl][] objects which are [gulp's][gulp] format of choice.
 
 [transform stream]: http://nodejs.org/api/stream.html#stream_class_stream_transform
 [readable stream]: http://nodejs.org/api/stream.html#stream_class_stream_readable
-[vinyl-fs]: https://github.com/wearefractal/vinyl-fs
+[Vinyl]: https://github.com/gulpjs/vinyl
 
 - params `Object` - Container for `gulp.spritesmith` parameters
     - imgName `String` - Filename to save image as
@@ -185,9 +199,9 @@ The input/output streams interact with [vinyl-fs][] objects which are [gulp's][g
 [handlebars]: http://handlebarsjs.com/
 
 **Returns**:
-- spriteData [`stream.Transform`][transform stream] - Stream that outputs image and CSS as [vinyl-fs][] objects
-- spriteData.img [`stream.Readable`][readable stream] - Stream for image output as a [vinyl-fs][] object
-- spriteData.css [`stream.Readable`][readable stream] - Stream for CSS output as a [vinyl-fs][] object
+- spriteData [`stream.Transform`][transform stream] - Stream that outputs image and CSS as [Vinyl][] objects
+- spriteData.img [`stream.Readable`][readable stream] - Stream for image output as a [Vinyl][] object
+- spriteData.css [`stream.Readable`][readable stream] - Stream for CSS output as a [Vinyl][] object
 
 ### Retina parameters
 `gulp.spritesmith` supports retina spritesheet generation via `retinaSrcFilter` and `retinaImgName`. If at least one of these is provided, then we will expect the other and enable retina spritesheet generation.
@@ -226,9 +240,9 @@ We receive both normal and retina sprites from the same `gulp.src` so please inc
     - cssRetinaGroupsName `String` - Name to use for retina groups related variables in preprocessor templates
 
 **Returns**:
-- spriteData [`stream.Transform`][transform stream] - Stream that outputs image, retina image, and CSS as [vinyl-fs][] objects
-- spriteData.img [`stream.Readable`][readable stream] - Stream for image outputs (normal and retina) as a [vinyl-fs][] object
-- spriteData.css [`stream.Readable`][readable stream] - Stream for retina CSS output as a [vinyl-fs][] object
+- spriteData [`stream.Transform`][transform stream] - Stream that outputs image, retina image, and CSS as [Vinyl][] objects
+- spriteData.img [`stream.Readable`][readable stream] - Stream for image outputs (normal and retina) as a [Vinyl][] object
+- spriteData.css [`stream.Readable`][readable stream] - Stream for retina CSS output as a [Vinyl][] object
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
