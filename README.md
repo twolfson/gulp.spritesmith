@@ -201,7 +201,9 @@ The input/output streams interact with [Vinyl][] objects which are [gulp's][gulp
 **Returns**:
 - spriteData [`stream.Transform`][transform stream] - Stream that outputs image and CSS as [Vinyl][] objects
 - spriteData.img [`stream.Readable`][readable stream] - Stream for image output as a [Vinyl][] object
+    - `contents` will be a `Stream`
 - spriteData.css [`stream.Readable`][readable stream] - Stream for CSS output as a [Vinyl][] object
+    - `contents` will be a `Buffer`
 
 ### Retina parameters
 `gulp.spritesmith` supports retina spritesheet generation via `retinaSrcFilter` and `retinaImgName`. If at least one of these is provided, then we will expect the other and enable retina spritesheet generation.
@@ -242,7 +244,9 @@ We receive both normal and retina sprites from the same `gulp.src` so please inc
 **Returns**:
 - spriteData [`stream.Transform`][transform stream] - Stream that outputs image, retina image, and CSS as [Vinyl][] objects
 - spriteData.img [`stream.Readable`][readable stream] - Stream for image outputs (normal and retina) as a [Vinyl][] object
+    - `contents` will be a `Stream`
 - spriteData.css [`stream.Readable`][readable stream] - Stream for retina CSS output as a [Vinyl][] object
+    - `contents` will be a `Buffer`
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
