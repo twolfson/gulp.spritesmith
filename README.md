@@ -1,5 +1,7 @@
 # gulp.spritesmith [![Build status](https://travis-ci.org/twolfson/gulp.spritesmith.svg?branch=master)](https://travis-ci.org/twolfson/gulp.spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](http://eepurl.com/bD4qkf)
 
+// TODO: Document buffer -> stream for `img` (breaking major) and how to use `vinyl-buffer`
+
 Convert a set of images into a spritesheet and CSS variables via [gulp][]
 
 This is the official port of [grunt-spritesmith][], the [grunt][] equivalent of a wrapper around [spritesmith][].
