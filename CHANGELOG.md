@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.0.0 - Upgraded to `spritesmith@3.0.0` and altered `img` contents from `Buffer` to stream
+
 5.0.1 - Updated donation URL
 
 5.0.0 - Upgraded to `spritesmith-engine-spec@2.0.0`
