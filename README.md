@@ -21,7 +21,7 @@ As of `gulp.spritesmith@3.5.0`, retina spritesheets/templates are supported. See
 ### Do you like `gulp.spritesmith`?
 [Support us via donations][support-us] or [spread word on Twitter][twitter]
 
-[support-us]: http://bit.ly/support-spritesmith2
+[support-us]: http://bit.ly/support-spritesmith-1
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20gulp.spritesmith&url=https%3A%2F%2Fgithub.com%2Ftwolfson%2Fgulp.spritesmith&via=twolfsn
 
 ## Breaking changes in 4.0.0
