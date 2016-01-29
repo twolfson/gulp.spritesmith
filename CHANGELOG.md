@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.1.0 - Upgraded to `spritesmith@3.1.0` to add quality support for JPEGs
+
 6.0.1 - Updated donation URL
 
 6.0.0 - Upgraded to `spritesmith@3.0.0` and altered `img` contents from `Buffer` to stream
