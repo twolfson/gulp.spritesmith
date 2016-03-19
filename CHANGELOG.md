@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.2.1 - Upgraded to `spritesheet-templates@10.1.1` to correct `inline-block` examples in templates
+
 6.2.0 - Upgraded to `spritesheet-templates@10.1.0` to add HTML comments to non-CSS templates
 
 6.1.0 - Upgraded to `spritesmith@3.1.0` to add quality support for JPEGs
