@@ -672,7 +672,7 @@ In this example, we will use `cssTemplate` with a custom function that generates
 ```yaml
 fork:
   x: 0
-  "y": 0
+  'y': 0
   width: 32
   height: 32
   source_image: /home/todd/github/gulp.spritesmith/docs/images/fork.png
@@ -684,7 +684,7 @@ fork:
   offset_y: -0.0
   px:
     x: 0px
-    "y": 0px
+    'y': 0px
     offset_x: 0px
     offset_y: 0px
     height: 32px

@@ -1,6 +1,6 @@
 fork:
   x: 0
-  "y": 0
+  'y': 0
   width: 32
   height: 32
   source_image: /home/todd/github/gulp.spritesmith/docs/images/fork.png
@@ -12,7 +12,7 @@ fork:
   offset_y: -0.0
   px:
     x: 0px
-    "y": 0px
+    'y': 0px
     offset_x: 0px
     offset_y: 0px
     height: 32px
@@ -21,7 +21,7 @@ fork:
     total_width: 64px
 github:
   x: 32
-  "y": 0
+  'y': 0
   width: 32
   height: 32
   source_image: /home/todd/github/gulp.spritesmith/docs/images/github.png
@@ -33,8 +33,8 @@ github:
   offset_y: -0.0
   px:
     x: 32px
-    "y": 0px
-    offset_x: "-32px"
+    'y': 0px
+    offset_x: '-32px'
     offset_y: 0px
     height: 32px
     width: 32px
@@ -42,7 +42,7 @@ github:
     total_width: 64px
 twitter:
   x: 0
-  "y": 32
+  'y': 32
   width: 32
   height: 32
   source_image: /home/todd/github/gulp.spritesmith/docs/images/twitter.png
@@ -54,9 +54,9 @@ twitter:
   offset_y: -32
   px:
     x: 0px
-    "y": 32px
+    'y': 32px
     offset_x: 0px
-    offset_y: "-32px"
+    offset_y: '-32px'
     height: 32px
     width: 32px
     total_height: 64px
