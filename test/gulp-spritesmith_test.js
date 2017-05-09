@@ -86,6 +86,17 @@ describe('gulp.spritesmith', function () {
     });
   });
 
+  describe('running a task where a normal and retina image have same name', function () {
+    childUtils.runSaveError('gulp sprite-retina-same-name');
+
+    it('outputs an error', function () {
+      assert.notEqual(this.err, null);
+      assert.notEqual(
+        this.err.message.indexOf('Normal and retina sprites have same names: ["sprite1","sprite2","sprite3"]'),
+        -1);
+    });
+  });
+
   describe('running a task with output formats', function () {
     childUtils.run('gulp sprite-formats');
     imageUtils.loadActual(__dirname + '/actual-files/formats/sprite.jpg');

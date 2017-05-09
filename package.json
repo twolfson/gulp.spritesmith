@@ -24,7 +24,8 @@
     "precheck": "twolfson-style precheck docs/ lib/ test/",
     "lint": "twolfson-style lint docs/ lib/ test/",
     "pretest": "twolfson-style install",
-    "test": "npm run precheck && cd test && mocha . --timeout 60000 && cd .. && npm run lint"
+    "test": "npm run precheck && npm run test-mocha && npm run lint",
+    "test-mocha": "cd test && mocha . --timeout 60000"
   },
   "dependencies": {
     "async": "~2.1.5",
