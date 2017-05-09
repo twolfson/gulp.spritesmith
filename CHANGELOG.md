@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.5.0 - Added normal/retina name collision detection
+
 6.4.0 - Upgraded all dependencies via @dankang in #116
 
 6.3.0 - Upgraded to `spritesheet-templates@10.2.0` to move to appropriate SASS/SCSS commenting convention
