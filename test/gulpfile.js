@@ -58,6 +58,21 @@ gulp.task('sprite-retina-two-streams', function () {
   return merge(imgStream, cssStream);
 });
 
+gulp.task('sprite-retina-same-name', function () {
+  return gulp.src(retinaImages).pipe(spritesmith({
+    retinaSrcFilter: 'test-files/*@2x.png',
+    imgName: 'sprite.png',
+    retinaImgName: 'sprite@2x.png',
+    cssVarMap: function (sprite) {
+      // Coerce all 1x and 2x sprites to same name
+      // DEV: This emulates `1x/icon.png` and `2x/icon.png` folders
+      sprite.name = sprite.name.replace('@2x', '');
+    },
+    cssName: 'sprite.css'
+  }))
+  .pipe(gulp.dest('actual-files/retina-same-name/'));
+});
+
 gulp.task('sprite-formats', function () {
   return gulp.src(images, {read: false}).pipe(spritesmith({
     imgName: 'sprite.jpg',
