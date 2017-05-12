@@ -123,6 +123,15 @@ gulp.task('sprite-template-function', function () {
   return spriteData.pipe(gulp.dest('examples/template-function/'));
 });
 
+gulp.task('hash', function () {
+  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.scss',
+    hash: true
+  }));
+  spriteData.pipe(gulp.dest('examples/hash/'));
+});
+
 // Define common task for all
 gulp.task('sprite-all', [
   'sprite',
