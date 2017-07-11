@@ -695,6 +695,31 @@ github:
 # ...
 ```
 
+### Cache busting
+`gulp.spritesmith` doesn't directly support cache busting but [`gulp-spritesmash`][] is a plugin that takes `gulp.spritesmith's` output and generates cache busted filenames and CSS URLs. Here's an example usage:
+
+<https://github.com/MasterOfMalt/gulp-spritesmash>
+
+```js
+var gulp = require('gulp');
+var buffer = require('vinyl-buffer');
+var spritesmash = require('gulp-spritesmash');
+var spritesmith = require('gulp.spritesmith');
+
+gulp.task('sprite', function () {
+  return gulp.src('images/*.png')
+      .pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: 'sprite.css'
+      }))
+      .pipe(buffer())
+      .pipe(spritesmash());
+      .pipe(gulp.dest('path/to/output/'));
+});
+```
+
+[`gulp-spritesmash`]: https://github.com/MasterOfMalt/gulp-spritesmash
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
 
