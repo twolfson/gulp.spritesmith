@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 
 // Define our execution helper
 exports.run = function (cmd) {
-  before(function runFn (done) {
+  before(function runFn(done) {
     exec(cmd, function (err, stdout, stderr) {
       if (!err && stderr) {
         err = new Error(stderr);
@@ -13,7 +13,7 @@ exports.run = function (cmd) {
   });
 };
 exports.runSaveError = function (cmd) {
-  before(function runFn (done) {
+  before(function runFn(done) {
     var that = this;
     exec(cmd, function (err, stdout, stderr) {
       if (!err && stderr) {
@@ -23,7 +23,7 @@ exports.runSaveError = function (cmd) {
       done();
     });
   });
-  after(function cleanup () {
+  after(function cleanup() {
     delete this.err;
   });
 };
