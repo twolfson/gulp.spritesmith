@@ -21,9 +21,8 @@
     "node": ">= 4.0.0"
   },
   "scripts": {
-    "precheck": "twolfson-style precheck docs/ lib/ test/",
-    "lint": "twolfson-style lint docs/ lib/ test/",
-    "pretest": "twolfson-style install",
+    "precheck": "eslint docs/ lib/ test/",
+    "lint": "eslint docs/ lib/ test/ --max-warnings 0",
     "test": "npm run precheck && npm run test-mocha && npm run lint",
     "test-mocha": "cd test && mocha . --timeout 60000"
   },
@@ -38,6 +37,8 @@
     "url2": "~1.0.4"
   },
   "devDependencies": {
+    "eslint": "~4.10.0",
+    "eslint-config-twolfson": "~1.0.0",
     "foundry": "~4.3.2",
     "foundry-release-git": "~2.0.2",
     "foundry-release-npm": "~2.0.2",
@@ -45,14 +46,11 @@
     "gulp-csso": "~3.0.0",
     "gulp-imagemin": "~3.1.1",
     "js-yaml": "~3.8.2",
-    "jscs": "~3.0.7",
-    "jshint": "~2.9.4",
     "merge-stream": "~1.0.1",
     "mocha": "~3.2.0",
     "phantomjssmith": "~1.0.0",
     "pngparse": "~2.0.1",
     "rimraf": "~2.6.1",
-    "twolfson-style": "~1.6.0",
     "vinyl-buffer": "~1.0.0"
   },
   "keywords": [
