@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.6.0 - Removed support for Node.js < 4
+
 6.5.1 - Documented cache busting support via `gulp-spritesmash`
 
 6.5.0 - Added normal/retina name collision detection
