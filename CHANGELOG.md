@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.8.0 - Moved off of deprecated `gulp-util`
+
 6.7.0 - Switched from `twolfson-style` to ESLint
 
 6.6.0 - Removed support for Node.js < 4
