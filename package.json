@@ -28,13 +28,13 @@
   },
   "dependencies": {
     "async": "~2.1.5",
-    "gulp-util": "~3.0.8",
     "minimatch": "~3.0.3",
     "spritesheet-templates": "~10.2.0",
     "spritesmith": "~3.1.0",
     "through2": "~2.0.3",
     "underscore": "~1.8.3",
-    "url2": "~1.0.4"
+    "url2": "~1.0.4",
+    "vinyl": "~2.1.0"
   },
   "devDependencies": {
     "eslint": "~4.10.0",
