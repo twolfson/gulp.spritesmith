@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.9.0 - Upgraded to `spritesmith@3.3.0` to fix Vinyl@2 and Gulp@4 support. Fixes #135
+
 6.8.0 - Moved off of deprecated `gulp-util`
 
 6.7.0 - Switched from `twolfson-style` to ESLint
