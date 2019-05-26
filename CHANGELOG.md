@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.10.0 - Upgraded to spritesheet-templates@10.3.0 to remove LESS JS utilization
+
 6.9.0 - Upgraded to `spritesmith@3.3.0` to fix Vinyl@2 and Gulp@4 support. Fixes #135
 
 6.8.0 - Moved off of deprecated `gulp-util`
