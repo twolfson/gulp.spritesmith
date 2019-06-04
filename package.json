@@ -45,7 +45,6 @@
     "gulp": "~3.9.1",
     "gulp-csso": "~3.0.0",
     "gulp-imagemin": "~3.1.1",
-    "js-yaml": "~3.8.2",
     "merge-stream": "~1.0.1",
     "mocha": "~3.2.0",
     "phantomjssmith": "~1.0.0",
