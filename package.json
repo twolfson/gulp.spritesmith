@@ -29,8 +29,8 @@
   "dependencies": {
     "async": "~2.1.5",
     "minimatch": "~3.0.3",
-    "spritesheet-templates": "~10.3.0",
-    "spritesmith": "~3.3.0",
+    "spritesheet-templates": "^10.3.0",
+    "spritesmith": "^3.4.0",
     "through2": "~2.0.3",
     "underscore": "~1.8.3",
     "url2": "~1.0.4",
