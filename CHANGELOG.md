@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.11.0 - Upgraded to `spritesmith@3.4.0` to propagate `npm audit` fix
+
 6.10.1 - Removed vulnerable js-yaml from dev dependencies
 
 6.10.0 - Upgraded to spritesheet-templates@10.3.0 to remove LESS JS utilization
