@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.12.0 - Upgraded to `underscore@1.13.1` to fix GitHub vulnerability warning. Fixes #155
+
 6.11.0 - Upgraded to `spritesmith@3.4.0` to propagate `npm audit` fix
 
 6.10.1 - Removed vulnerable js-yaml from dev dependencies
