@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.13.0 - Upgraded to async@3.2.3 to fix GitHub vulnerability alert
+
 6.12.1 - Updated Travis CI Node.js versions
 
 6.12.0 - Upgraded to `underscore@1.13.1` to fix GitHub vulnerability warning. Fixes #155
