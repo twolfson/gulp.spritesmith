@@ -27,7 +27,7 @@
     "test-mocha": "cd test && mocha . --timeout 60000"
   },
   "dependencies": {
-    "async": "~2.1.5",
+    "async": "~3.2.3",
     "minimatch": "~3.0.3",
     "spritesheet-templates": "^10.3.0",
     "spritesmith": "^3.4.0",
