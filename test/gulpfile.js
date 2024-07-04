@@ -35,7 +35,7 @@ gulp.task('sprite-retina', function () {
       retinaImgName: 'sprite@2x.png',
       cssName: 'sprite.css'
     }))
-    .pipe(gulp.dest('actual-files/retina/'));
+    .pipe(gulp.dest('actual-files/retina/', {encoding: false}));
 });
 
 gulp.task('sprite-two-streams', function () {
@@ -44,7 +44,7 @@ gulp.task('sprite-two-streams', function () {
       imgName: 'sprite.png',
       cssName: 'sprite.css'
     }));
-  var imgStream = data.img.pipe(gulp.dest('actual-files/two-streams/'));
+  var imgStream = data.img.pipe(gulp.dest('actual-files/two-streams/', {encoding: false}));
   var cssStream = data.css.pipe(gulp.dest('actual-files/two-streams/'));
   return merge(imgStream, cssStream);
 });
@@ -56,7 +56,7 @@ gulp.task('sprite-retina-two-streams', function () {
     retinaImgName: 'sprite@2x.png',
     cssName: 'sprite.css'
   }));
-  var imgStream = data.img.pipe(gulp.dest('actual-files/retina-two-streams/'));
+  var imgStream = data.img.pipe(gulp.dest('actual-files/retina-two-streams/', {encoding: false}));
   var cssStream = data.css.pipe(gulp.dest('actual-files/retina-two-streams/'));
   return merge(imgStream, cssStream);
 });
@@ -74,7 +74,7 @@ gulp.task('sprite-retina-same-name', function () {
       },
       cssName: 'sprite.css'
     }))
-    .pipe(gulp.dest('actual-files/retina-same-name/'));
+    .pipe(gulp.dest('actual-files/retina-same-name/', {encoding: false}));
 });
 
 gulp.task('sprite-formats', function () {
@@ -90,7 +90,7 @@ gulp.task('sprite-formats', function () {
       // Use `top-down` for easier testing
       algorithm: 'top-down'
     }))
-    .pipe(gulp.dest('actual-files/formats/'));
+    .pipe(gulp.dest('actual-files/formats/', {encoding: false}));
 });
 
 gulp.task('sprite-options', function () {
@@ -101,7 +101,7 @@ gulp.task('sprite-options', function () {
       imgPath: '../../everywhere.png',
       algorithm: 'alt-diagonal'
     }))
-    .pipe(gulp.dest('actual-files/options/'));
+    .pipe(gulp.dest('actual-files/options/', {encoding: false}));
 });
 
 gulp.task('sprite-template', function () {
@@ -113,7 +113,7 @@ gulp.task('sprite-template', function () {
       // Use `top-down` for easier testing
       algorithm: 'top-down'
     }))
-    .pipe(gulp.dest('actual-files/template/'));
+    .pipe(gulp.dest('actual-files/template/', {encoding: false}));
 });
 
 gulp.task('sprite-spritesheet-name', function () {
@@ -125,7 +125,7 @@ gulp.task('sprite-spritesheet-name', function () {
       // Use `top-down` for easier testing
       algorithm: 'top-down'
     }))
-    .pipe(gulp.dest('actual-files/spritesheet-name/'));
+    .pipe(gulp.dest('actual-files/spritesheet-name/', {encoding: false}));
 });
 
 gulp.task('sprite-retina-mapped', function () {
@@ -145,7 +145,7 @@ gulp.task('sprite-retina-mapped', function () {
       // Use `top-down` for easier testing
       algorithm: 'top-down'
     }))
-    .pipe(gulp.dest('actual-files/retina-mapped/'));
+    .pipe(gulp.dest('actual-files/retina-mapped/', {encoding: false}));
 });
 
 gulp.task('sprite-empty', function () {
@@ -163,5 +163,5 @@ gulp.task('sprite-empty', function () {
       imgName: 'sprite.png',
       cssName: 'sprite.scss'
     }))
-    .pipe(gulp.dest('actual-files/empty/'));
+    .pipe(gulp.dest('actual-files/empty/', {encoding: false}));
 });
