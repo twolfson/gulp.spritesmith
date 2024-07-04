@@ -1,4 +1,6 @@
 # gulp.spritesmith changelog
+6.13.1 - Updated documentation and tests to support Gulp@5
+
 6.13.0 - Upgraded to async@3.2.3 to fix GitHub vulnerability alert
 
 6.12.1 - Updated Travis CI Node.js versions
