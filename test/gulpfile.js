@@ -24,7 +24,7 @@ gulp.task('sprite-default', function () {
       imgName: 'sprite.png',
       cssName: 'sprite.css'
     }))
-    .pipe(gulp.dest('actual-files/default/'));
+    .pipe(gulp.dest('actual-files/default/', {encoding: false}));
 });
 
 gulp.task('sprite-retina', function () {
