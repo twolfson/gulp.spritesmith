@@ -60,6 +60,13 @@ spriteData.img.pipe(buffer()).pipe(imagemin());
 
 [vinyl-buffer]: https://github.com/hughsk/vinyl-buffer
 
+## Note for Gulp 5.0.0 upgrades
+Gulp 5.0.0 introduced default encodings for `src` and `dest` streams of `utf8`.
+
+Since `gulp.spritesmith` inputs and outputs images, we need to set `{encoding: false}` for the image `.src()` and `.dest()` streams.
+
+See "[Getting Started](#getting-started)" for an hands-on example.
+
 ## Getting Started
 Install the module with: `npm install gulp.spritesmith`
 
@@ -68,11 +75,11 @@ var gulp = require('gulp');
 var spritesmith = require('gulp.spritesmith');
 
 gulp.task('sprite', function () {
-  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+  var spriteData = gulp.src('images/*.png', {encoding: false}).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }));
-  return spriteData.pipe(gulp.dest('path/to/output/'));
+  return spriteData.pipe(gulp.dest('path/to/output/', {encoding: false}));
 });
 ```
 
@@ -90,7 +97,7 @@ var spritesmith = require('gulp.spritesmith');
 
 gulp.task('sprite', function () {
   // Generate our spritesheet
-  var spriteData = gulp.src('images/*.png').pipe(spritesmith({
+  var spriteData = gulp.src('images/*.png', {encoding: false}).pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
   }));
@@ -100,7 +107,7 @@ gulp.task('sprite', function () {
     // DEV: We must buffer our stream into a Buffer for `imagemin`
     .pipe(buffer())
     .pipe(imagemin())
-    .pipe(gulp.dest('path/to/image/folder/'));
+    .pipe(gulp.dest('path/to/image/folder/', {encoding: false}));
 
   // Pipe CSS stream through CSS optimizer and onto disk
   var cssStream = spriteData.css
@@ -207,7 +214,7 @@ We receive both normal and retina sprites from the same `gulp.src` so please inc
 - params `Object` - Container for `gulp.spritesmith` parameters
     - retinaSrcFilter `String|String[]` - Filepaths to filter out from incoming stream for our retina spritesheet
         - This can be a glob as with `src` (e.g. `sprite/*@2x.png`)
-        - The path/glob used should line up with `gulp.src` (e.g. `gulp.src('sprite/*.png')`, `retinaSrcFilter: 'sprite/*@2x.png'`)
+        - The path/glob used should line up with `gulp.src` (e.g. `gulp.src('sprite/*.png', {encoding: false})`, `retinaSrcFilter: 'sprite/*@2x.png'`)
         - For example `sprites/*@2x.png` will filter out `sprite1@2x.png` for a separate retina spritesheet
             - Under the hood, we will group `sprite1.png` and `sprite1@2x.png` as a group of normal/retina sprites
     - retinaImgName `String` - Filename to save retina spritesheet as
@@ -707,14 +714,14 @@ var spritesmash = require('gulp-spritesmash');
 var spritesmith = require('gulp.spritesmith');
 
 gulp.task('sprite', function () {
-  return gulp.src('images/*.png')
+  return gulp.src('images/*.png', {encoding: false})
       .pipe(spritesmith({
         imgName: 'sprite.png',
         cssName: 'sprite.css'
       }))
       .pipe(buffer())
       .pipe(spritesmash());
-      .pipe(gulp.dest('path/to/output/'));
+      .pipe(gulp.dest('path/to/output/', {encoding: false}));
 });
 ```
 
