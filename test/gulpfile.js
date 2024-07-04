@@ -19,7 +19,7 @@ var retinaImages = [
   'test-files/sprite3@2x.png'
 ];
 gulp.task('sprite-default', function () {
-  return gulp.src(images)
+  return gulp.src(images, {encoding: false})
     .pipe(spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite.css'
@@ -28,7 +28,7 @@ gulp.task('sprite-default', function () {
 });
 
 gulp.task('sprite-retina', function () {
-  return gulp.src(retinaImages)
+  return gulp.src(retinaImages, {encoding: false})
     .pipe(spritesmith({
       retinaSrcFilter: 'test-files/*@2x.png',
       imgName: 'sprite.png',
@@ -39,7 +39,7 @@ gulp.task('sprite-retina', function () {
 });
 
 gulp.task('sprite-two-streams', function () {
-  var data = gulp.src(images)
+  var data = gulp.src(images, {encoding: false})
     .pipe(spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite.css'
@@ -50,7 +50,7 @@ gulp.task('sprite-two-streams', function () {
 });
 
 gulp.task('sprite-retina-two-streams', function () {
-  var data = gulp.src(retinaImages).pipe(spritesmith({
+  var data = gulp.src(retinaImages, {encoding: false}).pipe(spritesmith({
     retinaSrcFilter: 'test-files/*@2x.png',
     imgName: 'sprite.png',
     retinaImgName: 'sprite@2x.png',
@@ -62,7 +62,7 @@ gulp.task('sprite-retina-two-streams', function () {
 });
 
 gulp.task('sprite-retina-same-name', function () {
-  return gulp.src(retinaImages)
+  return gulp.src(retinaImages, {encoding: false})
     .pipe(spritesmith({
       retinaSrcFilter: 'test-files/*@2x.png',
       imgName: 'sprite.png',
@@ -78,7 +78,7 @@ gulp.task('sprite-retina-same-name', function () {
 });
 
 gulp.task('sprite-formats', function () {
-  return gulp.src(images, {read: false})
+  return gulp.src(images, {read: false, encoding: false})
     .pipe(spritesmith({
       imgName: 'sprite.jpg',
       cssName: 'sprite.css',
@@ -94,7 +94,7 @@ gulp.task('sprite-formats', function () {
 });
 
 gulp.task('sprite-options', function () {
-  return gulp.src(images)
+  return gulp.src(images, {encoding: false})
     .pipe(spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite.css',
@@ -105,7 +105,7 @@ gulp.task('sprite-options', function () {
 });
 
 gulp.task('sprite-template', function () {
-  return gulp.src(images)
+  return gulp.src(images, {encoding: false})
     .pipe(spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite.scss',
@@ -117,7 +117,7 @@ gulp.task('sprite-template', function () {
 });
 
 gulp.task('sprite-spritesheet-name', function () {
-  return gulp.src(images)
+  return gulp.src(images, {encoding: false})
     .pipe(spritesmith({
       imgName: 'sprite.png',
       cssName: 'sprite.scss',
@@ -129,7 +129,7 @@ gulp.task('sprite-spritesheet-name', function () {
 });
 
 gulp.task('sprite-retina-mapped', function () {
-  return gulp.src(retinaImages)
+  return gulp.src(retinaImages, {encoding: false})
     .pipe(spritesmith({
       retinaSrcFilter: 'test-files/*@2x.png',
       imgName: 'sprite.png',
@@ -149,7 +149,7 @@ gulp.task('sprite-retina-mapped', function () {
 });
 
 gulp.task('sprite-empty', function () {
-  return gulp.src(images)
+  return gulp.src(images, {encoding: false})
     .pipe(through2.obj(
       // On data, do nothing and callback
       function onEmptyData(file, encoding, cb) {
